@@ -2,7 +2,6 @@ package com.application.corebank.service;
 
 import com.application.corebank.domain.Account;
 import com.application.corebank.repository.AccountRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
