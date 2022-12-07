@@ -17,6 +17,7 @@ public class AccountAssembler {
         account.setAccNumber(accountDto.getAccountNumber());
         account.setAccCurrencyType(accountDto.getCurrencyType());
         account.setAccType(accountDto.getType());
+        account.setBalance(accountDto.getBalance());
         account.setStatus(accountDto.getStatus());
 
         return account;
@@ -29,6 +30,7 @@ public class AccountAssembler {
         accountDto.setAccountNumber(account.getAccNumber());
         accountDto.setCurrencyType(account.getAccCurrencyType());
         accountDto.setType(account.getAccType());
+        accountDto.setBalance(account.getBalance());
         accountDto.setStatus(account.getStatus());
 
         return accountDto;

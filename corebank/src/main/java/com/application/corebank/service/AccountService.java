@@ -47,10 +47,12 @@ public class AccountService {
         return accountAssembler.fromEntityListToDtoList(accounts);
     }
 
-    public Account createAccount(AccountDto accountDto) {
+    public String createAccount(AccountDto accountDto) {
         Account account = accountAssembler.fromDtoToEntity(accountDto);
+        account.setStatus(ACTIVE.getCode());
+        accountRepository.save(account);
 
-        return accountRepository.save(account);
+        return "Account created successfully!";
     }
 
     public String activateAccount(Integer accNumber) {

@@ -39,14 +39,12 @@ public class AccountController {
     }
 
     @PostMapping("/createAccount")
-    String createAccount(@RequestBody AccountDto accountDto) {
+    String createAccount(@RequestBody AccountDto accountDto) throws AccountException {
         log.info("Creating a new account");
 
-        return "Account created";
+        accountValidation.isValidAccountDto(accountDto);
 
-        // accountValidation.isValidAccount(accountNumber);
-
-        //return accountService.createAccount(accountDto);
+        return accountService.createAccount(accountDto);
     }
 
     @PutMapping("/activateAccount")
