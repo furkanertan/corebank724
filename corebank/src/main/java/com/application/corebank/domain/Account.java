@@ -4,7 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @ToString
@@ -15,8 +18,10 @@ public class Account {
     @Id
     @GeneratedValue
     private Long id;
-    private Integer number;
-    private String currencyType;
-    private String type;
+    private Integer customerNo;
+    private Integer accNumber;
+    private String accCurrencyType;
+    private String accType;
+    private Double balance;
     private String status;
 }
