@@ -29,7 +29,7 @@
 <section>
     <div class="faq">
         <div class="question">
-            <h3>1. What is CoreBank 7/24?</h3>
+            <h4>What is CoreBank 7/24?</h4>
             <svg width="15" height="10" viewBox="0 0 42 25">
                 <path d="M3 3L21 21L39 3" fill="transparent" stroke="white" stroke-width="7" stroke-linecap="round"/>
             </svg>
@@ -41,7 +41,7 @@
     </div>
     <div class="faq">
         <div class="question">
-            <h3>2. Is CoreBank 7/24 safe to use?</h3>
+            <h4>Is CoreBank 7/24 safe to use?</h4>
             <svg width="15" height="10" viewBox="0 0 42 25">
                 <path d="M3 3L21 21L39 3" fill="transparent" stroke="white" stroke-width="7" stroke-linecap="round"/>
             </svg>
@@ -53,7 +53,7 @@
     </div>
     <div class="faq">
         <div class="question">
-            <h3>3. How do I sign up for CoreBank 7/24?</h3>
+            <h4>How do I sign up for CoreBank 7/24?</h4>
             <svg width="15" height="10" viewBox="0 0 42 25">
                 <path d="M3 3L21 21L39 3" fill="transparent" stroke="white" stroke-width="7" stroke-linecap="round"/>
             </svg>
@@ -65,7 +65,7 @@
     </div>
     <div class="faq">
         <div class="question">
-            <h3>4. How do I sign up for CoreBank 7/24?</h3>
+            <h4>How do I sign up for CoreBank 7/24?</h4>
             <svg width="15" height="10" viewBox="0 0 42 25">
                 <path d="M3 3L21 21L39 3" fill="transparent" stroke="white" stroke-width="7" stroke-linecap="round"/>
             </svg>
@@ -77,7 +77,7 @@
     </div>
     <div class="faq">
         <div class="question">
-            <h3>5. How do I sign up for CoreBank 7/24?</h3>
+            <h4>How do I sign up for CoreBank 7/24?</h4>
             <svg width="15" height="10" viewBox="0 0 42 25">
                 <path d="M3 3L21 21L39 3" fill="transparent" stroke="white" stroke-width="7" stroke-linecap="round"/>
             </svg>

@@ -72,8 +72,8 @@ section {
     align-items: center;
 }
 
-.question h3 {
-    font-size: 1.8rem;
+.question h4 {
+    font-size: 1.3rem;
     color: white;
 }
 
@@ -85,8 +85,8 @@ section {
 
 .answer p {
     padding-top: 1rem;
-    line-height: 1.6;
-    font-size: 1.4rem;
+    line-height: 1.2;
+    font-size: 1.1rem;
 }
 
 .faq.active .answer {
