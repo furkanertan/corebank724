@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/corebank-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.contactUs {
+    position:relative;
+    width: 100%;
+    padding: 10px 100px;
+}
+
+.contactUs .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1em;
+}
+
+.box {
+    position: relative;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 5fr 4fr;
+    grid-template-areas: "form info" "form map";
+    grid-gap: 20px;
+    margin-top: 50px;
+}
+
+.contact {
+    padding: 40px;
+    background: #ffffff;
+    box-shadow: 0 5px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form{
+    grid-area: form;
+}
+
+.info{
+    grid-area: info;
+}
+
+.map{
+    grid-area: map;
+}
+
+.contact h3 {
+    color: #1c5f94;
+    font-weight: 500;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.formBox {
+    position: relative;
+    width: 100%;
+}
+
+.formBox .row50 {
+    display: flex;
+    gap: 20px;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.formBox .row100 .inputBox {
+    width: 100%;
+}
+
+.inputBox span {
+    color: #1c5f94;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.inputBox input {
+    padding: 10px;
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #1c5f94;
+}
+
+.inputBox textarea {
+    padding: 10px;
+    border: 1px solid #333;
+    outline: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    height: 250px;
+    margin-bottom: 10px;
+    resize: none;
+}
+
+.inputBox input:focus,
+.inputBox textarea:focus {
+    border: 1px solid #1c5f94;
+}
+
+.inputBox input[type="submit"] {
+    background: #207fd0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1em;
+    max-width: 120px;
+    font-weight: 500;
+    padding: 14px 15px;
+}
+
+.inputBox input[type="submit"]:hover {
+    background: #73b2e7;
+}
+
+.inputBox ::placeholder {
+    color: #999;
+}
+
+.info {
+    background: #1c5f94;
+}
+
+.info h3 {
+    color: #ffffff;
+}
+
+.info .infoBox div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info .infoBox div span {
+    min-width: 40px;
+    height: 40px;
+    color: #ffffff;
+    background: #18b7ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.info .infoBox div p {
+    color: #ffffff;
+}
+
+.info .infoBox div a {
+    color: #ffffff;
+    font-size: 1.1em;
+    text-decoration: none;
+}
+
+.sci {
+    display: flex;
+    margin-top: 40px;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+    font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.sci li {
+    list-style: none;
+    margin-right: 15px;
+}
+
+.sci li a{
+    color: #ffffff;
+    font-size: 2em;
+}
+
+.sci li a:hover {
+    color: #18b7ff;
+}
+
+.map {
+    background: #ffffff;
+    padding: 0;
+}
+
+.map iframe {
+    width: 100%;
+    height: 100%;
+}

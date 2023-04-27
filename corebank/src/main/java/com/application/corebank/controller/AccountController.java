@@ -30,12 +30,12 @@ public class AccountController {
     }
 
     @GetMapping("/getAllActiveAccountsByCustomerNo")
-    List<AccountDto> getAllActiveAccountsByCustomerNo(@RequestParam String customerNo) throws AccountException {
-        log.info("Getting all active accounts by customer no: {}", customerNo);
+    List<AccountDto> getAllActiveAccountsByCustomerNo(@RequestParam Long userId) throws AccountException {
+        log.info("Getting all active accounts by logged user: {}", userId);
 
-        accountValidation.isValidCustomerNo(customerNo);
+        //accountValidation.isValidCustomerNo(userId);
 
-        return accountService.getAllActiveAccountsByCustomerNo(Integer.valueOf(customerNo));
+        return accountService.getAllActiveAccountsByCustomerNo(userId);
     }
 
     @PostMapping("/createAccount")

@@ -25,7 +25,7 @@ public class AccountValidation {
     }
 
     public void isValidAccountDto(AccountDto accountDto) throws AccountException {
-        isValidCustomerNo(String.valueOf(accountDto.getCustomerNo()));
+        isValidCustomerNo(String.valueOf(accountDto.getUserId()));
         isValidAccount(String.valueOf(accountDto.getAccountNumber()));
     }
 }

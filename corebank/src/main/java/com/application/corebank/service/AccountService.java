@@ -37,11 +37,11 @@ public class AccountService {
         return accountAssembler.fromEntityListToDtoList(accounts);
     }
 
-    public List<AccountDto> getAllActiveAccountsByCustomerNo(Integer customerNo) throws AccountException {
-        List<Account> accounts = accountRepository.findAllByCustomerNoAndStatus(customerNo, ACTIVE.getCode());
+    public List<AccountDto> getAllActiveAccountsByCustomerNo(Long userId) throws AccountException {
+        List<Account> accounts = accountRepository.findAllByUserIdAndStatus(userId, ACTIVE.getCode());
 
         if(isEmpty(accounts)){
-            throw new AccountException("No active accounts found for customer no: " + customerNo);
+            throw new AccountException("No active accounts found for customer no: " + userId);
         }
 
         return accountAssembler.fromEntityListToDtoList(accounts);

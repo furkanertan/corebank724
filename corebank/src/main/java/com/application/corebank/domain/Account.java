@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @ToString
@@ -15,13 +16,17 @@ import javax.persistence.Table;
 @Setter
 @Table(name = "account")
 public class Account {
+
     @Id
     @GeneratedValue
     private Long id;
-    private Integer customerNo;
+    private Long userId;
     private Integer accNumber;
     private String accCurrencyType;
+    private String accName;
     private String accType;
     private Double balance;
     private String status;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }
