@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/corebank-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px auto 100px;
+    color: white;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+    font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+section {
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 3rem;
+    margin: 2rem 0rem
+}
+
+.faq {
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ffffff;
+    cursor: pointer;
+}
+
+.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question h4 {
+    font-size: 1.3rem;
+    color: white;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    color: white;
+}
+
+.answer p {
+    padding-top: 1rem;
+    line-height: 1.2;
+    font-size: 1.1rem;
+}
+
+.faq.active .answer {
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+
+.faq.active svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform 0.5s ease-in;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

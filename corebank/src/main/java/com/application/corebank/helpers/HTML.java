@@ -17,7 +17,7 @@ public class HTML {
                 "    <style>\n" +
                 "        * {\n" +
                 "            box-sizing: border-box;\n" +
-                "            font-family: Comfortaa, cursive;\n" +
+                "            font-family: Arial;\n" +
                 "        }\n" +
                 "\n" +
                 "        /* Main body styling */\n" +
@@ -120,7 +120,7 @@ public class HTML {
                 "    <style>\n" +
                 "        * {\n" +
                 "            box-sizing: border-box;\n" +
-                "            font-family: Comfortaa, cursive;\n" +
+                "            font-family: Arial;\n" +
                 "        }\n" +
                 "\n" +
                 "        /* Main body styling */\n" +
@@ -200,5 +200,89 @@ public class HTML {
                 "</html>\n";
 
         return emailTemplate;
+    }
+
+    public static String contactUsEmail(String firstName, String lastName, String phoneNumber, String email, String message) {
+
+        String emailTemplate = "<!DOCTYPE html>\n" +
+                "<html lang=\"en\">\n" +
+                "<head>\n" +
+                "    <meta charset=\"UTF-8\"/>\n" +
+                "    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\"/>\n" +
+                "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"/>\n" +
+                "    <link rel=\"stylesheet\" href=\"css/bootstrap/css/bootstrap.css\"/>\n" +
+                "    <link rel=\"stylesheet\" href=\"css/fontawesome/css/all.css\"/>\n" +
+                "    <title>Document</title>\n" +
+                "    <style>\n" +
+                "        * {\n" +
+                "            box-sizing: border-box;\n" +
+                "            font-family: Arial; \n" +
+                "        }\n" +
+                "\n" +
+                "        /* Main body styling */\n" +
+                "        body {\n" +
+                "            height: 100vh;\n" +
+                "            background-color: rgb(224, 221, 221);\n" +
+                "            display: flex;\n" +
+                "            align-items: center;\n" +
+                "            justify-content: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        .wrapper {\n" +
+                "            width: 550px;\n" +
+                "            height: auto;\n" +
+                "            padding: 15px;\n" +
+                "            background-color: white;\n" +
+                "            align-items: center;\n" +
+                "            justify-content: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        .email-msg-header {\n" +
+                "            text-align: center;\n" +
+                "            font-size: 20px;\n" +
+                "        }\n" +
+                "\n" +
+                "        .welcome-text {\n" +
+                "            text-align: center;\n" +
+                "        }\n" +
+                "\n" +
+                "        .copy-right {\n" +
+                "            text-align: center;\n" +
+                "            padding: 15px;\n" +
+                "            font-size: 14px;\n" +
+                "            margin: 0px 0px;\n" +
+                "            display: flex;\n" +
+                "            align-items: center;\n" +
+                "            justify-content: center;\n" +
+                "        }\n" +
+                "    </style>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<!-- Wrapper -->\n" +
+                "<div class=\"wrapper\">\n" +
+                "    <!-- Email header-->\n" +
+                "    <div class=\"email-msg-header\">\n" +
+                "        Contact Us\n" +
+                "    </div>\n" +
+                "    <!-- End of Email header-->\n" +
+                "    <!-- Email body-->\n" +
+                "    <hr/>\n" +
+                "    <div class=\"welcome-text\">\n" +
+                "        <p>Name & Surname: <span class=\"user-name\">" + firstName + " " + lastName + "</span>,</p>\n" +
+                "        <p>Email: <span class=\"email\">" + email + "</span>,</p>\n" +
+                "        <p>Phone Number: <span class=\"phoneNumber\">" + phoneNumber + "</span>,</p>\n" +
+                "        <p>Message: <span class=\"message\">" + message + "</span>,</p>\n" +
+                "        <div class=\"copy-right\">\n" +
+                "            <p>© 2023 Core Bank 7/24. All rights reserved.</p>\n" +
+                "        </div>\n" +
+                "    </div>\n" +
+                "    <!-- End of Email body-->\n" +
+                "</div>\n" +
+                "<!-- End of Wrapper-->\n" +
+                "</body>\n" +
+                "</html>\n";
+
+        return emailTemplate;
+
     }
 }

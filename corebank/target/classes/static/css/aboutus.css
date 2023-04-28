@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/corebank-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px auto 100px;
+    color: white;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+    font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.wrapper {
+    position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.about-container {
+    width: 70%;
+    min-height: 70vh;
+    position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 24px 24px 30px #6d8dad;
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-container p {
+    font-size: 13px;
+    padding: 10px 0px;
+}
+
+.text-container h1 {
+    font-size: 25px;
+    padding: 10px 0px;
+    color: #1c5f94;
+}
+
+.text-container a {
+    text-decoration: none;
+    padding: 12px;
+    border: 2px solid rebeccapurple;
+    margin-top: 30px;
+    background: #a52834;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: .3s all ease-in-out;
+}
+
+.text-container a:hover {
+    background: transparent;
+    color: black;
+    border: 2px solid rebeccapurple;
+}
+
+.img-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-container img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+}

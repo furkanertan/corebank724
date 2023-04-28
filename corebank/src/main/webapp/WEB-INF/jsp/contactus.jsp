@@ -15,7 +15,7 @@
 <body>
 
 <header style="display: flex; justify-content: flex-end; align-items: center; height: 70px; padding: 0 5px;">
-    <nav class = "navigation">
+    <nav class="navigation">
         <ul style="display: flex; gap: 15px; list-style: none; margin: 0; padding: 0;">
             <li><a href="/" style="text-decoration: none; color: #ffffff;">HOME</a></li>
             <li><a href="/aboutus" style="text-decoration: none; color: #ffffff;">ABOUT</a></li>
@@ -26,43 +26,66 @@
     </nav>
 </header>
 
+<!-- Display success message-->
+<c:if test="${requestScope.success != null}">
+    <div class="alert alert-success text-center border border-success">
+        <p class="text-center">
+            <i class="fas fa-check-circle"></i>
+            <b>${requestScope.success}</b>
+        </p>
+    </div>
+</c:if>
+<!-- End of display success message -->
+
+<!-- Display error message-->
+<c:if test="${requestScope.error != null}">
+    <div class="alert alert-danger text-center border border-danger">
+        <p class="text-center">
+            <i class="fas fa-exclamation-triangle"></i>
+            <b>${requestScope.error}</b>
+        </p>
+    </div>
+</c:if>
+<!-- End of display error message -->
+
 <div class="contactUs">
     <div class="row">
         <h2 style="color: white;align-content: center;justify-content: center;display: flex">Contact Us</h2>
     </div>
     <div class="row">
         <div class="box">
+
             <!-- Contact form -->
             <div class="contact form">
                 <h3>Send us a message</h3>
-                <form>
+                <form action="/contactus" method="POST">
                     <div class="formBox">
                         <div class="row50">
                             <div class="inputBox">
                                 <span>First Name</span>
-                                <input type="text" placeholder="John" required>
+                                <input type="text" name="name" placeholder="John" required>
                             </div>
                             <div class="inputBox">
                                 <span>Last Name</span>
-                                <input type="text" placeholder="Doe" required>
+                                <input type="text" name="surname" placeholder="Doe" required>
                             </div>
                         </div>
 
                         <div class="row50">
                             <div class="inputBox">
                                 <span>Email</span>
-                                <input type="text" placeholder="johndoe@email.com" required>
+                                <input type="text" name="email" placeholder="johndoe@email.com" required>
                             </div>
                             <div class="inputBox">
                                 <span>Phone Number</span>
-                                <input type="text" placeholder="+48 123 456 789" required>
+                                <input type="text" name="phoneNumber" placeholder="+48 123 456 789" required>
                             </div>
                         </div>
 
                         <div class="row100">
                             <div class="inputBox">
                                 <span>Message</span>
-                                <textarea placeholder="Please write your message" required></textarea>
+                                <textarea name="message" placeholder="Please write your message" required></textarea>
                             </div>
                         </div>
 

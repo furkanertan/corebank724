@@ -1,13 +1,23 @@
 package com.application.corebank.controller.application;
 
+import com.application.corebank.helpers.HTML;
+import com.application.corebank.mailMessenger.EmailSenderService;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.mail.MessagingException;
 
 @Slf4j
 @Controller
+@AllArgsConstructor
 public class IndexController {
+
+    private EmailSenderService emailSenderService;
 
     @GetMapping("/")
     public ModelAndView getIndex() {
@@ -81,15 +91,6 @@ public class IndexController {
         return modelAndView;
     }
 
-    @GetMapping("/faq")
-    public ModelAndView getFAQ() {
-        ModelAndView modelAndView = new ModelAndView("faq");
-        modelAndView.addObject("PageTitle", "FAQ");
-        log.info("IndexController.getFAQ()");
-
-        return modelAndView;
-    }
-
     @GetMapping("/forgotPassword")
     public ModelAndView getForgotPassword() {
         ModelAndView forgotPasswordPage = new ModelAndView("forgotPassword");
@@ -97,5 +98,34 @@ public class IndexController {
         log.info("IndexController.getForgotPassword()");
 
         return forgotPasswordPage;
+    }
+
+    @GetMapping("/faq")
+    public ModelAndView postFAQ() {
+        ModelAndView modelAndView = new ModelAndView("faq");
+        modelAndView.addObject("PageTitle", "FAQ");
+        log.info("IndexController.postFAQ()");
+
+        return modelAndView;
+    }
+
+    @PostMapping("/contactus")
+    public ModelAndView contactUsSendMail(@RequestParam("name") String name,
+                                          @RequestParam("surname") String surname,
+                                          @RequestParam("email") String email,
+                                          @RequestParam("phoneNumber") String phoneNumber,
+                                          @RequestParam("message") String message) throws MessagingException {
+        ModelAndView modelAndView = new ModelAndView("contactus");
+        modelAndView.addObject("PageTitle", "Contact Us");
+
+        String emailBody = HTML.contactUsEmail(name, surname, phoneNumber, email, message);
+        log.info("IndexController.contactUsSendMail()");
+
+        //Send email
+        emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Contact Us", emailBody);
+
+        // Redirect to login page
+        modelAndView.addObject("success", "Your message has been sent successfully. We will contact you as soon as possible.");
+        return modelAndView;
     }
 }

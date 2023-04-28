@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("../images/corebank-background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+h2 {
+    text-align: center;
+    margin: 10px auto 170px;
+    color: white;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+    font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.main {
+    width: 300px;
+    min-height: 380px;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.service {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 0 20px -15px black;
+    z-index: 1;
+    transition: transform .7s;
+}
+
+.service-icon {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 10px solid dodgerblue;
+    margin: -90px auto 0;
+    background: white;
+}
+
+img {
+    width: 50px;    margin-top: 30px;
+}
+
+.service h4 {
+    height: 50px;
+    width: 150px;
+    background: white;
+    margin: 50px auto;
+    position: relative;
+    color: #1c5f94;
+}
+
+.main:hover .service{
+    transform: translateY(-50px);
+}
+
+.main:hover .shadow1{
+    transform: translateY(-25px);
+}
