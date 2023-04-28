@@ -122,7 +122,7 @@ public class IndexController {
         log.info("IndexController.contactUsSendMail()");
 
         //Send email
-        emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Contact Us", emailBody);
+        emailSenderService.htmlEmailMessenger(email, "corebank724@gmail.com", "CoreBank 7/24 Contact Us", emailBody);
 
         // Redirect to login page
         modelAndView.addObject("success", "Your message has been sent successfully. We will contact you as soon as possible.");
