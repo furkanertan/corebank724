@@ -1,0 +1,124 @@
+* {
+  box-sizing: border-box;
+  font-family: Comfortaa, cursive;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+}
+
+.container {
+  margin: 10px auto;
+}
+
+.dashboard-page-header {
+  padding: 15px 0px;
+}
+
+.dashboard-page-header .company-name {
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.dashboard-page-header .company-name:hover {
+  color: rgb(62, 62, 62);
+}
+
+.navigation {
+  margin-left: 50px;
+}
+
+.navigation li {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0px 15px;
+  font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+  color: white;
+  text-decoration: none;
+}
+
+.display-name {
+  font-weight: 600px;
+  color: rgb(255, 255, 255);
+}
+
+#transact-btn {
+  background-color: green;
+  border: 1px solid green;
+  color: white;
+}
+
+#add-account-btn {
+  background-color: rgb(0, 115, 255);
+  border: 1px solid rgb(0, 115, 255);
+  color: white;
+}
+
+.offcanvas {
+  background-image: url("../images/corebank-background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.accordion {
+  background-color: rgb(186, 193, 200);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.payment-btn {
+  background-color: rgb(255, 119, 0);
+  border: 1px solid rgb(255, 119, 0);
+  color: white;
+}
+
+.transfer-btn {
+  background-color: rgb(255, 119, 0);
+  border: 1px solid rgb(255, 119, 0);
+  color: white;
+}
+
+.deposit-btn {
+  background-color: rgb(255, 119, 0);
+  border: 1px solid rgb(255, 119, 0);
+  color: white;
+}
+
+.withdraw-btn {
+  background-color: rgb(255, 119, 0);
+  border: 1px solid rgb(255, 119, 0);
+  color: white;
+}
+
+.payment-card {
+  display: none;
+}
+
+.transfer-card {
+  display: none;
+}
+
+.deposit-card {
+  display: none;
+}
+
+.withdraw-card {
+  display: none;
+}
+
+.add-account-btn {
+  background-color: rgb(0, 115, 255);
+  border: 1px solid rgb(0, 115, 255);
+  color: white;
+}

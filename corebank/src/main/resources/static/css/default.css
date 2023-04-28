@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url("../images/corebank-background.png");
+    background-size: cover;
+    background-position: "center";
+    background-repeat: no-repeat;
+}
+
+#welcome-page-card {
+    margin: 0px 100px;
+    font-family: Comfortaa, cursive;
+    color: white;
+}
+
+#welcome-page-card h1 {
+    font-family: Comfortaa, cursive;
+}
+
+#welcome-page-card p {
+    font-size: 15px;
+}
+
+.navigation {
+    display: flex;
+    gap: 20px;
+}
+
+.navigation ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation li {
+    display: inline-block;
+    list-style-type: none;
+    margin: 0px 15px;
+    font-style: Comfortaa, cursive;
+}
+
+.navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.button-wrapper a {
+    padding: 15px;
+    width: 200px;
+    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+}
+
+.login-form {
+    border: 1px solid #000; /* 1px solid black border */
+    padding: 20px; /* Optional: Add padding for better visual appearance */
+}
+
+.register-form {
+    border: 1px solid #000; /* 1px solid black border */
+    padding: 20px; /* Optional: Add padding for better visual appearance */
+}
+
+.forgot-password-form {
+    border: 1px solid #000; /* 1px solid black border */
+    padding: 20px; /* Optional: Add padding for better visual appearance */
+}
+
+.register {
+    margin-right: 7px;
+    background-color: #d9322d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-size: 15px;
+    font-weight: 200;
+    width: 200px;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.login {
+    background-color: #d9322d;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    color: #f5f5f5;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.register:hover {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+.login:hover {
+    background-color: #f5f5f5;
+    color: #000000;
+}
+
+.card {
+    font-style: Comfortaa, cursive;
+}
+
+.card .form-control {
+    margin: 10px 0px 0px;
+    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+    background-color: #f5f5f5;
+    border: 1px solid #000000;
+}
+
+.card .card-title {
+    color: white;
+}
+
+.regbtn {
+    background-color: #d9322d;
+    border: 1px solid #000000;
+    color: #ffffff;
+    width: 150px;
+    margin: 10px 0px 0px;
+    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+}
+
+.regbtn:hover {
+    background-color: #d96f2d;
+    color: #ffffff;
+}
+
+.logbtn {
+    background-color: #d9322d;
+    border: 1px solid #000000;
+    color: #ffffff;
+    width: 150px;
+    margin: 10px 0px 0px;
+    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+}
+
+.logbtn:hover {
+    background-color: #d96f2d;
+    color: #ffffff;
+}
+
+.submitbtn {
+    background-color: #1a9539;
+    border: 1px solid #000000;
+    color: #ffffff;
+    width: 150px;
+    margin: 10px 0px 0px;
+}
+
+.submitbtn:hover {
+    background-color: #1bd947;
+    color: #ffffff;
+}
