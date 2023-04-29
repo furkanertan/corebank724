@@ -4,10 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="all files commit">
+    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="Sending mail in contactus page">
+      <change afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/js/loancalculator.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/loancalculator.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/contactUs2.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/IndexController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/images/bank-account.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/images/currency-exchange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/images/service.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +181,8 @@
       <workItem from="1682093141940" duration="1520000" />
       <workItem from="1682094778386" duration="46700000" />
       <workItem from="1682352714384" duration="18998000" />
-      <workItem from="1682707131615" duration="2744000" />
+      <workItem from="1682707131615" duration="3965000" />
+      <workItem from="1682751050296" duration="6568000" />
     </task>
     <task id="LOCAL-00001" summary="Currency is added">
       <created>1668629345575</created>
@@ -228,7 +240,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682709399171</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Sending mail in contactus page">
+      <created>1682710536762</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682710536762</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +272,8 @@
     <MESSAGE value="Starting to add AppConfig" />
     <MESSAGE value="First commit to CoreBank724" />
     <MESSAGE value="all files commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="all files commit" />
+    <MESSAGE value="Sending mail in contactus page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sending mail in contactus page" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

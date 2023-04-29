@@ -15,13 +15,13 @@
 <body>
 <header class="dashboard-page-header mb-3 bg-primary">
     <div class="container d-flex align-items-center">
-        <div class="company-name">CoreBank 7/24</div>
+        <div class="company-name"><a href="/dashboard">CoreBank 7/24</a></div>
         <nav class="navigation">
-            <li><a href="dashboard.html">Dashboard</a></li>
             <li><a href="">Accounts</a></li>
             <li><a href="">Money Transfers</a></li>
-            <li><a href="currencyexchange.html">Currency Exchange</a></li>
+            <li><a href="/currencyexchange">Currency Exchange</a></li>
             <li><a href="">Transactions</a></li>
+            <li><a href="/loancalculator">Loan Calculator</a></li>
         </nav>
 
         <div class="display-name ms-auto">

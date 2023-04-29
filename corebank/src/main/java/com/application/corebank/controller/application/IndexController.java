@@ -55,6 +55,15 @@ public class IndexController {
         return modelAndView;
     }
 
+    @GetMapping("/loancalculator")
+    public ModelAndView getLoanCalculator() {
+        ModelAndView modelAndView = new ModelAndView("loancalculator");
+        modelAndView.addObject("PageTitle", "Loan Calculator");
+        log.info("IndexController.getLoanCalculator()");
+
+        return modelAndView;
+    }
+
     @GetMapping("/error")
     public ModelAndView getError() {
         ModelAndView modelAndView = new ModelAndView("error");
