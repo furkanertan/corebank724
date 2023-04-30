@@ -13,7 +13,10 @@
 
         <div class="display-name ms-auto">
             <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>John Doe</span>
+            <span>
+                <c:out value="${sessionScope.user.firstName}" />
+                <c:out value="${sessionScope.user.lastName}" />
+            </span>
         </div>
 
         <a href="" class="btn btn-sm btn-outline-light ms-3">
