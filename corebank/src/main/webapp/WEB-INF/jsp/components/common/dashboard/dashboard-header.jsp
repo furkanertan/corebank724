@@ -5,10 +5,10 @@
         <div class="company-name"><a href="/app/dashboard">CoreBank 7/24</a></div>
         <nav class="navigation">
             <li><a href="/app/accounts">Accounts</a></li>
-            <li><a href="/moneytransfer">Money Transfers</a></li>
-            <li><a href="/currencyexchange">Currency Exchange</a></li>
+            <li><a href="/app/moneytransfer">Money Transfers</a></li>
+            <li><a href="/app/currencyexchange">Currency Exchange</a></li>
             <li><a href="">Transactions</a></li>
-            <li><a href="/loancalculator">Loan Calculator</a></li>
+            <li><a href="/app/loancalculator">Loan Calculator</a></li>
         </nav>
 
         <div class="display-name ms-auto">
@@ -19,7 +19,7 @@
             </span>
         </div>
 
-        <a href="" class="btn btn-sm btn-outline-light ms-3">
+        <a href="/logout" class="btn btn-sm btn-outline-light ms-3">
             <i class="fa fa-sign-out-alt"></i> Logout
         </a>
     </div>

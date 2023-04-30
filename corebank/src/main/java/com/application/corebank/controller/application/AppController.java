@@ -29,6 +29,11 @@ public class AppController {
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
 
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
         //Get User Account Numbers
         Integer numberOfUserAccounts = accountService.getNumberOfUserAccounts(user.getId());
 
@@ -46,11 +51,64 @@ public class AppController {
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
 
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
         //Get user accounts by user id
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         log.info("AppController.getDashboard() - userAccounts: {}", userAccounts);
 
         accountsPage.addObject("userAccounts", userAccounts);
         return accountsPage;
+    }
+
+    @GetMapping("/currencyexchange")
+    public ModelAndView getCurrencyExchangePage(HttpSession session) {
+        ModelAndView currencyExchangePage = new ModelAndView("currencyexchange");
+        currencyExchangePage.addObject("PageTitle", "Currency Exchange");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        return currencyExchangePage;
+    }
+
+    @GetMapping("/moneytransfer")
+    public ModelAndView getMoneyTransferPage(HttpSession session) {
+        ModelAndView moneyTransferPage = new ModelAndView("moneytransfer");
+        moneyTransferPage.addObject("PageTitle", "Money Transfer");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        return moneyTransferPage;
+    }
+
+    @GetMapping("/loancalculator")
+    public ModelAndView getLoanCalculatorPage(HttpSession session) {
+        ModelAndView loanCalculatorPage = new ModelAndView("loancalculator");
+        loanCalculatorPage.addObject("PageTitle", "Loan Calculator");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        return loanCalculatorPage;
     }
 }

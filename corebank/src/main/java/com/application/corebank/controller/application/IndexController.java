@@ -37,31 +37,13 @@ public class IndexController {
         return modelAndView;
     }
 
-    @GetMapping("/currencyexchange")
-    public ModelAndView getCurrencyExchange() {
-        ModelAndView modelAndView = new ModelAndView("currencyexchange");
-        modelAndView.addObject("PageTitle", "Currency Exchange");
-        log.info("IndexController.getCurrencyExchange()");
+    @GetMapping("/forgotPassword")
+    public ModelAndView getForgotPassword() {
+        ModelAndView forgotPasswordPage = new ModelAndView("forgotPassword");
+        forgotPasswordPage.addObject("PageTitle", "Forgot Password");
+        log.info("IndexController.getForgotPassword()");
 
-        return modelAndView;
-    }
-
-    @GetMapping("/moneytransfer")
-    public ModelAndView getMoneyTransfer() {
-        ModelAndView modelAndView = new ModelAndView("moneytransfer");
-        modelAndView.addObject("PageTitle", "Money Transfer");
-        log.info("IndexController.getMoneyTransfer()");
-
-        return modelAndView;
-    }
-
-    @GetMapping("/loancalculator")
-    public ModelAndView getLoanCalculator() {
-        ModelAndView modelAndView = new ModelAndView("loancalculator");
-        modelAndView.addObject("PageTitle", "Loan Calculator");
-        log.info("IndexController.getLoanCalculator()");
-
-        return modelAndView;
+        return forgotPasswordPage;
     }
 
     @GetMapping("/error")
@@ -98,15 +80,6 @@ public class IndexController {
         log.info("IndexController.getAboutUs()");
 
         return modelAndView;
-    }
-
-    @GetMapping("/forgotPassword")
-    public ModelAndView getForgotPassword() {
-        ModelAndView forgotPasswordPage = new ModelAndView("forgotPassword");
-        forgotPasswordPage.addObject("PageTitle", "Forgot Password");
-        log.info("IndexController.getForgotPassword()");
-
-        return forgotPasswordPage;
     }
 
     @GetMapping("/faq")

@@ -21,7 +21,6 @@ import javax.servlet.http.HttpSession;
 @AllArgsConstructor
 public class AuthController {
 
-    private final String LOGIN_PAGE = "login";
     private UserService userService;
 
     @GetMapping("/login")
@@ -44,6 +43,7 @@ public class AuthController {
                             Model model,
                             HttpSession session) {
         //TODO: Validate input fields
+        String LOGIN_PAGE = "login";
         if (email.isEmpty() || password.isEmpty()) {
             log.info("token: " + token);
             model.addAttribute("error", "E-mail and password are required!");
@@ -57,7 +57,7 @@ public class AuthController {
         if (user == null) {
             model.addAttribute("error", "Incorrect E-mail or Password!");
             return LOGIN_PAGE;
-        }else {
+        } else {
             if (!BCrypt.checkpw(password, user.getPassword())) {
                 model.addAttribute("error", "Incorrect E-mail or Password!");
                 return LOGIN_PAGE;
@@ -76,7 +76,7 @@ public class AuthController {
     }
 
     @GetMapping("/logout")
-    public String logout(HttpSession session, RedirectAttributes redirectAttributes){
+    public String logout(HttpSession session, RedirectAttributes redirectAttributes) {
         session.invalidate();
         redirectAttributes.addFlashAttribute("logged_out", "Logged out successfully");
         return "redirect:/login";

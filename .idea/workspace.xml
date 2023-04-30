@@ -4,8 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="Accounts page added">
+    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="Update login user name">
+      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/util/AccountNumberGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/validation/AccountValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/validation/AccountValidation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/accounts.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/accounts.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard/dashboard-header.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard/dashboard-header.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/loancalculator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/loancalculator.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/moneytransfer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/moneytransfer.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/IndexController.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +31,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -42,34 +57,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/furka/OneDrive/Desktop/University Of Lodz/Winter 22-23/Thesis/corebankbackend/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.40344828",
-    "settings.editor.selected.configurable": "reference.settings.ide.settings.notifications",
-    "spring.configuration.checksum": "0ae14a4c54657c218699962547ac0a64"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/furka/OneDrive/Desktop/University Of Lodz/Winter 22-23/Thesis/corebankbackend/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.40344828&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;0ae14a4c54657c218699962547ac0a64&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "GitIgnore"
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;GitIgnore&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\webapp\WEB-INF\jsp\components\common\dashboard" />

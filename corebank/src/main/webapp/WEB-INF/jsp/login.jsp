@@ -42,6 +42,17 @@
         </c:if>
         <!-- End of display error message -->
 
+        <!-- Display logged out message-->
+        <c:if test="${logged_out != null}">
+            <div class="alert alert-info text-center border border-info">
+                <p class="text-center">
+                    <i class="fas fa-check-circle"></i>
+                    <b>${logged_out}</b>
+                </p>
+            </div>
+        </c:if>
+        <!-- End of display success message -->
+
         <form action="/login" method="POST">
             <div class="form-group col">
                 <input

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/fontawesome/css/all.css"/>
     <link rel="stylesheet" href="../css/dashboard.css"/>
     <script src="../js/bootstrap.bundle.js"></script>
-    <title>Dashboard</title>
+    <title>Accounts</title>
 </head>
 <body>
 <!-- Navigation bar import -->

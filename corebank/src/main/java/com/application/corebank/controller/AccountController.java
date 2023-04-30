@@ -4,6 +4,7 @@ import com.application.corebank.dto.AccountDto;
 import com.application.corebank.exception.AccountException;
 import com.application.corebank.service.AccountService;
 import com.application.corebank.validation.AccountValidation;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,15 +13,11 @@ import java.util.List;
 @RestController
 @Slf4j
 @RequestMapping("/account")
+@AllArgsConstructor
 public class AccountController {
 
     private final AccountService accountService;
     private final AccountValidation accountValidation;
-
-    public AccountController(AccountService accountService, AccountValidation accountValidation) {
-        this.accountService = accountService;
-        this.accountValidation = accountValidation;
-    }
 
     @GetMapping("/getAllAccounts")
     List<AccountDto> getAllAccounts() throws AccountException {
