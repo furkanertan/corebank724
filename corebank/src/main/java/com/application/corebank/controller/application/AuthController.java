@@ -72,7 +72,7 @@ public class AuthController {
         session.setAttribute("token", token);
         session.setAttribute("authenticated", true);
 
-        return "redirect:/dashboard";
+        return "redirect:/app/dashboard";
     }
 
     @GetMapping("/logout")

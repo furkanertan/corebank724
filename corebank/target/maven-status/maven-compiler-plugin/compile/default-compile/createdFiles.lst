@@ -2,6 +2,7 @@ com\application\corebank\validation\AccountValidation.class
 com\application\corebank\mailMessenger\EmailSenderService.class
 com\application\corebank\controller\CurrencyController.class
 com\application\corebank\dto\AccountDto.class
+com\application\corebank\domain\AccountBalance.class
 com\application\corebank\util\CodeGenerator.class
 com\application\corebank\CoreBankApplication.class
 com\application\corebank\repository\AccountRepository.class

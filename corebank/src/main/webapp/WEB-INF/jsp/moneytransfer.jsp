@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,27 +15,9 @@
     <title>Money Transfer</title>
 </head>
 <body>
-<header class="dashboard-page-header mb-3 bg-primary">
-    <div class="container d-flex align-items-center">
-        <div class="company-name">CoreBank 7/24</div>
-        <nav class="navigation">
-            <li><a href="dashboard.html">Dashboard</a></li>
-            <li><a href="">Accounts</a></li>
-            <li><a href="moneytransfer.html">Money Transfers</a></li>
-            <li><a href="currencyexchange.html">Currency Exchange</a></li>
-            <li><a href="">Transactions</a></li>
-        </nav>
-
-        <div class="display-name ms-auto">
-            <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>John Doe</span>
-        </div>
-
-        <a href="" class="btn btn-sm btn-outline-light ms-3">
-            <i class="fa fa-sign-out-alt"></i> Logout
-        </a>
-    </div>
-</header>
+<!-- Navigation bar import -->
+<c:import url="components/common/dashboard/dashboard-header.jsp"/>
+<!-- End of Navigation bar import -->
 
 <div class="container">
     <div class="row justify-content-center">

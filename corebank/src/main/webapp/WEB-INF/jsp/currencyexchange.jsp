@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,30 +14,68 @@
     <title>Currency Exchange</title>
 </head>
 <body>
-<header class="dashboard-page-header mb-3 bg-primary">
-    <div class="container d-flex align-items-center">
-        <div class="company-name"><a href="/dashboard">CoreBank 7/24</a></div>
-        <nav class="navigation">
-            <li><a href="">Accounts</a></li>
-            <li><a href="">Money Transfers</a></li>
-            <li><a href="/currencyexchange">Currency Exchange</a></li>
-            <li><a href="">Transactions</a></li>
-            <li><a href="/loancalculator">Loan Calculator</a></li>
-        </nav>
+<!-- Navigation bar import -->
+<c:import url="components/common/dashboard/dashboard-header.jsp"/>
+<!-- End of Navigation bar import -->
 
-        <div class="display-name ms-auto">
-            <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>John Doe</span>
+<div class="currency-cards">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">EUR/PLN</h5>
+                    <p class="card-text">1 EUR = 1.17 PLN</p>
+                </div>
+                <div class="card-footer">
+                    <img
+                            src="https://www.countryflags.io/eu/flat/32.png"
+                            alt="European Union Flag"
+                    />
+                    <img
+                            src="https://www.countryflags.io/us/flat/32.png"
+                            alt="United States Flag"
+                    />
+                </div>
+            </div>
         </div>
-
-        <a href="" class="btn btn-sm btn-outline-light ms-3">
-            <i class="fa fa-sign-out-alt"></i> Logout
-        </a>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">USD/PLN</h5>
+                    <p class="card-text">1 USD = 0.85 PLN</p>
+                </div>
+                <div class="card-footer">
+                    <img
+                            src="https://www.countryflags.io/eu/flat/32.png"
+                            alt="European Union Flag"
+                    />
+                    <img
+                            src="https://www.countryflags.io/gb/flat/32.png"
+                            alt="United Kingdom Flag"
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5 class="card-title">TL/PLN</h5>
+                    <p class="card-text">1 TL = 111.18 PLN</p>
+                </div>
+                <div class="card-footer">
+                    <img
+                            src="https://www.countryflags.io/us/flat/32.png"
+                            alt="United States Flag"
+                    />
+                    <img
+                            src="https://www.countryflags.io/jp/flat/32.png"
+                            alt="Japan Flag"
+                    />
+                </div>
+            </div>
+        </div>
     </div>
-</header>
 
-<div class="container">
-    <h1>Currency Exchange Rates</h1>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
             <div class="card h-100">
@@ -95,7 +134,7 @@
     </div>
 </div>
 
-<div class="container">
+<div class="currency-exchange-form">
     <!-- Currency Exchange Form -->
     <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -112,8 +151,9 @@
                 <div class="form-group">
                     <label for="to_currency">To Currency</label>
                     <select class="form-control" id="to_currency">
-                        <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
+                        <option value="USD">USD</option>
+                        <option value="TRY">USD</option>
                         <option value="GBP">GBP</option>
                         <option value="JPY">JPY</option>
                     </select>

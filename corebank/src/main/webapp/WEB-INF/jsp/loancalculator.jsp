@@ -13,27 +13,9 @@
     <title>Loan Calculator</title>
 </head>
 <body>
-<header class="dashboard-page-header mb-3 bg-primary">
-    <div class="container d-flex align-items-center">
-        <div class="company-name"><a class="company-logo-name" href="/dashboard">CoreBank 7/24</a></div>
-        <nav class="navigation">
-            <li><a href="">Accounts</a></li>
-            <li><a href="">Money Transfers</a></li>
-            <li><a href="/currencyexchange">Currency Exchange</a></li>
-            <li><a href="">Transactions</a></li>
-            <li><a href="/loancalculator">Loan Calculator</a></li>
-        </nav>
-
-        <div class="display-name ms-auto">
-            <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>John Doe</span>
-        </div>
-
-        <a href="" class="btn btn-sm btn-outline-light ms-3">
-            <i class="fa fa-sign-out-alt"></i> Logout
-        </a>
-    </div>
-</header>
+<!-- Navigation bar import -->
+<c:import url="components/common/dashboard/dashboard-header.jsp"/>
+<!-- End of Navigation bar import -->
 
 <div class="loan-calculator">
     <div class="top">

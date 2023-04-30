@@ -46,7 +46,7 @@ a{
 }
 
 .display-name {
-    font-weight: 600px;
+    font-weight: 600;
     color: rgb(255, 255, 255);
 }
 
@@ -129,23 +129,9 @@ a{
 }
 
 /* Charts */
-.graphBox {
-    position: relative;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 30px;
-    padding: 20px;
-    min-height: 200px;
-}
-
-.graphBox .box {
-    position: relative;
-    background: #fff;
-    width: 100%;
-    padding: 20px;
-    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-    border-radius: 20px;
+.charts-container {
+    margin: 100px auto;
+    width: 70%;
 }
 
 /* Loan Calculator */
@@ -254,4 +240,24 @@ a{
         flex-direction: column;
         text-align: center;
     }
+}
+
+/** Currency Exchange **/
+.currency-cards{
+    margin: 100px auto;
+    width: 70%;
+}
+
+.currency-cards .row{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.currency-exchange-form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px;
 }

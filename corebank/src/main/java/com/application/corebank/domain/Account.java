@@ -23,8 +23,8 @@ public class Account {
     private Long userId;
     private Integer accNumber;
     private String accCurrencyType;
-    private String accName;
     private String accType;
+    private String accName;
     private Double balance;
     private String status;
     private LocalDateTime createdAt;

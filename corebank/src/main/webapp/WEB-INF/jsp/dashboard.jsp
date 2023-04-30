@@ -1,43 +1,29 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css"/>
-    <link rel="stylesheet" href="css/fontawesome/css/all.css"/>
-    <link rel="stylesheet" href="css/dashboard.css"/>
-    <script src="js/bootstrap.bundle.js"></script>
-    <title>Login</title>
+    <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css"/>
+    <link rel="stylesheet" href="../css/fontawesome/css/all.css"/>
+    <link rel="stylesheet" href="../css/dashboard.css"/>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <title>Dashboard</title>
 </head>
 
 <body>
-<header class="dashboard-page-header mb-3 bg-primary">
-    <div class="container d-flex align-items-center">
-        <div class="company-name"><a href="/dashboard">CoreBank 7/24</a></div>
-        <nav class="navigation">
-            <li><a href="">Accounts</a></li>
-            <li><a href="/moneystransfer">Money Transfers</a></li>
-            <li><a href="/currencyexchange">Currency Exchange</a></li>
-            <li><a href="">Transactions</a></li>
-            <li><a href="/loancalculator">Loan Calculator</a></li>
-        </nav>
 
-        <div class="display-name ms-auto">
-            <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>John Doe</span>
-        </div>
-
-        <a href="" class="btn btn-sm btn-outline-light ms-3">
-            <i class="fa fa-sign-out-alt"></i> Logout
-        </a>
-    </div>
-</header>
+<!-- Navigation bar import -->
+<c:import url="components/common/dashboard/dashboard-header.jsp"/>
+<!-- End of Navigation bar import -->
 
 <!-- Add Charts -->
-<div class="container">
+<div class="charts-container">
     <div class="row my-2">
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-danger text-white mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Total Balance</h5>
@@ -46,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-primary text-white mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Total Deposit</h5>
@@ -55,8 +41,16 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4 col-md-4 col-sm-12">
+        <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-success text-white mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Total Withdraw</h5>
+                    <p class="card-text h3">0</p>
+                    <i class="fas  fa-2x fa-money-bill-transfer"></i></div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-12">
+            <div class="card bg-dark text-white mb-3">
                 <div class="card-body">
                     <h5 class="card-title">Total Withdraw</h5>
                     <p class="card-text h3">0</p>
@@ -245,266 +239,6 @@
     </div>
 </div>
 
-<!-- Fast Transaction Page (Left) -->
-<div
-        class="offcanvas offcanvas-start"
-        tabindex="-1"
-        id="offcanvasExample"
-        aria-labelledby="offcanvasExampleLabel"
->
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasExampleLabel">
-            Fast Transaction Page
-        </h5>
-        <button
-                type="button"
-                class="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-        ></button>
-    </div>
-
-    <div class="offcanvas-body">
-        <small class="card-text text-white">
-            Choose the type of transaction you want to make
-        </small>
-        <select
-                name="transact-type"
-                class="form-control my-3"
-                id="transact-type"
-        >
-            <option value="">-- Select Transaction Type --</option>
-            <option value="payment">Payment</option>
-            <option value="transfer">Transfer</option>
-            <option value="deposit">Deposit</option>
-            <option value="withdraw">Withdraw</option>
-        </select>
-
-        <div class="card payment-card">
-            <div class="card-body">
-                <form action="" class="payment-form">
-                    <div class="form-group mb-2">
-                        <label for="">Account Holder / Beneficiary</label>
-                        <input
-                                type="text"
-                                name="beneficiary"
-                                placeholder="Enter Account Holder / Beneficiary name:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Beneficiary Account Number</label>
-                        <input
-                                type="text"
-                                name="account_number"
-                                placeholder="Enter Beneficiary Account Number:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Select Account</label>
-                        <select name="account_id" class="form-control mb-2" id="">
-                            <option value="">-- Select Account --</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Reference</label>
-                        <input
-                                type="text"
-                                name="reference"
-                                placeholder="Enter Reference:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Payment Amount</label>
-                        <input
-                                type="text"
-                                name="payment_amount"
-                                placeholder="Enter Payment Amount:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <button id="" class="btn btn-md payment-btn">Pay</button>
-                    </div>
-                </form>
-            </div>
-            <!-- End of Payment Body -->
-        </div>
-        <!-- End of Payment Card -->
-
-        <div class="card transfer-card">
-            <div class="card-body">
-                <form action="" class="transfer-form">
-                    <div class="form-group mb-2">
-                        <label for="">Select Account</label>
-                        <select name="account_id" class="form-control mb-2" id="">
-                            <option value="">-- Select Account --</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Select Account</label>
-                        <select name="account_id" class="form-control mb-2" id="">
-                            <option value="">-- Select Account --</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Transfer Amount</label>
-                        <input
-                                type="text"
-                                name="transfer_amount"
-                                placeholder="Enter Transfer Amount:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <button id="" class="btn btn-md transfer-btn">Transfer</button>
-                    </div>
-                </form>
-            </div>
-            <!-- End of Transfer Body -->
-        </div>
-        <!-- End of Transfer Card -->
-
-        <!-- Deposit Card -->
-        <div class="card deposit-card">
-            <div class="card-body">
-                <form action="" class="deposit-form">
-                    <div class="form-group mb-2">
-                        <label for="">Deposit Amount</label>
-                        <input
-                                type="text"
-                                name="deposit_amount"
-                                placeholder="Enter Deposit Amount:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Select Account</label>
-                        <select name="account_id" class="form-control mb-2" id="">
-                            <option value="">-- Select Account --</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <button id="" class="btn btn-md deposit-btn">Deposit</button>
-                    </div>
-                </form>
-                <!-- End of Deposit Form -->
-            </div>
-            <!-- End of Deposit Body -->
-        </div>
-        <!-- End of Deposit Card -->
-
-        <!-- Withdraw Card -->
-        <div class="card withdraw-card">
-            <div class="card-body">
-                <form action="" class="deposit-form">
-                    <div class="form-group mb-2">
-                        <label for="">Withrawal Amount</label>
-                        <input
-                                type="text"
-                                name="withdrawal_amount"
-                                placeholder="Enter Withrawal Amount:"
-                                class="form-control"
-                        />
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <label for="">Select Account</label>
-                        <select name="account_id" class="form-control mb-2" id="">
-                            <option value="">-- Select Account --</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group mb-2">
-                        <button id="" class="btn btn-md withdraw-btn">Withdraw</button>
-                    </div>
-                </form>
-                <!-- End of Withdraw Form -->
-            </div>
-            <!-- End of Withdraw Body -->
-        </div>
-        <!-- End of Withdraw Card -->
-    </div>
-    <!-- End of Offcanvas Body -->
-</div>
-<!-- End of Fast Transaction Page (Left)-->
-
-<!-- Create/Add Account (Right) -->
-<div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel"
->
-    <div class="offcanvas-header">
-        <h5 id="offcanvasRightLabel" class="text-white">
-            Create / Add an Account
-        </h5>
-        <button
-                type="button"
-                class="btn-close text-reset"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-        ></button>
-    </div>
-    <div class="offcanvas-body">
-        <!-- Card: Account Form-->
-        <div class="card">
-            <!-- Card Body -->
-            <div class="card-body">
-                <form action="" class="add-account-form">
-                    <!-- Form Group -->
-                    <div class="form-group mb-3">
-                        <label for="">Account Name</label>
-                        <input
-                                type="text"
-                                name="account_name"
-                                placeholder="Enter Account Name:"
-                                class="form-control"
-                        />
-                    </div>
-                    <!-- End of Form Group -->
-
-                    <!-- Form Group -->
-                    <div class="form-group mb-3">
-                        <label for="">Select Account Type</label>
-                        <select name="account_type" class="form-control" id="">
-                            <option value="">-- Select Account Type--</option>
-                            <option value="check">Check</option>
-                            <option value="savings">Savings</option>
-                            <option value="business">Business</option>
-                        </select>
-                    </div>
-                    <!-- End of Form Group -->
-
-                    <!-- Form Group -->
-                    <div class="form-group mb-2">
-                        <button id="" class="btn btn-md add-account-btn">
-                            Add Account
-                        </button>
-                    </div>
-                    <!-- End of Form Group -->
-                </form>
-            </div>
-            <!-- End of Card Body -->
-        </div>
-        <!-- End of Account Form-->
-    </div>
-</div>
-<!-- End of Create/Add Account (Right) -->
-
-<script src="js/main.js"></script>
-</body>
-</html>
+<!-- Footer import -->
+<c:import url="components/common/dashboard/dashboard-footer.jsp"/>
+<!-- End of Footer import -->

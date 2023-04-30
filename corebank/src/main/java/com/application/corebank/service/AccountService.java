@@ -30,7 +30,7 @@ public class AccountService {
     public List<AccountDto> getAllAccounts() throws AccountException {
         List<Account> accounts = accountRepository.findAll();
 
-        if(isEmpty(accounts)){
+        if (isEmpty(accounts)) {
             throw new AccountException("No accounts found");
         }
 
@@ -40,8 +40,9 @@ public class AccountService {
     public List<AccountDto> getAllActiveAccountsByCustomerNo(Long userId) throws AccountException {
         List<Account> accounts = accountRepository.findAllByUserIdAndStatus(userId, ACTIVE.getCode());
 
-        if(isEmpty(accounts)){
-            throw new AccountException("No active accounts found for customer no: " + userId);
+        if (isEmpty(accounts)) {
+            System.out.println("No active accounts found for customer no: " + userId);
+            //throw new AccountException("No active accounts found for customer no: " + userId);
         }
 
         return accountAssembler.fromEntityListToDtoList(accounts);
@@ -81,5 +82,34 @@ public class AccountService {
 
             return "Account deactivated!";
         }
+    }
+
+    public String deleteAccount(Integer accNumber) {
+        Account account = accountRepository.findAccountByAccNumber(accNumber);
+        if (isNull(account)) {
+            return "Account does not exist!";
+        } else {
+            accountRepository.delete(account);
+
+            return "Account deleted!";
+        }
+    }
+
+    public String updateAccount(AccountDto accountDto) {
+        Account account = accountRepository.findAccountByAccNumber(accountDto.getAccountNumber());
+        if (isNull(account)) {
+            return "Account does not exist!";
+        } else {
+            account.setBalance(accountDto.getBalance());
+            accountRepository.save(account);
+
+            return "Account updated!";
+        }
+    }
+
+    public Integer getNumberOfUserAccounts(Long userId) {
+        Integer accountNumber = accountRepository.countByUserId(userId);
+
+        return accountNumber != null ? accountNumber : 0;
     }
 }
