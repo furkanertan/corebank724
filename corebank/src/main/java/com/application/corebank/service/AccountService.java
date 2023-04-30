@@ -37,7 +37,7 @@ public class AccountService {
         return accountAssembler.fromEntityListToDtoList(accounts);
     }
 
-    public List<AccountDto> getAllActiveAccountsByCustomerNo(Long userId) throws AccountException {
+    public List<AccountDto> getAllActiveAccountsByCustomerNo(Long userId) {
         List<Account> accounts = accountRepository.findAllByUserIdAndStatus(userId, ACTIVE.getCode());
 
         if (isEmpty(accounts)) {

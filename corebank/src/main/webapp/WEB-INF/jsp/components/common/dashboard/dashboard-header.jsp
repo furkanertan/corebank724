@@ -4,8 +4,8 @@
     <div class="container d-flex align-items-center">
         <div class="company-name"><a href="/app/dashboard">CoreBank 7/24</a></div>
         <nav class="navigation">
-            <li><a href="">Accounts</a></li>
-            <li><a href="/moneystransfer">Money Transfers</a></li>
+            <li><a href="/app/accounts">Accounts</a></li>
+            <li><a href="/moneytransfer">Money Transfers</a></li>
             <li><a href="/currencyexchange">Currency Exchange</a></li>
             <li><a href="">Transactions</a></li>
             <li><a href="/loancalculator">Loan Calculator</a></li>
