@@ -7,21 +7,32 @@
             <li><a href="/app/accounts">Accounts</a></li>
             <li><a href="/app/moneytransfer">Money Transfers</a></li>
             <li><a href="/app/currencyexchange">Currency Exchange</a></li>
-            <li><a href="">Transactions</a></li>
+            <li><a href="/app/transactions">Transactions</a></li>
             <li><a href="/app/loancalculator">Loan Calculator</a></li>
         </nav>
 
-        <div class="display-name ms-auto">
-            <i class="fa fa-circle text-success me-2"> </i> Welcome,
-            <span>
-                <c:out value="${sessionScope.user.firstName}" />
-                <c:out value="${sessionScope.user.lastName}" />
-            </span>
-        </div>
+        <div class="display-name ms-auto dropdown">
+            <a class="btn btn-secondary dropdown-toggle" style="background-color: transparent" href="#" role="button"
+               id="dropdownMenuLink"
+               data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-circle text-success me-2"></i>Welcome,
+                <span>
+                <c:out value="${sessionScope.user.firstName}"/>
+                <c:out value="${sessionScope.user.lastName}"/>
+              </span>
+            </a>
 
-        <a href="/logout" class="btn btn-sm btn-outline-light ms-3">
-            <i class="fa fa-sign-out-alt"></i> Logout
-        </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a href="/app/profile" class="btn btn-sm btn-outline-light ms-3"
+                       style="background-color: white;color: black">
+                    <i class="fa fa-user"></i> Profile
+                </a></li>
+                <li><a href="/logout" class="btn btn-sm btn-outline-light ms-3"
+                       style="background-color: white;color: black">
+                    <i class="fa fa-sign-out-alt"></i> Logout
+                </a></li>
+            </ul>
+        </div>
     </div>
 </header>
 <!-- End of Navbar -->
