@@ -19,6 +19,30 @@
 <c:import url="components/common/dashboard/dashboard-header.jsp"/>
 <!-- End of Navigation bar import -->
 
+<div class="container">
+    <!-- Display success message-->
+    <c:if test="${requestScope.successMoneyTransfer != null}">
+        <div class="alert alert-success text-center border border-success">
+            <p class="text-center">
+                <i class="fas fa-check-circle"></i>
+                <b>${requestScope.successMoneyTransfer}</b>
+            </p>
+        </div>
+    </c:if>
+    <!-- End of display success message -->
+
+    <!-- Display error message-->
+    <c:if test="${requestScope.errorMoneyTransfer != null}">
+        <div class="alert alert-danger text-center border border-danger">
+            <p class="text-center">
+                <i class="fas fa-exclamation-triangle"></i>
+                <b>${requestScope.errorMoneyTransfer}</b>
+            </p>
+        </div>
+    </c:if>
+    <!-- End of display error message -->
+</div>
+
 <!-- Money Transfer Form -->
 <div class="container">
     <div class="row justify-content-center" style="margin: 45px">
@@ -28,7 +52,7 @@
                     <h4 style="margin-top: 10px">Money Transfer</h4>
                 </div>
                 <div class="card-body" style="color: #14213d;font-weight:500">
-                    <form action="/account/createAccount" method="POST" class="money-transfer-form">
+                    <form action="/moneytransfer/transfer" method="POST" class="money-transfer-form">
                         <div class="form-group" style="margin: 10px">
                             <label for="fromAccount">Sender's Account</label>
                             <select class="form-control" id="fromAccount" name="fromAccount">
@@ -69,6 +93,10 @@
                                     placeholder="Enter transfer amount"
                                     min="0.00"
                                     onchange="onAmountChange()"
+                                    value=
+                                    <c:if test="${requestScope.amount == null}">
+                                            0.00
+                            </c:if>
                             />
                         </div>
                         <div class="form-group" style="margin: 10px">
@@ -77,8 +105,12 @@
                                     type="number"
                                     class="form-control"
                                     id="commissionAmount"
-                                    name="amount"
+                                    name="commissionAmount"
                                     placeholder="0.00"
+                                    value=
+                                    <c:if test="${requestScope.commissionAmount == null}">
+                                            0.00
+                                    </c:if>
                                     readonly
                             />
                         </div>
@@ -90,6 +122,10 @@
                                     id="totalAmount"
                                     name="totalAmount"
                                     placeholder="0.00"
+                                    value=
+                                    <c:if test="${requestScope.totalAmount == null}">
+                                            0.00
+                                    </c:if>
                                     readonly
                             />
                         </div>

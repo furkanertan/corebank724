@@ -27,6 +27,13 @@ public class AccountAssembler {
         return account;
     }
 
+    public Account toUpdateAccountBalance(Account account, Double balance) {
+        account.setBalance(balance);
+        account.setUpdatedAt(LocalDateTime.now());
+
+        return account;
+    }
+
     public AccountDto fromEntityToDto(Account account) {
         AccountDto accountDto = new AccountDto();
 

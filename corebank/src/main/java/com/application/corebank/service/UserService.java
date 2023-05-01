@@ -12,15 +12,15 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class UserService {
 
-    private UserRepository userRepository;
-    private UserAssembler userAssembler;
+    private UserRepository repository;
+    private UserAssembler assembler;
 
     public void saveUser(String firstName, String lastName, String email, String phone, String address, String password, String token, int code) {
         log.info("Saving user to database");
 
-        User user = userAssembler.toCreateUser(firstName, lastName, email, phone, address, password, token, code);
+        User user = assembler.toCreateUser(firstName, lastName, email, phone, address, password, token, code);
         log.info("password: " + user.getPassword());
-        userRepository.save(user);
+        repository.save(user);
 
         log.info("User saved to database!");
     }
@@ -28,7 +28,7 @@ public class UserService {
     public void updatePassword(Long userId, String password) {
         log.info("Updating user password...");
 
-        userRepository.updatePassword(userId, password);
+        repository.updatePassword(userId, password);
 
         log.info("User password updated!");
     }
@@ -36,7 +36,7 @@ public class UserService {
     public void verifyUser(String token, int code) {
         log.info("Verifying user...");
 
-        userRepository.verifyUser(token, code);
+        repository.verifyUser(token, code);
 
         log.info("User verified!");
     }
@@ -44,18 +44,18 @@ public class UserService {
     public User findByToken(String token) {
         log.info("Finding user by token...");
 
-        return userRepository.findByToken(token);
+        return repository.findByToken(token);
     }
 
     public User findByEmail(String email) {
         log.info("Finding user by email...");
 
-        return userRepository.findByEmail(email);
+        return repository.findByEmail(email);
     }
 
     public User findById(Long id) {
         log.info("Finding user by id...");
 
-        return userRepository.findById(id).orElse(null);
+        return repository.findById(id).orElse(null);
     }
 }

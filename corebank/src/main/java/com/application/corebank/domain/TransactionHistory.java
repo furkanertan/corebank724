@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
 @ToString
@@ -19,4 +20,10 @@ public class TransactionHistory {
     @Id
     @GeneratedValue
     private Long id;
+    private String accountNumber;
+    private String transactionType;
+    private String message;
+    private Double amount;
+    private String reasonCode;
+    private LocalDateTime transactionTime;
 }
