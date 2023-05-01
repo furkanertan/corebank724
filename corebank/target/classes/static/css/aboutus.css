@@ -15,7 +15,7 @@ body {
 
 h2 {
     text-align: center;
-    margin: 10px auto 100px;
+    margin: 10px auto 60px;
     color: white;
 }
 
@@ -35,7 +35,7 @@ h2 {
 .navigation li {
     display: inline-block;
     list-style-type: none;
-    margin: 0px 15px;
+    margin: 0 15px;
     font-style: Comfortaa, cursive;
 }
 
@@ -75,12 +75,12 @@ h2 {
 
 .text-container p {
     font-size: 13px;
-    padding: 10px 0px;
+    padding: 10px 0;
 }
 
 .text-container h1 {
     font-size: 25px;
-    padding: 10px 0px;
+    padding: 10px 0;
     color: #1c5f94;
 }
 

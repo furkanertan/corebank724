@@ -24,7 +24,6 @@ public class AppController {
     @GetMapping("/dashboard")
     public ModelAndView getDashboard(HttpSession session) {
         ModelAndView dashboardPage = new ModelAndView("dashboard");
-        dashboardPage.addObject("PageTitle", "Dashboard");
 
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
@@ -46,7 +45,6 @@ public class AppController {
     @GetMapping("/accounts")
     public ModelAndView getAccountsPage(HttpSession session) {
         ModelAndView accountsPage = new ModelAndView("accounts");
-        accountsPage.addObject("PageTitle", "Accounts");
 
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
@@ -58,16 +56,36 @@ public class AppController {
 
         //Get user accounts by user id
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        log.info("AppController.getDashboard() - userAccounts: {}", userAccounts);
+        log.info("AccountsPage userAccounts: {}", userAccounts);
 
         accountsPage.addObject("userAccounts", userAccounts);
         return accountsPage;
     }
 
+    @GetMapping("/moneytransfer")
+    public ModelAndView getMoneyTransferPage(HttpSession session) {
+        ModelAndView moneyTransferPage = new ModelAndView("moneytransfer");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        //Get user accounts by user id
+        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        log.info("MoneyTransferPage userAccounts: {}", userAccounts);
+
+        moneyTransferPage.addObject("userAccounts", userAccounts);
+
+        return moneyTransferPage;
+    }
+
     @GetMapping("/currencyexchange")
     public ModelAndView getCurrencyExchangePage(HttpSession session) {
         ModelAndView currencyExchangePage = new ModelAndView("currencyexchange");
-        currencyExchangePage.addObject("PageTitle", "Currency Exchange");
 
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
@@ -80,10 +98,9 @@ public class AppController {
         return currencyExchangePage;
     }
 
-    @GetMapping("/moneytransfer")
-    public ModelAndView getMoneyTransferPage(HttpSession session) {
-        ModelAndView moneyTransferPage = new ModelAndView("moneytransfer");
-        moneyTransferPage.addObject("PageTitle", "Money Transfer");
+    @GetMapping("/transactions")
+    public ModelAndView getTransactionsPage(HttpSession session) {
+        ModelAndView transactionsPage = new ModelAndView("transactions");
 
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");
@@ -93,13 +110,13 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        return moneyTransferPage;
+        return transactionsPage;
     }
+
 
     @GetMapping("/loancalculator")
     public ModelAndView getLoanCalculatorPage(HttpSession session) {
         ModelAndView loanCalculatorPage = new ModelAndView("loancalculator");
-        loanCalculatorPage.addObject("PageTitle", "Loan Calculator");
 
         //Logged user information is stored in session
         User user = (User) session.getAttribute("user");

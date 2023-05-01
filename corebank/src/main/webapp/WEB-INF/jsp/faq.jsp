@@ -113,6 +113,6 @@
     </div>
 </section>
 
-<script src="${pageContext.servletContext.contextPath}/js/app.js"></script>
+<script src="${pageContext.servletContext.contextPath}/js/faq.js"></script>
 </body>
 </html>

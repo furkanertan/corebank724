@@ -24,38 +24,52 @@
         <div class="card">
             <!-- Card Body -->
             <div class="card-body">
-                <form action="" class="add-account-form">
-                    <!-- Form Group -->
+                <form action="/account/createAccount" class="add-account-form">
+
+                    <!-- Account Name -->
                     <div class="form-group mb-3">
                         <label for="">Account Name</label>
                         <input
                                 type="text"
-                                name="account_name"
+                                name="accountName"
                                 placeholder="Enter Account Name:"
                                 class="form-control"
                         />
                     </div>
-                    <!-- End of Form Group -->
+                    <!-- End of Account Name -->
 
-                    <!-- Form Group -->
+                    <!-- Select Account Type -->
                     <div class="form-group mb-3">
                         <label for="">Select Account Type</label>
-                        <select name="account_type" class="form-control" id="">
+                        <select name="accountType" class="form-control" id="accountTypeId">
                             <option value="">-- Select Account Type--</option>
                             <option value="check">Check</option>
                             <option value="savings">Savings</option>
                             <option value="business">Business</option>
                         </select>
                     </div>
-                    <!-- End of Form Group -->
+                    <!-- End of Select Account Type -->
 
-                    <!-- Form Group -->
+                    <!-- Select Account Currency Type -->
+                    <div class="form-group mb-3">
+                        <label for="">Select Account Currency Type</label>
+                        <select name="accountCurrencyType" class="form-control" id="accountCurrencyTypeId">
+                            <option value="">-- Select Currency Type--</option>
+                            <option value="USD">USD</option>
+                            <option value="PLN">PLN</option>
+                            <option value="TRY">TRY</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                    <!-- End of Select Account Type -->
+
+                    <!-- Create Account Button -->
                     <div class="form-group mb-2">
-                        <button id="" class="btn btn-md add-account-btn">
+                        <button id="addAccountBtn" class="btn btn-md add-account-btn">
                             Add Account
                         </button>
                     </div>
-                    <!-- End of Form Group -->
+                    <!-- End of Create Account Button -->
                 </form>
             </div>
             <!-- End of Card Body -->

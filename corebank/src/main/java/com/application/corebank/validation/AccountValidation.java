@@ -1,23 +1,51 @@
 package com.application.corebank.validation;
 
-import com.application.corebank.dto.AccountDto;
-import com.application.corebank.exception.AccountException;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import static org.apache.logging.log4j.util.Strings.isEmpty;
 
 @Component
+@Slf4j
 public class AccountValidation {
 
-    private static final String ACCOUNT_NUMBER_PATTERN = "[0-9]{9}";
+    public boolean isValidAccountInfo(String accountName, String accountType, String accountCurrencyType, Integer accountNumber, Long userId) {
+        boolean isValidAccount = isValidAccount(String.valueOf(accountNumber));
+        boolean isValidAccountName = isValidAccountName(accountName);
+        boolean isValidAccountType = isValidAccountType(accountType);
+        boolean isValidAccountCurrencyType = isValidAccountCurrencyType(accountCurrencyType);
+        boolean isValidUser = isValidUser(userId);
 
-    public void isValidAccount(String accountNumber) throws AccountException {
-        if (isEmpty(accountNumber) || !accountNumber.matches(ACCOUNT_NUMBER_PATTERN)) {
-            throw new AccountException("Invalid account number given!");
-        }
+        return isValidAccount && isValidAccountName && isValidAccountType && isValidAccountCurrencyType && isValidUser;
     }
 
-    public void isValidAccountDto(AccountDto accountDto) throws AccountException {
-        isValidAccount(String.valueOf(accountDto.getAccountNumber()));
+    public boolean isValidAccount(String accountNumber) {
+        //Invalid account number given
+        log.info("accountNumber: {}", accountNumber);
+        return !isEmpty(accountNumber);
+    }
+
+    public boolean isValidAccountName(String accountName) {
+        //Invalid account name given
+        log.info("accountName: {}", accountName);
+        return !isEmpty(accountName);
+    }
+
+    public boolean isValidAccountType(String accountType) {
+        //Invalid account type given
+        log.info("accountType: {}", accountType);
+        return !isEmpty(accountType);
+    }
+
+    public boolean isValidAccountCurrencyType(String accountCurrencyType) {
+        //Invalid currency type given
+        log.info("accountCurrencyType: {}", accountCurrencyType);
+        return !isEmpty(accountCurrencyType);
+    }
+
+    public boolean isValidUser(Long userId) {
+        //Invalid user given
+        log.info("userId: {}", userId);
+        return userId != null;
     }
 }

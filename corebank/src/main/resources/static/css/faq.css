@@ -35,7 +35,7 @@ h2 {
 .navigation li {
     display: inline-block;
     list-style-type: none;
-    margin: 0px 15px;
+    margin: 0 15px;
     font-style: Comfortaa, cursive;
 }
 
@@ -55,7 +55,7 @@ section {
 
 .title {
     font-size: 3rem;
-    margin: 2rem 0rem
+    margin: 2rem 0
 }
 
 .faq {

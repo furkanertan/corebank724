@@ -33,7 +33,7 @@
             </div>
 
             <div class="group">
-                <div class="title">Tenure (in months)</div>
+                <div class="title">Installments (Month) </div>
                 <input type="text" value="240" class="loan-tenure"/>
             </div>
         </form>
@@ -67,6 +67,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.2/dist/chart.min.js"></script>
 
-<script src="js/loancalculator.js"></script>
+<script src="../js/loancalculator.js"></script>
 </body>
 </html>

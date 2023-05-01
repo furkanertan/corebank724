@@ -48,12 +48,10 @@ public class AccountService {
         return accountAssembler.fromEntityListToDtoList(accounts);
     }
 
-    public String createAccount(AccountDto accountDto) {
-        Account account = accountAssembler.fromDtoToEntity(accountDto);
-        account.setStatus(ACTIVE.getCode());
+    public void createAccount(AccountDto accountDto) {
+        Account account = accountAssembler.toCreateAccount(accountDto);
         accountRepository.save(account);
-
-        return "Account created successfully!";
+        log.info("Account created successfully!");
     }
 
     public String activateAccount(Integer accNumber) {
@@ -92,18 +90,6 @@ public class AccountService {
             accountRepository.delete(account);
 
             return "Account deleted!";
-        }
-    }
-
-    public String updateAccount(AccountDto accountDto) {
-        Account account = accountRepository.findAccountByAccNumber(accountDto.getAccountNumber());
-        if (isNull(account)) {
-            return "Account does not exist!";
-        } else {
-            account.setBalance(accountDto.getBalance());
-            accountRepository.save(account);
-
-            return "Account updated!";
         }
     }
 

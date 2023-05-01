@@ -13,7 +13,7 @@ body {
 }
 
 #welcome-page-card {
-    margin: 0px 100px;
+    margin: -20px 100px;
     font-family: Comfortaa, cursive;
     color: white;
 }
@@ -42,7 +42,7 @@ body {
 .navigation li {
     display: inline-block;
     list-style-type: none;
-    margin: 0px 15px;
+    margin: 0 15px;
     font-style: Comfortaa, cursive;
 }
 
@@ -54,7 +54,7 @@ body {
 .button-wrapper a {
     padding: 15px;
     width: 200px;
-    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+    box-shadow: 0 3px 6px rgb(0, 115, 255);
 }
 
 .login-form {
@@ -113,8 +113,8 @@ body {
 }
 
 .card .form-control {
-    margin: 10px 0px 0px;
-    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+    margin: 10px 0 0;
+    box-shadow: 0 3px 6px rgb(0, 115, 255);
     background-color: #f5f5f5;
     border: 1px solid #000000;
 }
@@ -128,8 +128,8 @@ body {
     border: 1px solid #000000;
     color: #ffffff;
     width: 150px;
-    margin: 10px 0px 0px;
-    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+    margin: 10px 0 0;
+    box-shadow: 0 3px 6px rgb(0, 115, 255);
 }
 
 .regbtn:hover {
@@ -142,8 +142,8 @@ body {
     border: 1px solid #000000;
     color: #ffffff;
     width: 150px;
-    margin: 10px 0px 0px;
-    box-shadow: 0px 3px 6px rgb(0, 115, 255);
+    margin: 10px 0 0;
+    box-shadow: 0 3px 6px rgb(0, 115, 255);
 }
 
 .logbtn:hover {
@@ -156,7 +156,7 @@ body {
     border: 1px solid #000000;
     color: #ffffff;
     width: 150px;
-    margin: 10px 0px 0px;
+    margin: 10px 0 0;
 }
 
 .submitbtn:hover {

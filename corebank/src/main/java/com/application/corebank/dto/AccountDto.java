@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 public class AccountDto {
+    private Long id;
     private Long userId;
     private Integer accountNumber;
     private String accountName;

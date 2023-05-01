@@ -7,8 +7,7 @@ public class CodeGenerator {
     public static int generateCode() {
         Random random = new Random();
         int boundary = 123;
-        int code = boundary * random.nextInt(boundary);
 
-        return code;
+        return boundary * random.nextInt(boundary);
     }
 }

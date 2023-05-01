@@ -190,7 +190,7 @@ body {
 .navigation li {
     display: inline-block;
     list-style-type: none;
-    margin: 0px 15px;
+    margin: 0 15px;
     font-style: Comfortaa, cursive;
 }
 
