@@ -128,6 +128,10 @@ a {
     color: white;
 }
 
+.dropdown-li:hover{
+    background-color: rgb(161, 160, 160);
+}
+
 /* Charts */
 .charts-container {
     margin: 50px auto;

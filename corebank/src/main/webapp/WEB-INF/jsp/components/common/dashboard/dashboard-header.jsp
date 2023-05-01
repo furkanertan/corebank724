@@ -23,11 +23,15 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <li><a href="/app/profile" class="btn btn-sm btn-outline-light ms-3"
+                <li class="dropdown-li"><a href="/app/profile" class="btn btn-sm btn-outline-light ms-3"
                        style="background-color: white;color: black">
                     <i class="fa fa-user"></i> Profile
                 </a></li>
-                <li><a href="/logout" class="btn btn-sm btn-outline-light ms-3"
+                <li class="dropdown-li"><a href="/app/profile" class="btn btn-sm btn-outline-light ms-3"
+                       style="background-color: white;color: black;)">
+                    <i class="fa fa-question"></i> Help
+                </a></li>
+                <li class="dropdown-li"><a href="/logout" class="btn btn-sm btn-outline-light ms-3"
                        style="background-color: white;color: black">
                     <i class="fa fa-sign-out-alt"></i> Logout
                 </a></li>
