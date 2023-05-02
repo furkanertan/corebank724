@@ -9,16 +9,6 @@ import static org.apache.logging.log4j.util.Strings.isEmpty;
 @Slf4j
 public class AccountValidation {
 
-    public boolean isValidAccountInfo(String accountName, String accountType, String accountCurrencyType, Integer accountNumber, Long userId) {
-        boolean isValidAccount = isValidAccount(String.valueOf(accountNumber));
-        boolean isValidAccountName = isValidAccountName(accountName);
-        boolean isValidAccountType = isValidAccountType(accountType);
-        boolean isValidAccountCurrencyType = isValidAccountCurrencyType(accountCurrencyType);
-        boolean isValidUser = isValidUser(userId);
-
-        return isValidAccount && isValidAccountName && isValidAccountType && isValidAccountCurrencyType && isValidUser;
-    }
-
     public boolean isValidAccount(String accountNumber) {
         //Invalid account number given
         log.info("accountNumber: {}", accountNumber);

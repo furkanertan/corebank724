@@ -160,7 +160,8 @@
                                 <div class="form-group" style="margin: 10px">
                                     <label for="accountType">Account Type</label>
                                     <select class="form-control" id="accountType" name="accountType">
-                                        <option value="">-- Select Currency Type --</option>
+                                        <option value="">-- Select Account Type --</option>
+                                        <option value="Check">Check</option>
                                         <option value="Deposit">Deposit</option>
                                         <option value="Savings">Savings</option>
                                     </select>

@@ -4,35 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="edit dashboard">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/assembler/CurrencyRatesAssembler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyRatesController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/domain/CurrencyRates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/dto/CurrencyRatesDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/repository/CurrencyRatesRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/CurrencyRatesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/corebank_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/corebank_war_exploded.xml" afterDir="false" />
+    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="Currency Exchange service implementations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/corebank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/corebank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/assembler/CurrencyAssembler.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/assembler/CurrencyAssembler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/dto/CurrencyDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/dto/CurrencyDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/repository/CurrencyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/repository/CurrencyRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/CurrencyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/CurrencyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/validation/AccountValidation.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/validation/AccountValidation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/accounts-display.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/accounts-display.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/CurrencyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/CurrencyController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/dto/CurrencyDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/dto/CurrencyDto.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/repository/CurrencyRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/repository/CurrencyRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/service/CurrencyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/service/CurrencyService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/validation/AccountValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/validation/AccountValidation.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +305,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683047605879</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Currency Exchange service implementations">
+      <created>1683057469302</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1683057469302</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -361,7 +347,8 @@
     <MESSAGE value="Dashboard header update" />
     <MESSAGE value="Add help to header" />
     <MESSAGE value="edit dashboard" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit dashboard" />
+    <MESSAGE value="Currency Exchange service implementations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Currency Exchange service implementations" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
