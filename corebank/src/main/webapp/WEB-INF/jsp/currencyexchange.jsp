@@ -51,7 +51,7 @@
                     <h4 style="margin-top: 10px">Currency Exchange</h4>
                 </div>
                 <div class="card-body" style="color: #14213d;font-weight:500">
-                    <form action="/currency/exchange" method="POST" class="currency-exchange-form">
+                    <form action="" method="POST" class="currency-exchange-form">
                         <div class="form-group" style="margin: 10px">
                             <div class="drop-list">
                                 <div class="row">

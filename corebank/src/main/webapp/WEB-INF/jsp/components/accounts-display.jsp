@@ -151,11 +151,10 @@
                                     <label for="accountCurrencyType">Account Currency Type</label>
                                     <select class="form-control" id="accountCurrencyType" name="accountCurrencyType">
                                         <option value="">-- Select Currency Type --</option>
-                                        <option value="EUR">EUR</option>
-                                        <option value="GBP">GBP</option>
-                                        <option value="PLN">PLN</option>
-                                        <option value="TRY">TRY</option>
-                                        <option value="USD">USD</option>
+                                        <c:forEach items="${currencies}" var="currency">
+                                            <option value="${currency.type}">${currency.type}
+                                                - ${currency.description}</option>
+                                        </c:forEach>
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin: 10px">

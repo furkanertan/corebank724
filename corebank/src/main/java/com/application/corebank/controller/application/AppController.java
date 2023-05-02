@@ -2,8 +2,12 @@ package com.application.corebank.controller.application;
 
 import com.application.corebank.domain.User;
 import com.application.corebank.dto.AccountDto;
+import com.application.corebank.dto.CurrencyDto;
+import com.application.corebank.dto.CurrencyRatesDto;
 import com.application.corebank.dto.TransactionHistoryDto;
 import com.application.corebank.service.AccountService;
+import com.application.corebank.service.CurrencyRatesService;
+import com.application.corebank.service.CurrencyService;
 import com.application.corebank.service.TransactionHistoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +28,8 @@ public class AppController {
 
     private AccountService accountService;
     private TransactionHistoryService transactionHistoryService;
+    private CurrencyRatesService currencyRatesService;
+    private CurrencyService currencyService;
 
     @GetMapping("/dashboard")
     public ModelAndView getDashboard(HttpSession session) {
@@ -47,9 +53,13 @@ public class AppController {
         //Get List of Transactions
         List<TransactionHistoryDto> transactions = transactionHistoryService.getLast5Transactions(userAccountNumbers);
 
+        //Get List of Currency Rates
+        List<CurrencyRatesDto> currencyRates = currencyRatesService.getCurrencyRatesByToCurrency("PLN");
+
         //Set Objects to dashboardPage
         dashboardPage.addObject("accountsCount", numberOfUserAccounts);
         dashboardPage.addObject("transactions", transactions);
+        dashboardPage.addObject("currencyRates", currencyRates);
 
         return dashboardPage;
     }
@@ -70,7 +80,11 @@ public class AppController {
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         log.info("AccountsPage userAccounts: {}", userAccounts);
 
+        //Get currency types
+        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
+
         accountsPage.addObject("userAccounts", userAccounts);
+        accountsPage.addObject("currencies", currencies);
         return accountsPage;
     }
 

@@ -1,5 +1,6 @@
 package com.application.corebank.dto;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 

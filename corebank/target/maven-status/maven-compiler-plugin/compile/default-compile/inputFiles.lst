@@ -3,6 +3,7 @@ C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankb
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\CurrencyRepository.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\application\AppController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\CommissionExemptionRepository.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\CurrencyRatesAssembler.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\CoreBankApplication.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\CurrencyController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\AccountDto.java
@@ -23,6 +24,7 @@ C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankb
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\TransactionHistory.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\AccountController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\CommissionDefinition.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\CurrencyRatesDto.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\config\MailConfig.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\MoneyTransferDto.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\MoneyTransferAssembler.java
@@ -38,15 +40,19 @@ C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankb
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\util\AccountStatus.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\application\IndexController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\CommissionExemptionAssembler.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\service\CurrencyRatesService.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\Currency.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\validation\AccountValidation.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\exception\AccountException.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\CurrencyRatesRepository.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\AccountRepository.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\application\AdvisorController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\CommissionExemptionDto.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\CurrencyRates.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\UserRepository.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\helpers\HTML.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\config\AppConfig.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\CurrencyRatesController.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\mailMessenger\EmailSenderService.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\UserAssembler.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\application\UserController.java

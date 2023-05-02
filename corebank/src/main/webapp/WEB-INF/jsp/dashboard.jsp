@@ -113,10 +113,12 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="card">
+                                <!-- Dollar currency -->
                                 <div class="card-body">
                                     <i class="fas fa-2x fa-dollar-sign"></i>
                                 </div>
                             </div>
+                            <!-- Euro currency -->
                             <div class="card">
                                 <div class="card-body">
                                     <i class="fas fa-2x fa-euro-sign"></i>
@@ -124,11 +126,13 @@
                             </div>
                         </div>
                         <div class="col-6">
+                            <!-- Pound currency -->
                             <div class="card">
                                 <div class="card-body">
                                     <i class="fas fa-2x fa-gbp"></i>
                                 </div>
                             </div>
+                            <!-- Try currency -->
                             <div class="card">
                                 <div class="card-body">
                                     <i class="fas fa-2x fa-try"></i>

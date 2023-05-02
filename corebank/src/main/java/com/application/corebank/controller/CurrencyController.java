@@ -17,11 +17,11 @@ public class CurrencyController {
 
     private CurrencyService currencyService;
 
-    @GetMapping("/getAllCurrencyTypes")
-    List<Currency> getAllCurrencyTypes() {
+    @GetMapping("/getAllCurrencies")
+    List<CurrencyDto> getAllCurrencies() {
         log.info("Return all currencies.");
 
-        return currencyService.getAllCurrencyTypes();
+        return currencyService.getAllCurrencies();
     }
 
     //create a new currency

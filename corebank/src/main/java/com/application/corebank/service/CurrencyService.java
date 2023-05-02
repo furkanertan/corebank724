@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Slf4j
@@ -19,8 +20,14 @@ public class CurrencyService {
     private CurrencyAssembler assembler;
 
 
-    public List<Currency> getAllCurrencyTypes() {
-        return repository.findAll();
+    public Set<String> getAllCurrencyTypes() {
+        return repository.getAllCurrencyTypes();
+    }
+
+    public List<CurrencyDto> getAllCurrencies() {
+        List<Currency> currencyList = repository.findAll();
+
+        return assembler.fromEntityListToDtoList(currencyList);
     }
 
     public Currency createCurrency(CurrencyDto currencyDto) {
