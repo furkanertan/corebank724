@@ -246,22 +246,36 @@ a {
     }
 }
 
-/** Currency Exchange **/
-.currency-cards {
-    margin: 100px auto;
-    width: 70%;
-}
-
-.currency-cards .row {
+/* Currency Exchange */
+form .drop-list{
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    justify-content: center;
 }
-
-.currency-exchange-form {
+.drop-list .select-box{
     display: flex;
-    justify-content: space-between;
+    width: 115px;
+    height: 45px;
     align-items: center;
-    margin: 0;
+    justify-content: center;
+}
+.select-box img{
+    max-width: 50px;
+}
+.select-box select{
+    width: auto;
+    font-size: 16px;
+    background: none;
+    margin: 0 -5px 0 5px;
+}
+.select-box select::-webkit-scrollbar{
+    width: 8px;
+}
+.select-box select::-webkit-scrollbar-track{
+    background: #fff;
+}
+.select-box select::-webkit-scrollbar-thumb{
+    background: #888;
+    border-radius: 8px;
+    border-right: 2px solid #ffffff;
 }

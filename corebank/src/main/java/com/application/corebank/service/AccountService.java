@@ -38,7 +38,6 @@ public class AccountService {
 
         if (isEmpty(accounts)) {
             System.out.println("No active accounts found for customer no: " + userId);
-            //throw new AccountException("No active accounts found for customer no: " + userId);
         }
 
         return assembler.fromEntityListToDtoList(accounts);

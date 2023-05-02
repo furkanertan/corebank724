@@ -5,6 +5,8 @@ import com.application.corebank.dto.TransactionHistoryDto;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class TransactionHistoryAssembler {
@@ -32,5 +34,11 @@ public class TransactionHistoryAssembler {
         transactionHistory.setTransactionTime(LocalDateTime.now());
 
         return transactionHistory;
+    }
+
+    public List<TransactionHistoryDto> fromEntityListToDtoList(List<TransactionHistory> transactionHistories) {
+        return transactionHistories.stream()
+                .map(this::fromEntityToDto)
+                .collect(Collectors.toList());
     }
 }

@@ -55,10 +55,11 @@
                         <label for="">Select Account Currency Type</label>
                         <select name="accountCurrencyType" class="form-control" id="accountCurrencyTypeId">
                             <option value="">-- Select Currency Type--</option>
-                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                            <option value="GBP">GBP</option>
                             <option value="PLN">PLN</option>
                             <option value="TRY">TRY</option>
-                            <option value="EUR">EUR</option>
+                            <option value="USD">USD</option>
                         </select>
                     </div>
                     <!-- End of Select Account Type -->

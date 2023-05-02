@@ -18,172 +18,136 @@
 <c:import url="components/common/dashboard/dashboard-header.jsp"/>
 <!-- End of Navigation bar import -->
 
-<div class="currency-cards">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">EUR/PLN</h5>
-                    <p class="card-text">1 EUR = 1.17 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/eu/flat/32.png"
-                            alt="European Union Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/us/flat/32.png"
-                            alt="United States Flag"
-                    />
-                </div>
-            </div>
+<div class="container">
+    <!-- Display success message-->
+    <c:if test="${requestScope.successMoneyTransfer != null}">
+        <div class="alert alert-success text-center border border-success">
+            <p class="text-center">
+                <i class="fas fa-check-circle"></i>
+                <b>${requestScope.successCurrencyExchange}</b>
+            </p>
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">USD/PLN</h5>
-                    <p class="card-text">1 USD = 0.85 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/eu/flat/32.png"
-                            alt="European Union Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/gb/flat/32.png"
-                            alt="United Kingdom Flag"
-                    />
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">TL/PLN</h5>
-                    <p class="card-text">1 TL = 111.18 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/us/flat/32.png"
-                            alt="United States Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/jp/flat/32.png"
-                            alt="Japan Flag"
-                    />
-                </div>
-            </div>
-        </div>
-    </div>
+    </c:if>
+    <!-- End of display success message -->
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">EUR/PLN</h5>
-                    <p class="card-text">1 EUR = 1.17 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/eu/flat/32.png"
-                            alt="European Union Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/us/flat/32.png"
-                            alt="United States Flag"
-                    />
-                </div>
-            </div>
+    <!-- Display error message-->
+    <c:if test="${requestScope.errorCurrencyExchange != null}">
+        <div class="alert alert-danger text-center border border-danger">
+            <p class="text-center">
+                <i class="fas fa-exclamation-triangle"></i>
+                <b>${requestScope.errorMoneyTransfer}</b>
+            </p>
         </div>
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">USD/PLN</h5>
-                    <p class="card-text">1 USD = 0.85 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/eu/flat/32.png"
-                            alt="European Union Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/gb/flat/32.png"
-                            alt="United Kingdom Flag"
-                    />
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5 class="card-title">TL/PLN</h5>
-                    <p class="card-text">1 TL = 111.18 PLN</p>
-                </div>
-                <div class="card-footer">
-                    <img
-                            src="https://www.countryflags.io/us/flat/32.png"
-                            alt="United States Flag"
-                    />
-                    <img
-                            src="https://www.countryflags.io/jp/flat/32.png"
-                            alt="Japan Flag"
-                    />
-                </div>
-            </div>
-        </div>
-    </div>
+    </c:if>
+    <!-- End of display error message -->
 </div>
 
-<div class="currency-exchange-form">
-    <!-- Currency Exchange Form -->
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form>
-                <div class="form-group">
-                    <label for="from_currency">From Currency</label>
-                    <select class="form-control" id="from_currency">
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="to_currency">To Currency</label>
-                    <select class="form-control" id="to_currency">
-                        <option value="EUR">EUR</option>
-                        <option value="USD">USD</option>
-                        <option value="TRY">USD</option>
-                        <option value="GBP">GBP</option>
-                        <option value="JPY">JPY</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="amount">Amount</label>
-                    <input
-                            type="number"
-                            class="form-control"
-                            id="amount"
-                            placeholder="Enter amount"
-                    />
-                </div>
-                <button type="submit" class="btn btn-primary">Convert</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- Currency Exchange Result -->
-    <div class="row mt-4">
-        <div class="col-md-6 offset-md-3">
+<!-- Currency Exchange Form -->
+<div class="container">
+    <div class="row justify-content-center" style="margin: 45px">
+        <div class="col-md-6">
             <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Conversion Result</h5>
-                    <p class="card-text">1 USD = 0.85 EUR</p>
-                    <p class="card-text">0.85 EUR = 1.00 USD</p>
+                <div class="card-header text-center" style="color: white;background-color: #14213d;">
+                    <h4 style="margin-top: 10px">Currency Exchange</h4>
+                </div>
+                <div class="card-body" style="color: #14213d;font-weight:500">
+                    <form action="/currency/exchange" method="POST" class="currency-exchange-form">
+                        <div class="form-group" style="margin: 10px">
+                            <div class="drop-list">
+                                <div class="row">
+                                    <p>From:</p>
+                                    <div class="select-box">
+                                        <img src="https://flagcdn.com/48x36/us.png" alt="flag">
+                                        <select onchange="onFromChange()">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="to">
+                                    <p>To:</p>
+                                    <div class="select-box">
+                                        <img src="https://flagcdn.com/48x36/fr.png" alt="flag">
+                                        <select onchange="onToChange()"></select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin: 10px">
+                            <label for="fromAccount">From Account</label>
+                            <select class="form-control" id="fromAccount" name="fromAccount">
+                                <option value="">-- Select From Account --</option>
+                                <c:forEach items="${userAccounts}" var="account">
+                                    <option value="${account.accountNumber}">${account.accountNumber}
+                                        - ${account.currencyType}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 10px">
+                            <label for="toAccount">To Account</label>
+                            <select class="form-control" id="toAccount" name="toAccount">
+                                <option value="">-- Select To Account --</option>
+                                <c:forEach items="${userAccounts}" var="account">
+                                    <option value="${account.accountNumber}">${account.accountNumber}
+                                        - ${account.currencyType}</option>
+                                </c:forEach>
+                            </select>
+                        </div>
+                        <div class="form-group" style="margin: 10px">
+                            <label for="amount">Amount</label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="amount"
+                                    name="amount"
+                                    placeholder="Enter exchange amount"
+                                    onchange="onAmountChange()"
+                                    value=
+                                    <c:if test="${requestScope.amount == null}">
+                                            0
+                            </c:if>
+                            />
+                        </div>
+                        <div class="form-group" style="margin: 10px">
+                            <label for="exchangeRate">Exchange Rate</label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="exchangeRate"
+                                    name="exchangeRate"
+                                    placeholder="Enter exchange rate"
+                                    onchange="onExchangeRateChange()"
+                                    readonly
+                                    value=
+                                    <c:if test="${requestScope.exchangeRate == null}">
+                                            0
+                            </c:if>
+                            />
+                        </div>
+                        <div class="form-group" style="margin: 10px">
+                            <label for="exchangeAmount">Exchange Amount</label>
+                            <input
+                                    type="number"
+                                    class="form-control"
+                                    id="exchangeAmount"
+                                    name="exchangeAmount"
+                                    placeholder="Enter exchange amount"
+                                    readonly
+                                    value=
+                                    <c:if test="${requestScope.exchangeAmount == null}">
+                                            0
+                            </c:if>
+                            />
+                            <button type="submit" class="btn btn-primary btn-block"
+                                    style="color:white;background: #e63946;margin: 1px;border: none;padding: 8px 32px;">
+                                Exchange
+                            </button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- End of Currency Exchange Form -->
+<script src="../js/country-list.js"></script>
+<script src="../js/currencyexchange.js"></script>
 </body>
 </html>

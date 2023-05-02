@@ -2,7 +2,9 @@ package com.application.corebank.controller.application;
 
 import com.application.corebank.domain.User;
 import com.application.corebank.dto.AccountDto;
+import com.application.corebank.dto.TransactionHistoryDto;
 import com.application.corebank.service.AccountService;
+import com.application.corebank.service.TransactionHistoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -20,6 +23,7 @@ import java.util.List;
 public class AppController {
 
     private AccountService accountService;
+    private TransactionHistoryService transactionHistoryService;
 
     @GetMapping("/dashboard")
     public ModelAndView getDashboard(HttpSession session) {
@@ -34,10 +38,18 @@ public class AppController {
         }
 
         //Get User Account Numbers
-        Integer numberOfUserAccounts = accountService.getNumberOfUserAccounts(user.getId());
+        List<AccountDto> userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        Integer numberOfUserAccounts = userAccountList.isEmpty() ? 0 : userAccountList.size();
+
+        //Get User Account Numbers
+        List<String> userAccountNumbers = userAccountList.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+
+        //Get List of Transactions
+        List<TransactionHistoryDto> transactions = transactionHistoryService.getLast5Transactions(userAccountNumbers);
 
         //Set Objects to dashboardPage
         dashboardPage.addObject("accountsCount", numberOfUserAccounts);
+        dashboardPage.addObject("transactions", transactions);
 
         return dashboardPage;
     }

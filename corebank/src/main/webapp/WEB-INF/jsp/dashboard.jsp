@@ -68,74 +68,94 @@
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-lg-6 col-md-12 col-sm-12 mt-3" id="char-line-div">
+        <div class="col-lg-6 col-md-12 col-sm-12 mt-3" id="last-5-transaction">
             <div class="card shadow-lg">
                 <div class="card-title">
-                    <h5 class="text-center">Last 5 Transactions</h5>
+                    <h5 class="text-center" style="margin-top: 10px;">Last 5 Transactions</h5>
                 </div>
                 <div class="card-body">
-                    <div
-                            style="display: none;text-align: center; width: 100%; height: 100%; position: absolute; left: 0; top: 100px; z-index: 20;"
-                            id="no-category"
-                    >
-                        <b>No category!</b>
-                    </div>
-                    <canvas id="chart-line"></canvas>
+                    <c:if test="${not empty transactions}">
+                        <table>
+                        <thead>
+                        <tr>
+                            <th>Account Number</th>
+                            <th>Transaction Type</th>
+                            <th>Message</th>
+                            <th>Amount</th>
+                            <th>Reason Code</th>
+                            <th>Transaction Time</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <c:forEach items="${transactions}" var="transaction">
+                            <tbody>
+                            <tr>
+                                <td>${transaction.accountNumber}</td>
+                                <td>${transaction.transactionType}</td>
+                                <td>${transaction.message}</td>
+                                <td>${transaction.amount}</td>
+                                <td>${transaction.reasonCode}</td>
+                                <td>${transaction.transactionTime}</td>
+                            </tr>
+                            </tbody>
+                            </table>
+                        </c:forEach>
+                    </c:if>
                 </div>
             </div>
         </div>
         <div class="col-lg-6 col-md-12 col-sm-12 mt-3" id="char-line-div">
             <div class="card shadow-lg">
                 <div class="card-title">
-                    <h5 class="text-center">Currency Exchange Rates</h5>
+                    <h5 class="text-center" style="margin-top: 10px;">Currency Exchange Rates</h5>
                 </div>
                 <div class="card-body">
-                    <div
-                            style="display: none;text-align: center; width: 100%; height: 100%; position: absolute; left: 0; top: 100px; z-index: 20;"
-                            id="no-brands"
-                    >
-                        <b>{% trans 'message:no_brands_found' %}</b>
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-2x fa-dollar-sign"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-2x fa-euro-sign"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-2x fa-gbp"></i>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <i class="fas fa-2x fa-try"></i>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <canvas id="chart-line-brands"></canvas>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row my-2">
-        <div class="col-12 mt-3" id="bar-chart-div">
-            <div class="card shadow-lg">
-                <div class="card-title">
-                    <h5 class="text-center">Assets (Year)</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="bar-chart"></canvas>
-                </div>
+</div>
+</div>
+<div class="row my-2">
+    <div class="col-12 mt-3" id="bar-chart-div">
+        <div class="card shadow-lg">
+            <div class="card-title">
+                <h5 class="text-center" style="margin-top: 10px;">Assets (Year)</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="bar-chart"></canvas>
             </div>
         </div>
     </div>
+</div>
 </div>
 <!-- End of Charts -->
-
-<div class="container d-flex">
-    <button
-            id="transact-btn"
-            class="btn btn-md ms-auto shadow"
-            type="button"
-            data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample"
-    >
-        <i class="fa-solid fa-money-bill-transfer"></i> Transact
-    </button>
-</div>
-
-<div class="container d-flex py-3">
-    <h3 class="ms-auto">Total Accounts Balance:</h3>
-    <h3 class="ms-auto">0.00</h3>
-</div>
-
-<c:import url="components/fast-transaction-canvas.jsp"/>
-<c:import url="components/add-account-canvas.jsp"/>
 
 <!-- Footer import -->
 <c:import url="components/common/dashboard/dashboard-footer.jsp"/>
