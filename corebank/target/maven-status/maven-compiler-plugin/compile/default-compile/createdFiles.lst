@@ -38,6 +38,7 @@ com\application\corebank\assembler\AccountAssembler.class
 com\application\corebank\service\TransactionHistoryService.class
 com\application\corebank\repository\MoneyTransferRepository.class
 com\application\corebank\service\CurrencyService.class
+com\application\corebank\service\CommissionService.class
 com\application\corebank\dto\CommissionDefinitionDto.class
 com\application\corebank\domain\User.class
 com\application\corebank\exception\AccountException.class

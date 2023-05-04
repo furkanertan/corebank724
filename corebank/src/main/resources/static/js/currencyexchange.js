@@ -47,30 +47,44 @@ exchangeIcon.addEventListener("click", ()=>{
 })
 
 function getExchangeRate(){
-    const amount = document.querySelector("form input");
-    const exchangeRateTxt = document.querySelector("form .exchange-rate");
-    let amountVal = amount.value;
-    // if user don't enter any value or enter 0 then we'll put 1 value by default in the input field
-    if(amountVal == "" || amountVal == "0"){
-        amount.value = "1";
-        amountVal = 1;
-    }
-    exchangeRateTxt.innerText = "Getting exchange rate...";
-    let url = `https://v6.exchangerate-api.com/v6/YOUR-API-KEY/latest/${fromCurrency.value}`;
-    // fetching api response and returning it with parsing into js obj and in another then method receiving that obj
-    fetch(url).then(response => response.json()).then(result =>{
-        let exchangeRate = result.conversion_rates[toCurrency.value]; // getting user selected TO currency rate
-        let totalExRate = (amountVal * exchangeRate).toFixed(2); // multiplying user entered value with selected TO currency rate
-        exchangeRateTxt.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
-    }).catch(() =>{ // if user is offline or any other error occured while fetching data then catch function will run
-        exchangeRateTxt.innerText = "Something went wrong";
-    });
 }
 
-function onFromChange(){
+function onFromCurrencyChange(){
+    //We should update account list, exchange rate and exchange amount
+    //call getAllActiveAccountsByCustomerNoAndCurrencyType service
+    const url = "http://localhost:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&commissionCode=" + fromCurrency;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+                console.log(data);
+                let accountList = data;
+                let accountListHtml = "";
+                for (let i = 0; i < accountList.length; i++) {
+                    accountListHtml += "<option value='" + accountList[i].accountNo + "'>" + accountList[i].accountNo + "</option>";
+                }
+                document.getElementById("fromAccountNo").innerHTML = accountListHtml;
+            }
+        );
+
+    //Get the account list of the selected currency from
     getExchangeRate();
 }
 
 function onToChange(){
+    //call getAllActiveAccountsByCustomerNoAndCurrencyType service
+    const url = "http://localhost:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&commissionCode=" + toCurrency;
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+                console.log(data);
+                let accountList = data;
+                let accountListHtml = "";
+                for (let i = 0; i < accountList.length; i++) {
+                    accountListHtml += "<option value='" + accountList[i].accountNo + "'>" + accountList[i].accountNo + "</option>";
+                }
+                document.getElementById("fromAccountNo").innerHTML = accountListHtml;
+            }
+        );
+
     getExchangeRate();
 }

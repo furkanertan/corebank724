@@ -26,7 +26,7 @@
         <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-danger text-white mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Account Number</h5>
+                    <h5 class="card-title">Number of Accounts</h5>
                     <p class="card-text h3">
                         <c:choose>
                             <c:when test="${accountsCount == 0}">
@@ -37,33 +37,54 @@
                             </c:otherwise>
                         </c:choose>
                     </p>
-                    <i class="fas fa-2x fa-coins"></i>
+                    <i class="fas fa-2x fa-pager"></i>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-primary text-white mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Total Deposit</h5>
-                    <p class="card-text h3">0</p>
-                    <i class="fas fa-2x fa-sack-dollar"></i>
+                    <h5 class="card-title">Total Deposits (PLN)</h5>
+                    <p class="card-text h3"><c:choose>
+                        <c:when test="${totalDeposits == 0}">
+                            0
+                        </c:when>
+                        <c:otherwise>
+                            ${totalDeposits}
+                        </c:otherwise>
+                    </c:choose></p>
+                    <i class="fas fa-2x fa-coins"></i>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
             <div class="card bg-success text-white mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Total Withdraw</h5>
-                    <p class="card-text h3">0</p>
-                    <i class="fas  fa-2x fa-money-bill-transfer"></i></div>
+                    <h5 class="card-title">Total Savings (PLN)</h5>
+                    <p class="card-text h3"><c:choose>
+                        <c:when test="${totalSavings == 0}">
+                            0
+                        </c:when>
+                        <c:otherwise>
+                            ${totalSavings}
+                        </c:otherwise>
+                    </c:choose></p>
+                    <i class="fas  fa-2x fa-sack-dollar"></i></div>
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card bg-dark text-white mb-3">
+            <div class="card bg-secondary text-white mb-3">
                 <div class="card-body">
-                    <h5 class="card-title">Total Withdraw</h5>
-                    <p class="card-text h3">0</p>
-                    <i class="fas  fa-2x fa-money-bill-transfer"></i></div>
+                    <h5 class="card-title">Total Checks (PLN)</h5>
+                    <p class="card-text h3"><c:choose>
+                        <c:when test="${totalChecks == 0}">
+                            0
+                        </c:when>
+                        <c:otherwise>
+                            ${totalChecks}
+                        </c:otherwise>
+                    </c:choose></p>
+                    <i class="fas  fa-2x fa-check-to-slot"></i></div>
             </div>
         </div>
     </div>
@@ -75,31 +96,32 @@
                 </div>
                 <div class="card-body">
                     <c:if test="${not empty transactions}">
-                        <table>
-                        <thead>
-                        <tr>
-                            <th>Account Number</th>
-                            <th>Transaction Type</th>
-                            <th>Message</th>
-                            <th>Amount</th>
-                            <th>Reason Code</th>
-                            <th>Transaction Time</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-                        <c:forEach items="${transactions}" var="transaction">
-                            <tbody>
-                            <tr>
-                                <td>${transaction.accountNumber}</td>
-                                <td>${transaction.transactionType}</td>
-                                <td>${transaction.message}</td>
-                                <td>${transaction.amount}</td>
-                                <td>${transaction.reasonCode}</td>
-                                <td>${transaction.transactionTime}</td>
-                            </tr>
-                            </tbody>
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover">
+                                <thead class="thead-dark">
+                                <tr>
+                                    <th>Account Number</th>
+                                    <th>Transaction Type</th>
+                                    <th>Message</th>
+                                    <th>Amount</th>
+                                    <th>Reason Code</th>
+                                    <th>Transaction Time</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <c:forEach items="${transactions}" var="transaction">
+                                    <tr>
+                                        <td>${transaction.accountNumber}</td>
+                                        <td>${transaction.transactionType}</td>
+                                        <td>${transaction.message}</td>
+                                        <td>${transaction.amount}</td>
+                                        <td>${transaction.reasonCode}</td>
+                                        <td>${transaction.transactionTime}</td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
                             </table>
-                        </c:forEach>
+                        </div>
                     </c:if>
                 </div>
             </div>
@@ -117,7 +139,8 @@
                                     <div class="col-6">
                                         <div class="card" style="border: none">
                                             <!-- Dollar currency -->
-                                            <div class="card-body d-flex align-items-center" style="background-color: #ffe690">
+                                            <div class="card-body d-flex align-items-center"
+                                                 style="background-color: #ffe690">
                                                 <i class="fas fa-2x fa-dollar-sign mr-2"></i>
                                                 <p class="card-text h5 mb-0"
                                                    style="margin-left: 20px;color: #14213d">1 USD
@@ -130,7 +153,8 @@
                                     <div class="col-6">
                                         <!-- Euro currency -->
                                         <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center" style="background-color: #f8d7da">
+                                            <div class="card-body d-flex align-items-center"
+                                                 style="background-color: #f8d7da">
                                                 <i class="fas fa-2x fa-euro-sign mr-2"></i>
                                                 <p class="card-text h5 mb-0"
                                                    style="margin-left: 20px;color: #14213d">1 EUR
@@ -143,9 +167,11 @@
                                     <div class="col-6">
                                         <!-- Pound currency -->
                                         <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center" style="background-color: #5a91bf">
+                                            <div class="card-body d-flex align-items-center"
+                                                 style="background-color: #5a91bf">
                                                 <i class="fas fa-2x fa-gbp mr-2"></i>
-                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1 GBP
+                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
+                                                    GBP
                                                     = ${currency.rate} PLN</p>
                                             </div>
                                         </div>
@@ -155,9 +181,11 @@
                                     <div class="col-6">
                                         <!-- Try currency -->
                                         <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center" style="background-color: lightcoral;">
+                                            <div class="card-body d-flex align-items-center"
+                                                 style="background-color: lightcoral;">
                                                 <i class="fas fa-2x fa-try mr-2"></i>
-                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1 TRY
+                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
+                                                    TRY
                                                     = ${currency.rate} PLN</p>
                                             </div>
                                         </div>
@@ -170,21 +198,18 @@
             </div>
         </div>
     </div>
-</div>
-</div>
-</div>
-<div class="row my-2">
-    <div class="col-12 mt-3" id="bar-chart-div">
-        <div class="card shadow-lg">
-            <div class="card-title">
-                <h5 class="text-center" style="margin-top: 10px;">Assets (Year)</h5>
-            </div>
-            <div class="card-body">
-                <canvas id="bar-chart"></canvas>
+    <div class="row my-2">
+        <div class="col-12 mt-3" id="bar-chart-div">
+            <div class="card shadow-lg">
+                <div class="card-title">
+                    <h5 class="text-center" style="margin-top: 10px;">Assets (Year)</h5>
+                </div>
+                <div class="card-body">
+                    <canvas id="bar-chart"></canvas>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <!-- End of Charts -->
 

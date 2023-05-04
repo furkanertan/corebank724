@@ -1,4 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,9 +11,6 @@
     <link rel="stylesheet" href="../css/fontawesome/css/all.css"/>
     <link rel="stylesheet" href="../css/dashboard.css"/>
     <script src="../js/bootstrap.bundle.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Transactions</title>
 </head>
 <body>
@@ -21,26 +20,37 @@
 
 <div class="container">
     <!-- Display success message-->
-    <c:if test="${requestScope.successTransactions != null}">
+    <c:if test="${requestScope.success != null}">
         <div class="alert alert-success text-center border border-success">
             <p class="text-center">
                 <i class="fas fa-check-circle"></i>
-                <b>${requestScope.successTransactions}</b>
+                <b>${requestScope.success}</b>
             </p>
         </div>
     </c:if>
     <!-- End of display success message -->
 
     <!-- Display error message-->
-    <c:if test="${requestScope.errorTransactions != null}">
+    <c:if test="${requestScope.error != null}">
         <div class="alert alert-danger text-center border border-danger">
             <p class="text-center">
                 <i class="fas fa-exclamation-triangle"></i>
-                <b>${requestScope.errorTransactions}</b>
+                <b>${requestScope.error}</b>
             </p>
         </div>
     </c:if>
     <!-- End of display error message -->
 </div>
-</body>
-</html>
+
+<c:choose>
+<c:when test="${fn:length(userTransactions) > 0}">
+    <c:import url="components/transactions-display.jsp"/>
+</c:when>
+<c:otherwise>
+    <c:import url="components/no-transactions-display.jsp"/>
+</c:otherwise>
+</c:choose>
+
+<!-- Footer import -->
+<c:import url="components/common/dashboard/dashboard-footer.jsp"/>
+<!-- End of Footer import -->

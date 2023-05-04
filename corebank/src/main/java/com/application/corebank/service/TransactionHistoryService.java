@@ -39,4 +39,15 @@ public class TransactionHistoryService {
 
         return assembler.fromEntityListToDtoList(transactionHistories);
     }
+
+    public List<TransactionHistoryDto> getAllTransactions(List<String> accountNumber) {
+        List<TransactionHistory> transactionHistories = repository.findAllOrderByTransactionTimeDesc(accountNumber);
+
+        if (transactionHistories.isEmpty()) {
+            System.out.println("No transaction history found");
+            return new ArrayList<>();
+        }
+
+        return assembler.fromEntityListToDtoList(transactionHistories);
+    }
 }

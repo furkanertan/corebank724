@@ -26,6 +26,7 @@ C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankb
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\CommissionDefinition.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\CurrencyRatesDto.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\config\MailConfig.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\service\CommissionService.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\MoneyTransferDto.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\MoneyTransferAssembler.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\assembler\CommissionDefinitionAssembler.java

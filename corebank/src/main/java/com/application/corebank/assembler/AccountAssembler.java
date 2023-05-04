@@ -22,7 +22,7 @@ public class AccountAssembler {
         account.setAccType(accountDto.getAccountType());
         account.setBalance(accountDto.getBalance());
         account.setStatus(accountDto.getStatus());
-        accountDto.setCreatedAt(LocalDateTime.now());
+        account.setCreatedAt(accountDto.getCreatedAt());
 
         return account;
     }

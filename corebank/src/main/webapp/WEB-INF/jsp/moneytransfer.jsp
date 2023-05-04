@@ -55,7 +55,7 @@
                     <form action="/moneytransfer/transfer" method="POST" class="money-transfer-form">
                         <div class="form-group" style="margin: 10px">
                             <label for="fromAccount">Sender's Account</label>
-                            <select class="form-control" id="fromAccount" name="fromAccount">
+                            <select class="form-control" id="fromAccount" name="fromAccount" onchange="onAccountChange()">
                                 <option value="">-- Select Account --</option>
                                 <c:forEach items="${userAccounts}" var="account">
                                     <option value="${account.accountNumber}">${account.accountNumber}

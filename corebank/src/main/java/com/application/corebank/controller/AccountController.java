@@ -40,15 +40,8 @@ public class AccountController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
-        //Get user accounts by user id
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        log.info("AccountsPage userAccounts: {}", userAccounts);
-
-        //Get currency types
-        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
-
-        accountsPage.addObject("userAccounts", userAccounts);
-        accountsPage.addObject("currencies", currencies);
+        setAccountsToPageView(accountsPage, user);
+        setCurrencyTypesToPageView(accountsPage);
 
         //Check if accountName is valid
         if (!accountValidation.isValidAccountName(accountName)) {
@@ -78,38 +71,32 @@ public class AccountController {
             return accountsPage;
         }
 
-        //Generate account number
-        Integer accountNumber = AccountNumberGenerator.generateAccountNumber();
-
         //Create account
-        AccountDto accountDto = accountAssembler.toAccountDto(accountName, accountType, accountCurrencyType, accountNumber, user.getId());
-        accountService.createAccount(accountDto);
+        createAccount(accountName, accountType, accountCurrencyType, user);
 
         accountsPage.addObject("success", "Account created successfully!");
+        //Updated accounts sent to view
+        setAccountsToPageView(accountsPage, user);
         return accountsPage;
     }
 
     @PostMapping("/deleteAccount")
     public ModelAndView deleteAccount(@RequestParam("accountNumber") String accountNumber,
                                       HttpSession session) {
-
         ModelAndView accountsPage = new ModelAndView("accounts");
         log.info("Deleting account...");
 
         //Get user from session
         User user = (User) session.getAttribute("user");
 
-        //Get user accounts by user id
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        log.info("AccountsPage userAccounts: {}", userAccounts);
+        accountService.deleteAccount(Integer.valueOf(accountNumber));
+
+        //Updated accounts sent to view
+        setAccountsToPageView(accountsPage, user);
 
         //Get currency types
-        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
+        setCurrencyTypesToPageView(accountsPage);
 
-        accountsPage.addObject("userAccounts", userAccounts);
-        accountsPage.addObject("currencies", currencies);
-
-        accountService.deleteAccount(Integer.valueOf(accountNumber));
         accountsPage.addObject("success", "Account deleted successfully!");
         return accountsPage;
     }
@@ -127,5 +114,36 @@ public class AccountController {
         log.info("Getting all active accounts by logged user: {}", userId);
 
         return accountService.getAllActiveAccountsByCustomerNo(userId);
+    }
+
+    @GetMapping("/getAllActiveAccountsByCustomerNoAndCurrencyType")
+    List<AccountDto> getAllActiveAccountsByCustomerNoAndCurrencyType(@RequestParam Long userId,
+                                                                     @RequestParam String currencyType) {
+        log.info("Getting all active accounts by logged user: {} and currency type: {}", userId, currencyType);
+
+        return accountService.getAccountsByUserIdAndCurrencyType(userId, currencyType);
+    }
+
+    private void setAccountsToPageView(ModelAndView accountsPage, User user) {
+        //Get user accounts by user id
+        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        log.info("AccountsPage setAccountsToPageView: {}", userAccounts);
+
+        accountsPage.addObject("userAccounts", userAccounts);
+    }
+
+    private void setCurrencyTypesToPageView(ModelAndView accountsPage) {
+        //Get currency types
+        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
+        accountsPage.addObject("currencies", currencies);
+    }
+
+    private void createAccount(String accountName, String accountType, String accountCurrencyType, User user) {
+        //Generate account number
+        Integer accountNumber = AccountNumberGenerator.generateAccountNumber();
+
+        //Create account
+        AccountDto accountDto = accountAssembler.toAccountDto(accountName, accountType, accountCurrencyType, accountNumber, user.getId());
+        accountService.createAccount(accountDto);
     }
 }

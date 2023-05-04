@@ -1,9 +1,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<!-- Accounts Table -->
+<!-- List of Transactions Table -->
 <head>
-    <title>List/Edit Accounts</title>
+    <title>List of Transactions</title>
     <style>
         table {
             border-collapse: collapse;
@@ -67,69 +67,53 @@
 <div class="tabs">
     <!-- Tab1 -->
     <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
-    <label for="tab1" class="tabs__label">List/Update Accounts</label>
+    <label for="tab1" class="tabs__label">List of Transactions</label>
     <div class="tabs__content">
-        <!-- List/Update Accounts -->
+        <!-- List of Transactions Table -->
         <table style="margin-left: 20px;margin-top: 20px; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
             <tr>
                 <th style="padding: 10px; background-color: #f2f2f2;">ID</th>
                 <th style="padding: 10px; background-color: #f2f2f2;">Account Number</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Account Name</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Account Type</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Account Currency Type</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Balance</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Created At</th>
-                <th style="padding: 10px; background-color: #f2f2f2;">Updated At</th>
-                <th style="padding: 10px; background-color: #f2f2f2;"></th>
+                <th style="padding: 10px; background-color: #f2f2f2;">Transaction Type</th>
+                <th style="padding: 10px; background-color: #f2f2f2;">Message</th>
+                <th style="padding: 10px; background-color: #f2f2f2;">Amount</th>
+                <th style="padding: 10px; background-color: #f2f2f2;">Reason Code</th>
+                <th style="padding: 10px; background-color: #f2f2f2;">Transaction Time</th>
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${userAccounts}" var="account">
+            <c:forEach items="${userTransactions}" var="transaction">
                 <tr>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.id}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.accountNumber}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.accountName}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.accountType}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.currencyType}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.balance}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.createdAt}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">${account.updatedAt}</td>
-                    <td style="padding: 10px; border: 1px solid #ddd;">
-                        <button class="btn btn-success btn-block edit"
-                                style="padding: 6px 12px;color: white;border: none;border-radius: 3px;cursor: pointer;">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                        </button>
-                        <form action="/account/deleteAccount" method="POST" class="delete-account-form">
-                            <input type="hidden" name="accountNumber" value="${account.accountNumber}">
-                            <button class="btn btn-primary btn-block delete"
-                                    style="padding: 6px 12px;color: white;border: none;border-radius: 3px;cursor: pointer;">
-                                <i class="fa-solid fa-trash-can"></i>
-                            </button>
-                        </form>
-                    </td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.id}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.accountNumber}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.transactionType}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.message}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.amount}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.reasonCode}</td>
+                    <td style="padding: 10px; border: 1px solid #ddd;">${transaction.transactionTime}</td>
                 </tr>
             </c:forEach>
             </tbody>
         </table>
-        <!-- End of List/Update Accounts -->
+        <!-- End of List of Transactions -->
     </div>
     <!-- End of Tab1-->
 
     <!-- Tab2-->
     <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
-    <label for="tab2" class="tabs__label">Create Account</label>
+    <label for="tab2" class="tabs__label">Create Transaction</label>
     <div class="tabs__content">
-        <!-- Create account Form -->
+        <!-- Create Transact Form -->
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header text-center" style="color: white;background-color: #14213d;">
-                            <h4 style="margin-top: 10px">Create Account</h4>
+                            <h4 style="margin-top: 10px">Create Transaction</h4>
                         </div>
                         <div class="card-body" style="color: #14213d;font-weight:500">
-                            <form action="/account/createAccount" method="POST" class="add-account-form">
+                            <form action="/account/createAccount" method="POST" class="create-transact-form">
                                 <div class="form-group" style="margin: 10px">
                                     <label for="accountName">Account Name</label>
                                     <input
@@ -174,7 +158,3 @@
     <!-- End of Tab2-->
 </div>
 <!-- End of Accounts Table -->
-
-
-
-

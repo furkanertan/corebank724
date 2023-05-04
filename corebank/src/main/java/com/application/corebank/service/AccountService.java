@@ -85,9 +85,13 @@ public class AccountService {
         }
     }
 
-    public Integer getNumberOfUserAccounts(Long userId) {
-        Integer accountNumber = repository.countByUserId(userId);
+    public List<AccountDto> getAccountsByUserIdAndCurrencyType(Long userId, String currencyType) {
+        List<Account> accounts = repository.findAllByUserIdAndAccCurrencyTypeAndStatus(userId, currencyType, ACTIVE.getCode());
 
-        return accountNumber != null ? accountNumber : 0;
+        if (isEmpty(accounts)) {
+            return null;
+        }
+
+        return assembler.fromEntityListToDtoList(accounts);
     }
 }

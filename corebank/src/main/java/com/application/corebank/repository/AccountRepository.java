@@ -2,7 +2,6 @@ package com.application.corebank.repository;
 
 import com.application.corebank.domain.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -14,6 +13,5 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     List<Account> findAllByUserIdAndStatus(Long userId, String status);
 
-    @Query(value = "SELECT count(*) FROM account a WHERE user_id = :userId and status = 'A'", nativeQuery = true)
-    Integer countByUserId(Long userId);
+    List<Account> findAllByUserIdAndAccCurrencyTypeAndStatus(Long userId, String accCurrencyType, String status);
 }

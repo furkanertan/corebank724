@@ -46,6 +46,12 @@ public class AppController {
         //Get User Account Numbers
         List<AccountDto> userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         Integer numberOfUserAccounts = userAccountList.isEmpty() ? 0 : userAccountList.size();
+        Double totalDeposits = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Deposit".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Deposits: {}", totalDeposits);
+        Double totalSavings = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Saving".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Savings: {}", totalSavings);
+        Double totalChecks = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Check".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Checks: {}", totalChecks);
 
         //Get User Account Numbers
         List<String> userAccountNumbers = userAccountList.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
@@ -58,6 +64,9 @@ public class AppController {
 
         //Set Objects to dashboardPage
         dashboardPage.addObject("accountsCount", numberOfUserAccounts);
+        dashboardPage.addObject("totalDeposits", totalDeposits);
+        dashboardPage.addObject("totalSavings", totalSavings);
+        dashboardPage.addObject("totalChecks", totalChecks);
         dashboardPage.addObject("transactions", transactions);
         dashboardPage.addObject("currencyRates", currencyRates);
 
@@ -136,6 +145,23 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
+        List<TransactionHistoryDto> userTransactions;
+
+        //Get all active accounts by user id
+        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        if (userAccounts.isEmpty()) {
+            //Set Objects to transactionsPage
+            transactionsPage.addObject("userTransactions", null);
+            return transactionsPage;
+        }
+
+        //Get user account numbers
+        List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+
+        //Get User Transactions
+        userTransactions = transactionHistoryService.getAllTransactions(userAccountNumbers);
+
+        transactionsPage.addObject("userTransactions", userTransactions);
         return transactionsPage;
     }
 
