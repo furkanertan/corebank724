@@ -45,30 +45,11 @@ public class AppController {
 
         //Get User Account Numbers
         List<AccountDto> userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        Integer numberOfUserAccounts = userAccountList.isEmpty() ? 0 : userAccountList.size();
-        Double totalDeposits = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Deposit".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
-        log.info("Total Deposits: {}", totalDeposits);
-        Double totalSavings = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Saving".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
-        log.info("Total Savings: {}", totalSavings);
-        Double totalChecks = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Check".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
-        log.info("Total Checks: {}", totalChecks);
 
-        //Get User Account Numbers
-        List<String> userAccountNumbers = userAccountList.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
-
-        //Get List of Transactions
-        List<TransactionHistoryDto> transactions = transactionHistoryService.getLast5Transactions(userAccountNumbers);
-
-        //Get List of Currency Rates
-        List<CurrencyRatesDto> currencyRates = currencyRatesService.getCurrencyRatesByToCurrency("PLN");
-
-        //Set Objects to dashboardPage
-        dashboardPage.addObject("accountsCount", numberOfUserAccounts);
-        dashboardPage.addObject("totalDeposits", totalDeposits);
-        dashboardPage.addObject("totalSavings", totalSavings);
-        dashboardPage.addObject("totalChecks", totalChecks);
-        dashboardPage.addObject("transactions", transactions);
-        dashboardPage.addObject("currencyRates", currencyRates);
+        //Set dashboard page values
+        setCardValues(userAccountList, dashboardPage);
+        setListOfTransactions(userAccountList, dashboardPage);
+        setCurrencyRates(dashboardPage);
 
         return dashboardPage;
     }
@@ -85,15 +66,9 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        //Get user accounts by user id
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        log.info("AccountsPage userAccounts: {}", userAccounts);
+        setUserAccounts(user, accountsPage);
+        setCurrencies(accountsPage);
 
-        //Get currency types
-        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
-
-        accountsPage.addObject("userAccounts", userAccounts);
-        accountsPage.addObject("currencies", currencies);
         return accountsPage;
     }
 
@@ -109,12 +84,7 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        //Get user accounts by user id
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        log.info("MoneyTransferPage userAccounts: {}", userAccounts);
-
-        moneyTransferPage.addObject("userAccounts", userAccounts);
-
+        setUserAccounts(user, moneyTransferPage);
         return moneyTransferPage;
     }
 
@@ -160,8 +130,9 @@ public class AppController {
 
         //Get User Transactions
         userTransactions = transactionHistoryService.getAllTransactions(userAccountNumbers);
-
         transactionsPage.addObject("userTransactions", userTransactions);
+
+        setUserAccounts(user, transactionsPage);
         return transactionsPage;
     }
 
@@ -179,5 +150,42 @@ public class AppController {
         }
 
         return loanCalculatorPage;
+    }
+
+    private void setCardValues(List<AccountDto> userAccountList, ModelAndView page) {
+        Integer numberOfUserAccounts = userAccountList.isEmpty() ? 0 : userAccountList.size();
+        Double totalDeposits = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Deposit".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Deposits: {}", totalDeposits);
+        Double totalSavings = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Saving".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Savings: {}", totalSavings);
+        Double totalChecks = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Check".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
+        log.info("Total Checks: {}", totalChecks);
+
+        page.addObject("accountsCount", numberOfUserAccounts);
+        page.addObject("totalDeposits", totalDeposits);
+        page.addObject("totalSavings", totalSavings);
+        page.addObject("totalChecks", totalChecks);
+    }
+
+    private void setListOfTransactions(List<AccountDto> userAccountList, ModelAndView page) {
+        List<String> userAccountNumbers = userAccountList.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+        List<TransactionHistoryDto> transactions = transactionHistoryService.getLast5Transactions(userAccountNumbers);
+        page.addObject("transactions", transactions);
+    }
+
+    private void setCurrencyRates(ModelAndView page) {
+        List<CurrencyRatesDto> currencyRates = currencyRatesService.getCurrencyRatesByToCurrency("PLN");
+        page.addObject("currencyRates", currencyRates);
+    }
+
+    private void setUserAccounts(User user, ModelAndView page) {
+        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        log.info("AccountsPage userAccounts: {}", userAccounts);
+        page.addObject("userAccounts", userAccounts);
+    }
+
+    private void setCurrencies(ModelAndView page) {
+        List<CurrencyDto> currencies = currencyService.getAllCurrencies();
+        page.addObject("currencies", currencies);
     }
 }

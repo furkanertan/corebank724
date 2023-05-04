@@ -69,6 +69,7 @@
     <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
     <label for="tab1" class="tabs__label">List of Transactions</label>
     <div class="tabs__content">
+        <h5 style="align-content: center;justify-content: center;display: flex">Transaction List</h5>
         <!-- List of Transactions Table -->
         <table style="margin-left: 20px;margin-top: 20px; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
@@ -102,7 +103,7 @@
 
     <!-- Tab2-->
     <input type="radio" class="tabs__radio" name="tabs-example" id="tab2">
-    <label for="tab2" class="tabs__label">Create Transaction</label>
+    <label for="tab2" class="tabs__label">Make Transaction</label>
     <div class="tabs__content">
         <!-- Create Transact Form -->
         <div class="container">
@@ -110,42 +111,48 @@
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header text-center" style="color: white;background-color: #14213d;">
-                            <h4 style="margin-top: 10px">Create Transaction</h4>
+                            <h4 style="margin-top: 10px">Make Transaction</h4>
                         </div>
                         <div class="card-body" style="color: #14213d;font-weight:500">
-                            <form action="/account/createAccount" method="POST" class="create-transact-form">
+                            <form action="/transaction/makeTransaction" method="POST" class="make-transact-form">
                                 <div class="form-group" style="margin: 10px">
-                                    <label for="accountName">Account Name</label>
-                                    <input
-                                            type="text"
-                                            class="form-control"
-                                            id="accountName"
-                                            name="accountName"
-                                            placeholder="Enter account's name"
-                                    />
-                                </div>
-                                <div class="form-group" style="margin: 10px">
-                                    <label for="accountCurrencyType">Account Currency Type</label>
-                                    <select class="form-control" id="accountCurrencyType" name="accountCurrencyType">
-                                        <option value="">-- Select Currency Type --</option>
-                                        <c:forEach items="${currencies}" var="currency">
-                                            <option value="${currency.type}">${currency.type}
-                                                - ${currency.description}</option>
+                                    <label for="account">Account</label>
+                                    <select class="form-control" id="account" name="account">
+                                        <option value="">-- Select Account --</option>
+                                        <c:forEach items="${userAccounts}" var="account">
+                                            <option value="${account.accountNumber}">${account.accountNumber}
+                                                - ${account.currencyType}</option>
                                         </c:forEach>
                                     </select>
                                 </div>
                                 <div class="form-group" style="margin: 10px">
-                                    <label for="accountType">Account Type</label>
-                                    <select class="form-control" id="accountType" name="accountType">
-                                        <option value="">-- Select Account Type --</option>
-                                        <option value="Check">Check</option>
-                                        <option value="Deposit">Deposit</option>
-                                        <option value="Saving">Saving</option>
-                                    </select>
+                                    <label for="amount">Amount</label>
+                                    <input
+                                            type="number"
+                                            class="form-control"
+                                            id="amount"
+                                            name="amount"
+                                            placeholder="Enter transaction amount"
+                                            min="0.00"
+                                            value=
+                                            <c:if test="${requestScope.amount == null}">
+                                                    0.00
+                                    </c:if>
+                                    />
+                                </div>
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="message">Message</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="message"
+                                            name="message"
+                                            placeholder="Enter message for transaction"
+                                    />
                                 </div>
                                 <button type="submit" class="btn btn-primary btn-block"
                                         style="color:white;background: #e63946;margin: 10px;border: none;padding: 8px 32px;">
-                                    Create Account
+                                    Complete Transaction
                                 </button>
                             </form>
                         </div>

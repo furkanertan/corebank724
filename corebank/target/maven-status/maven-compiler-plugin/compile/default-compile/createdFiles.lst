@@ -15,7 +15,6 @@ com\application\corebank\service\UserService.class
 com\application\corebank\repository\UserRepository.class
 com\application\corebank\repository\CommissionDefinitionRepository.class
 com\application\corebank\domain\CurrencyRates.class
-com\application\corebank\controller\TransactionHistoryController.class
 com\application\corebank\assembler\UserAssembler.class
 com\application\corebank\service\CommissionDefinitionService.class
 com\application\corebank\dto\TransactionHistoryDto.class

@@ -59,16 +59,16 @@ public class AccountService {
         log.info("Account created successfully!");
     }
 
-    public void updateAccountBalance(Integer accountNumber, Double balance, Boolean isSender) {
+    public void updateAccountBalance(Integer accountNumber, Double amount, Boolean isSender) {
         Account account = repository.findAccountByAccNumber(accountNumber);
 
         if (isSender) {
-            balance = account.getBalance() - balance;
+            amount = account.getBalance() - amount;
         } else {
-            balance = account.getBalance() + balance;
+            amount = account.getBalance() + amount;
         }
 
-        Account updatedAccount = assembler.toUpdateAccountBalance(account, balance);
+        Account updatedAccount = assembler.toUpdateAccountBalance(account, amount);
         repository.save(updatedAccount);
 
         log.info("Account updated successfully!");
