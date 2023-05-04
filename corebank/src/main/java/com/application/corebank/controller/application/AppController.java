@@ -152,6 +152,36 @@ public class AppController {
         return loanCalculatorPage;
     }
 
+    @GetMapping("/profile")
+    public ModelAndView getProfilePage(HttpSession session) {
+        ModelAndView profilePage = new ModelAndView("profile");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        return profilePage;
+    }
+
+    @GetMapping("/help")
+    public ModelAndView getHelpPage(HttpSession session) {
+        ModelAndView helpPage = new ModelAndView("help");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        //If user is not logged in, redirect to login page
+        if (user == null) {
+            return new ModelAndView("redirect:/login");
+        }
+
+        return helpPage;
+    }
+
     private void setCardValues(List<AccountDto> userAccountList, ModelAndView page) {
         Integer numberOfUserAccounts = userAccountList.isEmpty() ? 0 : userAccountList.size();
         Double totalDeposits = userAccountList.stream().filter(accountDto -> "PLN".equals(accountDto.getCurrencyType()) & "Deposit".equals(accountDto.getAccountType())).mapToDouble(AccountDto::getBalance).sum();
