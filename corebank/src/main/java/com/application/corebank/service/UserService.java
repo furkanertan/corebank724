@@ -7,6 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @Slf4j
 @AllArgsConstructor
@@ -23,6 +25,27 @@ public class UserService {
         repository.save(user);
 
         log.info("User saved to database!");
+    }
+
+    public void updateUser(String firstName, String lastName, String email, String phone, String address, Long userId) {
+        log.info("Updating user...");
+
+        Optional<User> user = repository.findById(userId);
+
+        if (user.isPresent()) {
+            User userToUpdate = user.get();
+
+            userToUpdate.setFirstName(firstName);
+            userToUpdate.setLastName(lastName);
+            userToUpdate.setEmail(email);
+            userToUpdate.setPhone(phone);
+            userToUpdate.setAddress(address);
+
+            repository.save(userToUpdate);
+            log.info("User updated!");
+        } else {
+            log.info("User not found!");
+        }
     }
 
     public void updatePassword(Long userId, String password) {

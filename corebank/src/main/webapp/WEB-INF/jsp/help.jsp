@@ -19,46 +19,30 @@
             line-height: 1.5;
         }
 
-        header {
-            background-color: #0275d8;
-            color: #fff;
-            padding: 20px;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: normal;
-        }
-
         h2 {
-            font-size: 24px;
-            margin-top: 30px;
-            margin-bottom: 10px;
+            text-align: center;
+            margin-bottom: 20px;
+            margin-top: 50px;
         }
 
         .faq {
             border: 1px solid #ddd;
             padding: 20px;
-            margin-top: 30px;
+            margin-top: 40px;
         }
 
         .faq h3 {
             font-size: 20px;
             margin-top: 0;
             margin-bottom: 10px;
+            color: #0a53be;
         }
 
         .faq p {
             margin-bottom: 20px;
         }
 
-        .faq a {
-            color: #0275d8;
-            text-decoration: none;
-        }
-
-        .faq a:hover {
+        .faq h3:hover {
             text-decoration: underline;
         }
     </style>
@@ -70,6 +54,7 @@
 <!-- End of Navigation bar import -->
 
 <div class="container">
+    <h2>Frequently Asked Questions</h2>
     <div class="faq">
         <h3>What is online banking?</h3>
         <p>Online banking is a service that allows you to manage your bank account over the internet. With online

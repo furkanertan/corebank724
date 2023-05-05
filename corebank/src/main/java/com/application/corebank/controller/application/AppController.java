@@ -163,7 +163,7 @@ public class AppController {
         if (user == null) {
             return new ModelAndView("redirect:/login");
         }
-
+        profilePage.addObject("user", user);
         return profilePage;
     }
 

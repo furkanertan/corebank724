@@ -12,7 +12,7 @@
         </nav>
 
         <div class="display-name ms-auto dropdown">
-            <a class="btn btn-secondary dropdown-toggle" style="background-color: transparent;border-color: white" href="#" role="button"
+            <a class="btn btn-secondary dropdown-toggle" style="background-color: transparent;border-color: white" role="button"
                id="dropdownMenuLink"
                data-bs-toggle="dropdown" aria-expanded="false">
                 <i class="fa fa-circle text-success me-2"></i>Welcome,
