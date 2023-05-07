@@ -140,7 +140,7 @@
                                         <div class="card" style="border: none">
                                             <!-- Dollar currency -->
                                             <div class="card-body d-flex align-items-center"
-                                                 style="background-color: #ffe690">
+                                                 style="background: linear-gradient(to right,  #f8ff00, #f1e4af);">
                                                 <i class="fas fa-2x fa-dollar-sign mr-2"></i>
                                                 <p class="card-text h5 mb-0"
                                                    style="margin-left: 20px;color: #14213d">1 USD
@@ -154,7 +154,7 @@
                                         <!-- Euro currency -->
                                         <div class="card" style="border: none">
                                             <div class="card-body d-flex align-items-center"
-                                                 style="background-color: #f8d7da">
+                                                 style="background: linear-gradient(to right,  #d727ba, #f088f6);">
                                                 <i class="fas fa-2x fa-euro-sign mr-2"></i>
                                                 <p class="card-text h5 mb-0"
                                                    style="margin-left: 20px;color: #14213d">1 EUR
@@ -168,7 +168,7 @@
                                         <!-- Pound currency -->
                                         <div class="card" style="border: none">
                                             <div class="card-body d-flex align-items-center"
-                                                 style="background-color: #5a91bf">
+                                                 style="background: linear-gradient(to right,  #9423f1, #d8a0f5);">
                                                 <i class="fas fa-2x fa-gbp mr-2"></i>
                                                 <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
                                                     GBP
@@ -182,7 +182,7 @@
                                         <!-- Try currency -->
                                         <div class="card" style="border: none">
                                             <div class="card-body d-flex align-items-center"
-                                                 style="background-color: lightcoral;">
+                                                 style="background: linear-gradient(to right,  #f17d23, #f3b288);">
                                                 <i class="fas fa-2x fa-try mr-2"></i>
                                                 <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
                                                     TRY

@@ -52,13 +52,14 @@
                 </div>
                 <div class="card-body" style="color: #14213d;font-weight:500">
                     <form action="" method="POST" class="currency-exchange-form">
+                        <input type="hidden" name="userId" value="${sessionScope.user.id}" id="userId"/>
                         <div class="form-group" style="margin: 10px">
                             <div class="drop-list">
                                 <div class="row">
                                     <p>From:</p>
                                     <div class="select-box">
                                         <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-                                        <select onchange="onFromChange()">
+                                        <select id="fromCurrency" name="fromCurrency" onchange="onFromCurrencyChange()">
                                         </select>
                                     </div>
                                 </div>
@@ -66,7 +67,7 @@
                                     <p>To:</p>
                                     <div class="select-box">
                                         <img src="https://flagcdn.com/48x36/fr.png" alt="flag">
-                                        <select onchange="onToChange()"></select>
+                                        <select id="toCurrency" name="toCurrency" onchange="onToCurrencyChange()"></select>
                                     </div>
                                 </div>
                             </div>
@@ -74,21 +75,11 @@
                         <div class="form-group" style="margin: 10px">
                             <label for="fromAccount">From Account</label>
                             <select class="form-control" id="fromAccount" name="fromAccount">
-                                <option value="">-- Select From Account --</option>
-                                <c:forEach items="${userAccounts}" var="account">
-                                    <option value="${account.accountNumber}">${account.accountNumber}
-                                        - ${account.currencyType}</option>
-                                </c:forEach>
                             </select>
                         </div>
                         <div class="form-group" style="margin: 10px">
                             <label for="toAccount">To Account</label>
                             <select class="form-control" id="toAccount" name="toAccount">
-                                <option value="">-- Select To Account --</option>
-                                <c:forEach items="${userAccounts}" var="account">
-                                    <option value="${account.accountNumber}">${account.accountNumber}
-                                        - ${account.currencyType}</option>
-                                </c:forEach>
                             </select>
                         </div>
                         <div class="form-group" style="margin: 10px">
@@ -140,6 +131,7 @@
                                     style="color:white;background: #e63946;margin: 1px;border: none;padding: 8px 32px;">
                                 Exchange
                             </button>
+                        </div>
                     </form>
                 </div>
             </div>
