@@ -4,18 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="bug fix on money transfers">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_10_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/corebank_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/corebank_war_exploded.xml" afterDir="false" />
+    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="update on currencyexchange">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/2e46cd0e-288d-4f4e-b226-9bb111db2af6.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/2e46cd0e-288d-4f4e-b226-9bb111db2af6.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/corebank.iml" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/corebank.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/js/currencyexchange.js" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/js/currencyexchange.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AuthController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/static/css/dashboard.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +178,8 @@
       <workItem from="1682751050296" duration="25140000" />
       <workItem from="1683211298568" duration="18043000" />
       <workItem from="1683296781044" duration="3706000" />
-      <workItem from="1683454012453" duration="21975000" />
+      <workItem from="1683454012453" duration="24592000" />
+      <workItem from="1683493202313" duration="168000" />
     </task>
     <task id="LOCAL-00001" summary="Currency is added">
       <created>1668629345575</created>
@@ -368,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683472157899</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="update on currencyexchange">
+      <created>1683478475453</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1683478475453</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -386,7 +388,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Account Controller is updated" />
     <MESSAGE value="Account Controller updated with new endpoints&#10;activate, deactivate, getallAccounts by customer Number" />
     <MESSAGE value="createAccount method is implemented" />
     <MESSAGE value="Starting to add AppConfig" />
@@ -411,14 +412,15 @@
     <MESSAGE value="Edit profile implementation" />
     <MESSAGE value="update account controls" />
     <MESSAGE value="bug fix on money transfers" />
-    <option name="LAST_COMMIT_MESSAGE" value="bug fix on money transfers" />
+    <MESSAGE value="update on currencyexchange" />
+    <option name="LAST_COMMIT_MESSAGE" value="update on currencyexchange" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/dashboard.jsp</url>
-          <line>168</line>
+          <line>169</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

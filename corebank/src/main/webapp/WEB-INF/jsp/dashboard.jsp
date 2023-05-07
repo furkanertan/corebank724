@@ -89,110 +89,187 @@
         </div>
     </div>
     <div class="row my-2">
-        <div class="col-lg-6 col-md-12 col-sm-12 mt-3" id="last-5-transaction">
-            <div class="card shadow-lg">
-                <div class="card-title">
-                    <h5 class="text-center" style="margin-top: 10px;">Last 5 Transactions</h5>
-                </div>
-                <div class="card-body">
-                    <c:if test="${not empty transactions}">
-                        <div class="table-responsive">
-                            <table class="table table-bordered table-hover">
-                                <thead class="thead-dark">
-                                <tr>
-                                    <th>Account Number</th>
-                                    <th>Transaction Type</th>
-                                    <th>Message</th>
-                                    <th>Amount</th>
-                                    <th>Reason Code</th>
-                                    <th>Transaction Time</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <c:forEach items="${transactions}" var="transaction">
+        <div class="grid-container">
+            <div class="big-card" id="last-5-transaction">
+                <div class="card shadow-lg">
+                    <div class="card-title">
+                        <h5 class="text-center" style="margin-top: 10px;">Last 5 Transactions</h5>
+                    </div>
+                    <div class="card-body">
+                        <c:if test="${not empty transactions}">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="thead-dark">
                                     <tr>
-                                        <td>${transaction.accountNumber}</td>
-                                        <td>${transaction.transactionType}</td>
-                                        <td>${transaction.message}</td>
-                                        <td>${transaction.amount}</td>
-                                        <td>${transaction.reasonCode}</td>
-                                        <td>${transaction.transactionTime}</td>
+                                        <th>Account Number</th>
+                                        <th>Transaction Type</th>
+                                        <th>Message</th>
+                                        <th>Amount</th>
+                                        <th>Reason Code</th>
+                                        <th>Transaction Time</th>
                                     </tr>
-                                </c:forEach>
-                                </tbody>
-                            </table>
-                        </div>
-                    </c:if>
+                                    </thead>
+                                    <tbody>
+                                    <c:forEach items="${transactions}" var="transaction">
+                                        <tr>
+                                            <td>${transaction.accountNumber}</td>
+                                            <td>${transaction.transactionType}</td>
+                                            <td>${transaction.message}</td>
+                                            <td>${transaction.amount}</td>
+                                            <td>${transaction.reasonCode}</td>
+                                            <td>${transaction.transactionTime}</td>
+                                        </tr>
+                                    </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </c:if>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 mt-3" id="char-line-div">
-            <div class="card shadow-lg">
-                <div class="card-title">
-                    <h5 class="text-center" style="margin-top: 10px;color: #14213d">Currency Exchange Rates</h5>
+            <div class="small-card-2" id="small-card-2">
+                <div class="card shadow-lg">
+                    <div class="card-title">
+                        <h5 class="text-center" style="margin-top: 10px;color: #14213d">Currency Exchange Rates</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <c:if test="${not empty currencyRates}">
+                                <c:forEach items="${currencyRates}" var="currency">
+                                    <c:if test="${currency.fromCurrency == 'USD'}">
+                                        <div class="col-6">
+                                            <div class="card" style="border: none">
+                                                <!-- Dollar currency -->
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #f8ff00, #f1e4af);">
+                                                    <i class="fas fa-2x fa-dollar-sign mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1 USD
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'EUR'}">
+                                        <div class="col-6">
+                                            <!-- Euro currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #d727ba, #f088f6);">
+                                                    <i class="fas fa-2x fa-euro-sign mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1 EUR
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'GBP'}">
+                                        <div class="col-6">
+                                            <!-- Pound currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #9423f1, #d8a0f5);">
+                                                    <i class="fas fa-2x fa-gbp mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1
+                                                        GBP
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'TRY'}">
+                                        <div class="col-6">
+                                            <!-- Try currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #f17d23, #f3b288);">
+                                                    <i class="fas fa-2x fa-try mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1
+                                                        TRY
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-body">
-                    <div class="row">
-                        <c:if test="${not empty currencyRates}">
-                            <c:forEach items="${currencyRates}" var="currency">
-                                <c:if test="${currency.fromCurrency == 'USD'}">
-                                    <div class="col-6">
-                                        <div class="card" style="border: none">
-                                            <!-- Dollar currency -->
-                                            <div class="card-body d-flex align-items-center"
-                                                 style="background: linear-gradient(to right,  #f8ff00, #f1e4af);">
-                                                <i class="fas fa-2x fa-dollar-sign mr-2"></i>
-                                                <p class="card-text h5 mb-0"
-                                                   style="margin-left: 20px;color: #14213d">1 USD
-                                                    = ${currency.rate} PLN</p>
+            </div>
+            <div class="small-card-1" id="small-card-1">
+                <div class="card shadow-lg">
+                    <div class="card-title">
+                        <h5 class="text-center" style="margin-top: 10px;color: #14213d">Currency Exchange Rates</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <c:if test="${not empty currencyRates}">
+                                <c:forEach items="${currencyRates}" var="currency">
+                                    <c:if test="${currency.fromCurrency == 'USD'}">
+                                        <div class="col-6">
+                                            <div class="card" style="border: none">
+                                                <!-- Dollar currency -->
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #f8ff00, #f1e4af);">
+                                                    <i class="fas fa-2x fa-dollar-sign mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1 USD
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:if>
-                                <c:if test="${currency.fromCurrency == 'EUR'}">
-                                    <div class="col-6">
-                                        <!-- Euro currency -->
-                                        <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center"
-                                                 style="background: linear-gradient(to right,  #d727ba, #f088f6);">
-                                                <i class="fas fa-2x fa-euro-sign mr-2"></i>
-                                                <p class="card-text h5 mb-0"
-                                                   style="margin-left: 20px;color: #14213d">1 EUR
-                                                    = ${currency.rate} PLN</p>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'EUR'}">
+                                        <div class="col-6">
+                                            <!-- Euro currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #d727ba, #f088f6);">
+                                                    <i class="fas fa-2x fa-euro-sign mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1 EUR
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:if>
-                                <c:if test="${currency.fromCurrency == 'GBP'}">
-                                    <div class="col-6">
-                                        <!-- Pound currency -->
-                                        <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center"
-                                                 style="background: linear-gradient(to right,  #9423f1, #d8a0f5);">
-                                                <i class="fas fa-2x fa-gbp mr-2"></i>
-                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
-                                                    GBP
-                                                    = ${currency.rate} PLN</p>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'GBP'}">
+                                        <div class="col-6">
+                                            <!-- Pound currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #9423f1, #d8a0f5);">
+                                                    <i class="fas fa-2x fa-gbp mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1
+                                                        GBP
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:if>
-                                <c:if test="${currency.fromCurrency == 'TRY'}">
-                                    <div class="col-6">
-                                        <!-- Try currency -->
-                                        <div class="card" style="border: none">
-                                            <div class="card-body d-flex align-items-center"
-                                                 style="background: linear-gradient(to right,  #f17d23, #f3b288);">
-                                                <i class="fas fa-2x fa-try mr-2"></i>
-                                                <p class="card-text h5 mb-0" style="margin-left: 20px;color: #14213d">1
-                                                    TRY
-                                                    = ${currency.rate} PLN</p>
+                                    </c:if>
+                                    <c:if test="${currency.fromCurrency == 'TRY'}">
+                                        <div class="col-6">
+                                            <!-- Try currency -->
+                                            <div class="card" style="border: none">
+                                                <div class="card-body d-flex align-items-center"
+                                                     style="background: linear-gradient(to right,  #f17d23, #f3b288);">
+                                                    <i class="fas fa-2x fa-try mr-2"></i>
+                                                    <p class="card-text h5 mb-0"
+                                                       style="margin-left: 20px;color: #14213d">1
+                                                        TRY
+                                                        = ${currency.rate} PLN</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </c:if>
-                            </c:forEach>
-                        </c:if>
+                                    </c:if>
+                                </c:forEach>
+                            </c:if>
+                        </div>
                     </div>
                 </div>
             </div>

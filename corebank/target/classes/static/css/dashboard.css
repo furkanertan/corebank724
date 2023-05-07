@@ -279,3 +279,25 @@ form .drop-list{
     border-radius: 8px;
     border-right: 2px solid #ffffff;
 }
+
+.grid-container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "small-card-1 big-card big-card"
+    "small-card-2 big-card big-card";
+}
+
+.big-card {
+    grid-area: big-card;
+}
+
+.small-card-1 {
+    grid-area: small-card-1;
+}
+
+.small-card-2 {
+    grid-area: small-card-2;
+}
