@@ -56,22 +56,31 @@
 <div class="container">
     <h2>Frequently Asked Questions</h2>
     <div class="faq">
-        <h3>What is online banking?</h3>
-        <p>Online banking is a service that allows you to manage your bank account over the internet. With online
-            banking, you can check your account balance, view transaction history, transfer money, pay bills, and
-            more.</p>
+        <h3>How can i create account?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page and then you should choose "Create
+            Account" tab in the page.
+            After you filled all required fields, you will have a new account created.</p>
     </div>
     <div class="faq">
-        <h3>Is online banking secure?</h3>
-        <p>Yes, online banking is generally considered to be safe and secure. Banks use a variety of security measures,
-            such as encryption, firewalls, and two-factor authentication, to protect your personal and financial
-            information.</p>
+        <h3>How can i see all my accounts?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page and then you should choose "List/Update
+            Accounts" tab in the page.
+            After you filled all required fields, you will have a new account created.</p>
     </div>
     <div class="faq">
-        <h3>How do I sign up for online banking?</h3>
-        <p>To sign up for online banking, you will need to contact your bank and request access to their online banking
-            service. The bank will then provide you with login credentials, which you can use to access your account
-            online.</p>
+        <h3>Is there any limitation on number of creating accounts?</h3>
+        <p>No, there is no limitation on number of creating accounts.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I see all my transaction history</h3>
+        <p>Transaction history is available under "Transactions" section. So, you should click on "Transactions" section on the header of the page
+        and all your transactions will appear on "List of Transactions" tab.</p>
+    </div>
+    <div class="faq">
+        <h3>How can i transfer money between my accounts?</h3>
+        <p>First, you should click on "Transactions" section on the header of the page and then you should choose
+            "Make Transactions" tab in the page.
+            After you filled all required fields, you will have a new account created.</p>
     </div>
     <div class="faq">
         <h3>What should I do if I forget my online banking password?</h3>

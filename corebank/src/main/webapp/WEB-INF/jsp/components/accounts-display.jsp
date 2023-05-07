@@ -64,7 +64,31 @@
             display: initial;
         }
     </style>
-    <script src="../../../js/accounts-display.js"></script>
+    <script>
+        function onAccountEdit(button) {
+            const editContainer = document.getElementById('edit-container');
+            if (editContainer.style.display === 'none') {
+                editContainer.style.display = 'block';
+                //fill all the fields from selected row
+                const row = button.parentNode.parentNode;
+                const cells = row.getElementsByTagName('td');
+                const accountNumber = cells[1].innerText;
+                const accountName = cells[2].innerText;
+                const accountType = cells[3].innerText;
+                const currencyType = cells[4].innerText;
+                const balance = cells[5].innerText;
+                // fill the edit container fields with the extracted data
+                document.getElementById('updAccountNumber').value = accountNumber;
+                document.getElementById('updAccountName').value = accountName;
+                document.getElementById('updAccountType').value = accountType;
+                document.getElementById('updAccountCurrencyType').value = currencyType;
+                document.getElementById('updBalance').value = balance;
+            } else {
+                editContainer.style.display = 'none';
+                //clear all the fields
+            }
+        }
+    </script>
 </head>
 <div class="tabs">
     <!-- Tab1 -->
@@ -72,7 +96,7 @@
     <label for="tab1" class="tabs__label">List/Update Accounts</label>
     <div class="tabs__content">
         <!-- List/Update Accounts -->
-        <table style="margin-left: 20px;margin-top: 20px; border-collapse: collapse; border: 1px solid #ddd;">
+        <table style="margin-left: 20px;margin-top: 50px; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
             <tr>
                 <th style="padding: 10px; background-color: #f2f2f2;">ID</th>
@@ -98,7 +122,7 @@
                     <td style="padding: 10px; border: 1px solid #ddd;">${account.createdAt}</td>
                     <td style="padding: 10px; border: 1px solid #ddd;">${account.updatedAt}</td>
                     <td style="padding: 10px; border: 1px solid #ddd;">
-                        <button class="btn btn-success btn-block edit"
+                        <button class="btn btn-primary btn-block edit" id="edit-button" onclick="onAccountEdit(this)"
                                 style="padding: 6px 12px;color: white;border: none;border-radius: 3px;cursor: pointer;">
                             <i class="fa-solid fa-pen-to-square"></i>
                         </button>
@@ -115,6 +139,78 @@
             </tbody>
         </table>
         <!-- End of List/Update Accounts -->
+
+        <!-- Edit Account Form -->
+        <div class="container" style="display:none" id="edit-container">
+            <div class="row">
+                <div class="col-md-6" style="align-items: center;display: flex;justify-content: center;width: 100%">
+                    <div class="card" style="margin-top: 50px;width: 80%">
+                        <div class="card-header text-center" style="color: white;background-color: #14213d;">
+                            <h4 style="margin-top: 10px">Edit Account</h4>
+                        </div>
+                        <div class="card-body" style="color: #14213d;font-weight:500">
+                            <form action="/account/updateAccount" method="POST" class="edit-account-form">
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="updAccountNumber">Account Number</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="updAccountNumber"
+                                            name="updAccountNumber"
+                                            readonly
+                                    />
+                                </div>
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="updAccountName">Account Name</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="updAccountName"
+                                            name="updAccountName"
+                                    />
+                                </div>
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="updAccountType">Account Type</label>
+                                    <select class="form-control" id="updAccountType" name="updAccountType">
+                                        <option value="">-- Select Account Type --</option>
+                                        <option value="Check">Check</option>
+                                        <option value="Deposit">Deposit</option>
+                                        <option value="Saving">Saving</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="updAccountCurrencyType">Account Currency Type</label>
+                                    <select class="form-control" id="updAccountCurrencyType"
+                                            name="updAccountCurrencyType" disabled>
+                                        <option value="">-- Select Currency Type --</option>
+                                        <c:forEach items="${currencies}" var="currency">
+                                            <option value="${currency.type}">${currency.type}
+                                                - ${currency.description}</option>
+                                        </c:forEach>
+
+                                    </select>
+                                </div>
+                                <div class="form-group" style="margin: 10px">
+                                    <label for="updBalance">Balance</label>
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="updBalance"
+                                            name="updBalance"
+                                            disabled
+                                    />
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block"
+                                        style="color:white;background: #e63946;margin: 10px;border: none;padding: 8px 32px;">
+                                    Update Account
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Edit account Form -->
     </div>
     <!-- End of Tab1-->
 

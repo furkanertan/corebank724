@@ -94,4 +94,9 @@ public class AccountService {
 
         return assembler.fromEntityListToDtoList(accounts);
     }
+
+    public void updateAccount(AccountDto accountDto) {
+        Account account = assembler.toUpdateAccount(accountDto);
+        repository.save(account);
+    }
 }

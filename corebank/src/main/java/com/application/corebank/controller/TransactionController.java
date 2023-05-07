@@ -37,24 +37,28 @@ public class TransactionController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
+        //set user transactions and accounts to page view
+        setUserTransactions(user, transactionsPage);
+        setUserAccounts(user, transactionsPage);
+
         //check if accountNumber is valid
         if (account == null) {
             log.error("Invalid account number!");
-            transactionsPage.addObject("error", "Invalid account number!");
+            transactionsPage.addObject("errorTransactions", "Invalid account number!");
             return transactionsPage;
         }
 
         //check if amount is valid
         if (amount <= 0) {
             log.error("Invalid amount!");
-            transactionsPage.addObject("error", "Invalid amount!");
+            transactionsPage.addObject("errorTransactions", "Invalid amount!");
             return transactionsPage;
         }
 
         //check if message is valid
         if (message.isEmpty()) {
             log.error("Invalid message!");
-            transactionsPage.addObject("error", "Invalid message!");
+            transactionsPage.addObject("errorTransactions", "Invalid message!");
             return transactionsPage;
         }
 
@@ -64,13 +68,23 @@ public class TransactionController {
         //update account balance
         accountService.updateAccountBalance(account, amount, false);
 
-        //set transactions to page view
+        //set user transactions to page view
+        setUserTransactions(user, transactionsPage);
+
+        transactionsPage.addObject("successTransactions", "Transaction completed successfully!");
+        return transactionsPage;
+    }
+
+    private void setUserTransactions(User user, ModelAndView transactionsPage){
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
         List<TransactionHistoryDto> userTransactions = transactionHistoryService.getAllTransactions(userAccountNumbers);
         transactionsPage.addObject("userTransactions", userTransactions);
+    }
 
-        transactionsPage.addObject("success", "Transaction completed successfully!");
-        return transactionsPage;
+    private void setUserAccounts(User user, ModelAndView page) {
+        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        log.info("AccountsPage userAccounts: {}", userAccounts);
+        page.addObject("userAccounts", userAccounts);
     }
 }

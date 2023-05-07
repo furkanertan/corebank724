@@ -101,6 +101,55 @@ public class AccountController {
         return accountsPage;
     }
 
+    @PostMapping("/updateAccount")
+    public ModelAndView updateAccount(@RequestParam("updAccountNumber") String updAccountNumber,
+                                      @RequestParam("updAccountName") String updAccountName,
+                                      @RequestParam("updAccountType") String updAccountType,
+                                      HttpSession session) {
+        ModelAndView accountsPage = new ModelAndView("accounts");
+        log.info("Updating account...");
+
+        //Get user from session
+        User user = (User) session.getAttribute("user");
+
+        //Check if accountName is valid
+        if (!accountValidation.isValidAccountName(updAccountName)) {
+            log.error("Invalid account name!");
+            accountsPage.addObject("error", "Invalid account name!");
+            //Updated accounts sent to view
+            setAccountsToPageView(accountsPage, user);
+            //Get currency types
+            setCurrencyTypesToPageView(accountsPage);
+            return accountsPage;
+        }
+
+        //Check if accountType is valid
+        if (!accountValidation.isValidAccountType(updAccountType)) {
+            log.error("Invalid account type!");
+            accountsPage.addObject("error", "Invalid account type!");
+            //Updated accounts sent to view
+            setAccountsToPageView(accountsPage, user);
+            //Get currency types
+            setCurrencyTypesToPageView(accountsPage);
+            return accountsPage;
+        }
+
+        //Get account by account number and update it with new values
+        AccountDto accountDto = accountService.getAccountByAccountNumber(Integer.valueOf(updAccountNumber));
+        accountAssembler.updateAccount(accountDto, updAccountName, updAccountType);
+
+        //Saving updated account
+        accountService.updateAccount(accountDto);
+
+        //Updated accounts sent to view
+        setAccountsToPageView(accountsPage, user);
+        //Get currency types
+        setCurrencyTypesToPageView(accountsPage);
+
+        accountsPage.addObject("success", "Account updated successfully!");
+        return accountsPage;
+    }
+
     //For Admin Panel
     @GetMapping("/getAllAccounts")
     List<AccountDto> getAllAccounts() throws AccountException {

@@ -92,7 +92,7 @@
         <input type="text" id="lastName" name="lastName" value="${user.lastName}" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" value="${user.email}" required readonly>
+        <input type="email" id="email" name="email" value="${user.email}" required disabled>
 
         <label for="phone">Phone Number</label>
         <input type="tel" id="phone" name="phone" value="${user.phone}" required>

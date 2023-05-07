@@ -115,7 +115,7 @@
                                     name="exchangeRate"
                                     placeholder="Enter exchange rate"
                                     onchange="onExchangeRateChange()"
-                                    readonly
+                                    disabled
                                     value=
                                     <c:if test="${requestScope.exchangeRate == null}">
                                             0
@@ -130,7 +130,7 @@
                                     id="exchangeAmount"
                                     name="exchangeAmount"
                                     placeholder="Enter exchange amount"
-                                    readonly
+                                    disabled
                                     value=
                                     <c:if test="${requestScope.exchangeAmount == null}">
                                             0

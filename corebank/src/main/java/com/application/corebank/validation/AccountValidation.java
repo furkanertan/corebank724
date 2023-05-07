@@ -18,7 +18,7 @@ public class AccountValidation {
     public boolean isValidAccountName(String accountName) {
         //Invalid account name given
         log.info("accountName: {}", accountName);
-        return !isEmpty(accountName);
+        return !isEmpty(accountName) && accountName.length() >= 3 && accountName.length() < 20;
     }
 
     public boolean isValidAccountType(String accountType) {

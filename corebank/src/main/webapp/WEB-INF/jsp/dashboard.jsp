@@ -24,7 +24,7 @@
 <div class="charts-container">
     <div class="row my-2">
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card bg-danger text-white mb-3">
+            <div class="card text-white mb-3" style="background: linear-gradient(to right,  #FF0000, #FFC0CB);">
                 <div class="card-body">
                     <h5 class="card-title">Total Accounts</h5>
                     <p class="card-text h3">
@@ -42,7 +42,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card bg-primary text-white mb-3">
+            <div class="card text-white mb-3" style="background: linear-gradient(to right,  #1584e0, #16e0d9);">
                 <div class="card-body">
                     <h5 class="card-title">Total Deposits (PLN)</h5>
                     <p class="card-text h3"><c:choose>
@@ -58,7 +58,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card bg-success text-white mb-3">
+            <div class="card text-white mb-3" style="background: linear-gradient(to right,  #1db446, #1bd947);">
                 <div class="card-body">
                     <h5 class="card-title">Total Savings (PLN)</h5>
                     <p class="card-text h3"><c:choose>
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="col-lg-3 col-md-4 col-sm-12">
-            <div class="card bg-secondary text-white mb-3">
+            <div class="card text-white mb-3" style="background: linear-gradient(to right,  #6e6e6e, #b0afaf);">
                 <div class="card-body">
                     <h5 class="card-title">Total Checks (PLN)</h5>
                     <p class="card-text h3"><c:choose>

@@ -20,22 +20,22 @@
 
 <div class="container">
     <!-- Display success message-->
-    <c:if test="${requestScope.success != null}">
+    <c:if test="${requestScope.successTransactions != null}">
         <div class="alert alert-success text-center border border-success">
             <p class="text-center">
                 <i class="fas fa-check-circle"></i>
-                <b>${requestScope.success}</b>
+                <b>${requestScope.successTransactions}</b>
             </p>
         </div>
     </c:if>
     <!-- End of display success message -->
 
     <!-- Display error message-->
-    <c:if test="${requestScope.error != null}">
+    <c:if test="${requestScope.errorTransactions != null}">
         <div class="alert alert-danger text-center border border-danger">
             <p class="text-center">
                 <i class="fas fa-exclamation-triangle"></i>
-                <b>${requestScope.error}</b>
+                <b>${requestScope.errorTransactions}</b>
             </p>
         </div>
     </c:if>

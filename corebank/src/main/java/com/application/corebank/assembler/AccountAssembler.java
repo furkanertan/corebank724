@@ -27,6 +27,23 @@ public class AccountAssembler {
         return account;
     }
 
+    public Account toUpdateAccount(AccountDto accountDto) {
+        Account account = new Account();
+
+        account.setId(accountDto.getId());
+        account.setUserId(accountDto.getUserId());
+        account.setAccNumber(accountDto.getAccountNumber());
+        account.setAccCurrencyType(accountDto.getCurrencyType());
+        account.setAccName(accountDto.getAccountName());
+        account.setAccType(accountDto.getAccountType());
+        account.setBalance(accountDto.getBalance());
+        account.setStatus(accountDto.getStatus());
+        account.setCreatedAt(accountDto.getCreatedAt());
+        account.setUpdatedAt(LocalDateTime.now());
+
+        return account;
+    }
+
     public Account toUpdateAccountBalance(Account account, Double balance) {
         account.setBalance(balance);
         account.setUpdatedAt(LocalDateTime.now());
@@ -68,5 +85,10 @@ public class AccountAssembler {
 
     public List<AccountDto> fromEntityListToDtoList(List<Account> accounts) {
         return accounts.stream().map(this::fromEntityToDto).collect(Collectors.toList());
+    }
+
+    public void updateAccount(AccountDto accountDto, String accountName, String accountType) {
+        accountDto.setAccountName(accountName);
+        accountDto.setAccountType(accountType);
     }
 }
