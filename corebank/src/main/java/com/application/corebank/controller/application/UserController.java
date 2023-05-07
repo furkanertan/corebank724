@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.mail.MessagingException;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Slf4j
@@ -169,5 +170,69 @@ public class UserController {
 
         modelAndView.addObject("success", "Your password has been reset successfully! Please login to continue.");
         return modelAndView;
+    }
+
+    @PostMapping("/editProfile")
+    public ModelAndView editProfile(@RequestParam("firstName") String firstName,
+                                    @RequestParam("lastName") String lastName,
+                                    @RequestParam("email") String email,
+                                    @RequestParam("phone") String phone,
+                                    @RequestParam("address") String address,
+                                    HttpSession session
+    ) {
+        ModelAndView profilePage = new ModelAndView("profile");
+
+        User user = (User) session.getAttribute("user");
+
+        if (user == null) {
+            profilePage.addObject("errorProfile", "You are not logged in!");
+            return profilePage;
+        }
+
+        if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() || email == null || email.isEmpty() || phone == null || phone.isEmpty() || address == null || address.isEmpty()) {
+            profilePage.addObject("errorProfile", "Please fill all the fields!");
+            return profilePage;
+        }
+
+        //First name validation
+        if (!firstName.matches("[a-zA-Z]+")) {
+            profilePage.addObject("errorProfile", "First name can only contain letters!");
+            return profilePage;
+        }
+        if (firstName.length() < 3 || firstName.length() > 20) {
+            profilePage.addObject("errorProfile", "First name must be between 3 and 20 characters!");
+            return profilePage;
+        }
+
+        //Last name validation
+        if (!lastName.matches("[a-zA-Z]+")) {
+            profilePage.addObject("errorProfile", "Last name can only contain letters!");
+            return profilePage;
+        }
+        if (lastName.length() < 3 || lastName.length() > 20) {
+            profilePage.addObject("errorProfile", "Last name must be between 3 and 20 characters!");
+            return profilePage;
+        }
+
+        //Phone validation
+        if (!phone.matches("[0-9]+")) {
+            profilePage.addObject("errorProfile", "Phone number can only contain numbers!");
+            return profilePage;
+        }
+        if (phone.length() != 10) {
+            profilePage.addObject("errorProfile", "Phone number must be 10 characters!");
+            return profilePage;
+        }
+
+        //Address validation
+        if (address.length() < 5 || address.length() > 50) {
+            profilePage.addObject("errorProfile", "Address must be between 5 and 50 characters!");
+            return profilePage;
+        }
+
+        User userUpdated = userService.updateUser(firstName, lastName, email, phone, address, user.getId());
+        session.setAttribute("user", userUpdated);
+        profilePage.addObject("successProfile", "Your profile has been updated successfully!");
+        return profilePage;
     }
 }

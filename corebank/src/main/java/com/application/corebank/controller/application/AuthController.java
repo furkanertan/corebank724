@@ -81,12 +81,4 @@ public class AuthController {
         redirectAttributes.addFlashAttribute("logged_out", "Logged out successfully");
         return "redirect:/login";
     }
-
-    @PostMapping("/editProfile")
-    public ModelAndView editProfile() {
-        ModelAndView profilePage = new ModelAndView("profile");
-        System.out.println("AuthController.editProfile()");
-        //userService.updateUser();
-        return profilePage;
-    }
 }

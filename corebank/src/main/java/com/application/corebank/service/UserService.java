@@ -27,7 +27,7 @@ public class UserService {
         log.info("User saved to database!");
     }
 
-    public void updateUser(String firstName, String lastName, String email, String phone, String address, Long userId) {
+    public User updateUser(String firstName, String lastName, String email, String phone, String address, Long userId) {
         log.info("Updating user...");
 
         Optional<User> user = repository.findById(userId);
@@ -43,8 +43,10 @@ public class UserService {
 
             repository.save(userToUpdate);
             log.info("User updated!");
+            return userToUpdate;
         } else {
             log.info("User not found!");
+            return null;
         }
     }
 

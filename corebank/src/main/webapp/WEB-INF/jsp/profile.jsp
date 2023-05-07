@@ -58,6 +58,30 @@
 <c:import url="components/common/dashboard/dashboard-header.jsp"/>
 <!-- End of Navigation bar import -->
 
+<div class="container" style="width: 50%;">
+    <!-- Display success message-->
+    <c:if test="${requestScope.successProfile != null}">
+        <div class="alert alert-success text-center border border-success">
+            <p class="text-center">
+                <i class="fas fa-check-circle"></i>
+                <b>${requestScope.successProfile}</b>
+            </p>
+        </div>
+    </c:if>
+    <!-- End of display success message -->
+
+    <!-- Display error message-->
+    <c:if test="${requestScope.errorProfile != null}">
+        <div class="alert alert-danger text-center border border-danger">
+            <p class="text-center">
+                <i class="fas fa-exclamation-triangle"></i>
+                <b>${requestScope.errorProfile}</b>
+            </p>
+        </div>
+    </c:if>
+    <!-- End of display error message -->
+</div>
+
 <div class="container" style="width: 60%;margin-top: 50px">
     <form action="/editProfile" method="POST" class="profile-update-form">
         <h2>Profile</h2>
