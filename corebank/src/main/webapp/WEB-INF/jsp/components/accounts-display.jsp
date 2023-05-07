@@ -30,6 +30,8 @@
 
         .tabs {
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             font-family: sans-serif;
             padding: 10px 70px;
@@ -123,8 +125,8 @@
         <!-- Create account Form -->
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-md-6" style="align-items: center;display: flex;justify-content: center;width: 100%">
+                    <div class="card" style="margin-top: 50px;width: 80%">
                         <div class="card-header text-center" style="color: white;background-color: #14213d;">
                             <h4 style="margin-top: 10px">Create Account</h4>
                         </div>

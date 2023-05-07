@@ -20,16 +20,10 @@
             background-color: #f5f5f5;
         }
 
-        .btn.edit {
-            background-color: #008CBA;
-        }
-
-        .btn.delete {
-            background-color: #f44336;
-        }
-
         .tabs {
             display: flex;
+            justify-content: center;
+            align-items: center;
             flex-wrap: wrap;
             font-family: sans-serif;
             padding: 10px 70px;
@@ -69,9 +63,8 @@
     <input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>
     <label for="tab1" class="tabs__label">List of Transactions</label>
     <div class="tabs__content">
-        <h5 style="align-content: center;justify-content: center;display: flex">Transaction List</h5>
         <!-- List of Transactions Table -->
-        <table style="margin-left: 20px;margin-top: 20px; border-collapse: collapse; border: 1px solid #ddd;">
+        <table style="margin-left: 20px;margin-top: 50px; border-collapse: collapse; border: 1px solid #ddd;">
             <thead>
             <tr>
                 <th style="padding: 10px; background-color: #f2f2f2;">ID</th>
@@ -108,8 +101,8 @@
         <!-- Create Transact Form -->
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
+                <div class="col-md-6" style="align-items: center;display: flex;justify-content: center;width: 100%">
+                    <div class="card" style="margin-top: 50px;width: 80%">
                         <div class="card-header text-center" style="color: white;background-color: #14213d;">
                             <h4 style="margin-top: 10px">Make Transaction</h4>
                         </div>
