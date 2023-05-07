@@ -150,6 +150,14 @@ public class AccountController {
         return accountsPage;
     }
 
+    @GetMapping("/getAccountCurrencyType")
+    public String getAccountCurrencyType(@RequestParam("accountNumber") String accountNumber){
+        log.info("Getting account currency type...");
+        AccountDto accountDto = accountService.getAccountByAccountNumber(Integer.valueOf(accountNumber));
+        return accountDto.getCurrencyType();
+    }
+
+
     //For Admin Panel
     @GetMapping("/getAllAccounts")
     List<AccountDto> getAllAccounts() throws AccountException {

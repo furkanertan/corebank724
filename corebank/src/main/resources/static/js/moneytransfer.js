@@ -4,20 +4,35 @@ function onAmountChange() {
 
     //Get the value of the amount input field
     const amount = parseFloat(document.getElementById("amount").value);
+    let commissionCode = "EFT";
 
-    //Get commission code
-    //TODO: get commission code from a variable
-    const commissionCode = "EFTPLN";
+    const commissionCodeUrl = "http://localhost:8080/account/getAccountCurrencyType?accountNumber=" + fromAccount;
+    fetch(commissionCodeUrl)
+        .then(response => response.text())
+        .then(commissionVal => {
+            commissionCode = commissionCode + commissionVal;
+            console.log(commissionCode);
 
-    //call calculateCommissionAmount service
-    const url = "http://localhost:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-                document.getElementById("commissionAmount").value = data;
-                document.getElementById("totalAmount").value = amount + data;
-            }
-        );
+            const url = "http://localhost:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(data => {
+                    document.getElementById("commissionAmount").value = data;
+                    document.getElementById("totalAmount").value = amount + data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
 
 function onAccountChange() {
@@ -26,19 +41,33 @@ function onAccountChange() {
 
     //Get the value of the amount input field
     const amount = parseFloat(document.getElementById("amount").value);
+    let commissionCode = "EFT";
 
-    //Get commission code
-    //TODO: get commission code from a variable
-    const commissionCode = "EFTPLN";
+    const commissionCodeUrl = "http://localhost:8080/account/getAccountCurrencyType?accountNumber=" + fromAccount;
+    fetch(commissionCodeUrl)
+        .then(response => response.text())
+        .then(commissionVal => {
+            commissionCode = commissionCode + commissionVal;
+            console.log(commissionCode);
 
-    //call calculateCommissionAmount service
-    const url = "http://localhost:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-                console.log(data);
-                document.getElementById("commissionAmount").value = data;
-                document.getElementById("totalAmount").value = amount + data;
-            }
-        );
+            const url = "http://localhost:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Network response was not ok.');
+                    }
+                })
+                .then(data => {
+                    document.getElementById("commissionAmount").value = data;
+                    document.getElementById("totalAmount").value = amount + data;
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
 }
