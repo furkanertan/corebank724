@@ -3,7 +3,6 @@ package com.application.corebank.service;
 import com.application.corebank.assembler.AccountAssembler;
 import com.application.corebank.domain.Account;
 import com.application.corebank.dto.AccountDto;
-import com.application.corebank.exception.AccountException;
 import com.application.corebank.repository.AccountRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -23,11 +22,11 @@ public class AccountService {
     private AccountRepository repository;
     private AccountAssembler assembler;
 
-    public List<AccountDto> getAllAccounts() throws AccountException {
+    public List<AccountDto> getAllAccounts() {
         List<Account> accounts = repository.findAll();
 
         if (isEmpty(accounts)) {
-            throw new AccountException("No accounts found");
+            return null;
         }
 
         return assembler.fromEntityListToDtoList(accounts);
@@ -98,5 +97,9 @@ public class AccountService {
     public void updateAccount(AccountDto accountDto) {
         Account account = assembler.toUpdateAccount(accountDto);
         repository.save(account);
+    }
+
+    public Double getTotalBalanceByAccountType(String accountType, Long userId) {
+        return repository.getTotalBalanceByAccountTypeAndUserId(accountType, userId, ACTIVE.getCode());
     }
 }

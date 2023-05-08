@@ -47,6 +47,7 @@ com\application\corebank\repository\MoneyTransferRepository.class
 com\application\corebank\service\CurrencyService.class
 com\application\corebank\service\CommissionService.class
 com\application\corebank\dto\CommissionDefinitionDto.class
+com\application\corebank\dto\AccountBalanceDto.class
 com\application\corebank\domain\User.class
 com\application\corebank\exception\AccountException.class
 com\application\corebank\controller\application\IndexController.class

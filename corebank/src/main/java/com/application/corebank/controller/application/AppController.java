@@ -1,10 +1,8 @@
 package com.application.corebank.controller.application;
 
 import com.application.corebank.domain.User;
-import com.application.corebank.dto.AccountDto;
-import com.application.corebank.dto.CurrencyDto;
-import com.application.corebank.dto.CurrencyRatesDto;
-import com.application.corebank.dto.TransactionHistoryDto;
+import com.application.corebank.dto.*;
+import com.application.corebank.exception.AccountException;
 import com.application.corebank.service.AccountService;
 import com.application.corebank.service.CurrencyRatesService;
 import com.application.corebank.service.CurrencyService;
@@ -32,7 +30,7 @@ public class AppController {
     private CurrencyService currencyService;
 
     @GetMapping("/dashboard")
-    public ModelAndView getDashboard(HttpSession session) {
+    public ModelAndView getDashboard(HttpSession session) throws AccountException {
         ModelAndView dashboardPage = new ModelAndView("dashboard");
 
         //Logged user information is stored in session
@@ -43,8 +41,15 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        //Get User Account Numbers
-        List<AccountDto> userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        List<AccountDto> userAccountList;
+
+        //If user is admin get all accounts
+        if (user.getIsAdmin() == 1) {
+            userAccountList = accountService.getAllAccounts();
+        } else {
+            //Get all active accounts by customer no
+            userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        }
 
         //Set dashboard page values
         setCardValues(userAccountList, dashboardPage);
@@ -52,6 +57,23 @@ public class AppController {
         setCurrencyRates(dashboardPage);
 
         return dashboardPage;
+    }
+
+    @GetMapping("/accountBalances")
+    public AccountBalanceDto getAccountBalancesByType(HttpSession session) {
+        AccountBalanceDto accountBalanceDto = new AccountBalanceDto();
+        log.info("Account Balance by type");
+
+        //Logged user information is stored in session
+        User user = (User) session.getAttribute("user");
+
+        accountBalanceDto.setChecksBalance(accountService.getTotalBalanceByAccountType("Check", user.getId()));
+        accountBalanceDto.setSavingsBalance(accountService.getTotalBalanceByAccountType("Saving", user.getId()));
+        accountBalanceDto.setDepositsBalance(accountService.getTotalBalanceByAccountType("Deposit", user.getId()));
+
+        log.info("Account Balance by type: {}", accountBalanceDto);
+
+        return accountBalanceDto;
     }
 
     @GetMapping("/accounts")
@@ -66,7 +88,14 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        setUserAccounts(user, accountsPage);
+        //If user is admin get all accounts
+        if (user.getIsAdmin() == 1) {
+            setAllAccounts(accountsPage);
+        } else {
+            //Get all active accounts by customer no
+            setUserAccounts(user, accountsPage);
+        }
+
         setCurrencies(accountsPage);
 
         return accountsPage;
@@ -84,7 +113,14 @@ public class AppController {
             return new ModelAndView("redirect:/login");
         }
 
-        setUserAccounts(user, moneyTransferPage);
+        //If user is admin get all accounts
+        if (user.getIsAdmin() == 1) {
+            setAllAccounts(moneyTransferPage);
+        } else {
+            //Get all active accounts by customer no
+            setUserAccounts(user, moneyTransferPage);
+        }
+
         return moneyTransferPage;
     }
 
@@ -117,22 +153,29 @@ public class AppController {
 
         List<TransactionHistoryDto> userTransactions;
 
-        //Get all active accounts by user id
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        if (userAccounts.isEmpty()) {
-            //Set Objects to transactionsPage
-            transactionsPage.addObject("userTransactions", null);
-            return transactionsPage;
+        if (user.getIsAdmin() == 1) {
+            userTransactions = transactionHistoryService.getAllTransactions();
+            setAllAccounts(transactionsPage);
+
+        } else {
+            //Get all active accounts by user id
+            List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+            if (userAccounts.isEmpty()) {
+                //Set Objects to transactionsPage
+                transactionsPage.addObject("userTransactions", null);
+                return transactionsPage;
+            }
+
+            //Get user account numbers
+            List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+
+            //Get User Transactions
+            userTransactions = transactionHistoryService.getAllTransactionsByAccountNumber(userAccountNumbers);
+            setUserAccounts(user, transactionsPage);
         }
 
-        //Get user account numbers
-        List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
-
-        //Get User Transactions
-        userTransactions = transactionHistoryService.getAllTransactions(userAccountNumbers);
         transactionsPage.addObject("userTransactions", userTransactions);
 
-        setUserAccounts(user, transactionsPage);
         return transactionsPage;
     }
 
@@ -163,6 +206,7 @@ public class AppController {
         if (user == null) {
             return new ModelAndView("redirect:/login");
         }
+
         profilePage.addObject("user", user);
         return profilePage;
     }
@@ -210,6 +254,12 @@ public class AppController {
 
     private void setUserAccounts(User user, ModelAndView page) {
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+        log.info("AccountsPage userAccounts: {}", userAccounts);
+        page.addObject("userAccounts", userAccounts);
+    }
+
+    private void setAllAccounts(ModelAndView page) {
+        List<AccountDto> userAccounts = accountService.getAllAccounts();
         log.info("AccountsPage userAccounts: {}", userAccounts);
         page.addObject("userAccounts", userAccounts);
     }

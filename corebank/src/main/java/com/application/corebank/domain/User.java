@@ -51,4 +51,5 @@ public class User {
     private LocalDate verifiedAt;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
+    private Integer isAdmin;
 }

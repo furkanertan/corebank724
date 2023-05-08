@@ -160,7 +160,7 @@ public class AccountController {
 
     //For Admin Panel
     @GetMapping("/getAllAccounts")
-    List<AccountDto> getAllAccounts() throws AccountException {
+    List<AccountDto> getAllAccounts() {
         log.info("Getting all accounts");
 
         return accountService.getAllAccounts();

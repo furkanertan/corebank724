@@ -78,7 +78,7 @@ public class TransactionController {
     private void setUserTransactions(User user, ModelAndView transactionsPage){
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
-        List<TransactionHistoryDto> userTransactions = transactionHistoryService.getAllTransactions(userAccountNumbers);
+        List<TransactionHistoryDto> userTransactions = transactionHistoryService.getAllTransactionsByAccountNumber(userAccountNumbers);
         transactionsPage.addObject("userTransactions", userTransactions);
     }
 
