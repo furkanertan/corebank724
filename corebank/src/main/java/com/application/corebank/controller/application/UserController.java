@@ -49,25 +49,25 @@ public class UserController {
             return modelAndView;
         }
 
-        //Generate token
+        //Generate token for verification (when it is not 1, it means that the user is not verified yet)
         String token = Token.generateToken();
 
-        //Generate code
+        //Generate code for verification (When it is not null, it means that the user is not verified yet)
         int code = CodeGenerator.generateCode();
 
-        //Get email body
+        //Get email message body for the registered user
         String emailBody = HTML.verificationEmailTemplate(token, code, firstName, lastName);
 
-        //Hash password
+        //Hash password for privacy
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        //Save user
+        //Register user to database
         userService.saveUser(firstName, lastName, email, phone, address, hashedPassword, token, code);
 
-        //Send email
+        //Send email to user to verify account
         emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Account Verification", emailBody);
 
-        // Redirect to login page
+        // Redirect to login page with success message
         modelAndView.addObject("success", "Your account has been created successfully! Please check your email for verification.");
         return modelAndView;
     }
@@ -76,8 +76,10 @@ public class UserController {
     public ModelAndView verify(@RequestParam("token") String token, @RequestParam("code") int code) {
         ModelAndView verifyPage;
 
+        //Find user by token to verify account
         User user = userService.findByToken(token);
 
+        //Validations for user
         if (user == null) {
             log.info("User not found!");
 
@@ -94,8 +96,10 @@ public class UserController {
             return verifyPage;
         }
 
+        //Verification of user is completed
         userService.verifyUser(token, code);
 
+        //Return to login page with success message to login to system after verification
         verifyPage = new ModelAndView("login");
         verifyPage.addObject("success", "Your account successfully verified! Please login to continue.");
         return verifyPage;
@@ -104,17 +108,24 @@ public class UserController {
     @PostMapping("/forgotPassword")
     public ModelAndView forgotPassword(@RequestParam("email") String email) throws MessagingException {
         ModelAndView modelAndView = new ModelAndView("forgotPassword");
+
+        //Find user by email
         User user = userService.findByEmail(email);
 
+        //Validation for user
+        //If user is not null, send email to user to reset password
         if (user != null) {
+            //Prepare email message body for user
             String emailBody = HTML.forgotPasswordEmail(user.getFirstName(), user.getLastName(), user.getId());
-
+            //Send email to user
             emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Account Verification", emailBody);
-
+            //Return message to user to check email
             modelAndView.addObject("success", "A link for password reset has been sent to your email!");
         } else {
+            //Return error message to user if email does not exist
             modelAndView.addObject("error", "The email does not exist!");
         }
+
         return modelAndView;
     }
 
@@ -122,20 +133,28 @@ public class UserController {
     public ModelAndView getResetPassword(@RequestParam("userId") String userId) {
         System.out.println("IndexController.getResetPassword()");
 
+        //Validation for user to reset password
+        //If user id is null or empty or not numeric, return error page
         if (userId == null || userId.isEmpty() || !userId.matches("[0-9]+")) {
+            //Return error page with invalid user id message
             ModelAndView errorPage = new ModelAndView("error");
             errorPage.addObject("error", "Invalid user id!");
+
             return errorPage;
         }
 
+        //Find user by id
         User user = userService.findById(Long.valueOf(userId));
 
+        //Validation for user
+        //If user is not found, return error page
         if (user == null) {
             ModelAndView errorPage = new ModelAndView("error");
             errorPage.addObject("error", "User cannot be found!");
             return errorPage;
         }
 
+        //If user is found, return to set up a new password page
         ModelAndView modelAndView = new ModelAndView("setUpNewPassword");
         modelAndView.addObject("userId", userId);
         return modelAndView;
@@ -145,29 +164,33 @@ public class UserController {
     public ModelAndView setupNewPassword(@RequestParam("_userId") String userId, @RequestParam("password") String password, @RequestParam("confirmPassword") String confirmPassword) {
         ModelAndView modelAndView = new ModelAndView("setUpNewPassword");
 
+        //Validation for user to set up a new password
+        //If password or confirm password is null or empty, return error message
         if (password == null || password.isEmpty() || confirmPassword == null || confirmPassword.isEmpty()) {
             modelAndView.addObject("error", "Password cannot be empty!");
             return modelAndView;
         }
 
+        //If password and confirm password do not match, return error message
         if (!password.equals(confirmPassword)) {
             modelAndView.addObject("error", "The passwords do not match!");
             return modelAndView;
         }
 
+        //After validations completed, find user by id
         User user = userService.findById(Long.valueOf(userId));
 
-        log.info("user_id: " + userId);
-
+        //If user cannot be found, return error message
         if (user == null) {
             modelAndView.addObject("error", "User cannot be found!");
             return modelAndView;
         }
 
+        //Hash password for privacy and then update user's password
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-
         userService.updatePassword(user.getId(), hashedPassword);
 
+        //Return to login page with success message to login to system after password reset
         modelAndView.addObject("success", "Your password has been reset successfully! Please login to continue.");
         return modelAndView;
     }
@@ -182,13 +205,17 @@ public class UserController {
     ) {
         ModelAndView profilePage = new ModelAndView("profile");
 
+        //Get user from session
         User user = (User) session.getAttribute("user");
 
+        //Check if user is logged in
         if (user == null) {
             profilePage.addObject("errorProfile", "You are not logged in!");
             return profilePage;
         }
 
+        //After checking if user is logged in, start validations for given inputs
+        //Check if any of the fields are empty adn return error message
         if (firstName == null || firstName.isEmpty() || lastName == null || lastName.isEmpty() || email == null || email.isEmpty() || phone == null || phone.isEmpty() || address == null || address.isEmpty()) {
             profilePage.addObject("errorProfile", "Please fill all the fields!");
             return profilePage;
@@ -230,9 +257,11 @@ public class UserController {
             return profilePage;
         }
 
+        //Update user's profile with given inputs and return success message
         User userUpdated = userService.updateUser(firstName, lastName, email, phone, address, user.getId());
         session.setAttribute("user", userUpdated);
         profilePage.addObject("successProfile", "Your profile has been updated successfully!");
+        
         return profilePage;
     }
 }

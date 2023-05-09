@@ -103,7 +103,7 @@ public class IndexController {
         String emailBody = HTML.contactUsEmail(name, surname, phoneNumber, email, message);
         log.info("IndexController.contactUsSendMail()");
 
-        //Send email
+        //Send email to bank's email address with the message from the user
         emailSenderService.htmlEmailMessenger(email, "corebank724@gmail.com", "CoreBank 7/24 Contact Us", emailBody);
 
         // Redirect to login page

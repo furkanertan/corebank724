@@ -6,7 +6,6 @@ com\application\corebank\dto\AccountDto.class
 com\application\corebank\assembler\CommissionDefinitionAssembler.class
 com\application\corebank\util\CodeGenerator.class
 com\application\corebank\dto\MoneyTransferDto.class
-com\application\corebank\controller\application\AuthController$GetUserServlet.class
 com\application\corebank\repository\CurrencyRatesRepository.class
 com\application\corebank\repository\TransactionHistoryRepository.class
 com\application\corebank\CoreBankApplication.class

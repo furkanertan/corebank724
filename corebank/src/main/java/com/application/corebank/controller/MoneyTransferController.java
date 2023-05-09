@@ -40,9 +40,17 @@ public class MoneyTransferController {
 
         //Add user to session
         User user = (User) session.getAttribute("user");
-        List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
-        moneyTransferModelAndView.addObject("userAccounts", userAccounts);
 
+        //If user is admin user, set all accounts to page view
+        if (user.getIsAdmin() == 1) {
+            List<AccountDto> allAccounts = accountService.getAllAccounts();
+            moneyTransferModelAndView.addObject("userAccounts", allAccounts);
+        }else {
+            List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+            moneyTransferModelAndView.addObject("userAccounts", userAccounts);
+        }
+
+        //Validations for money transfer
         //If sender's account is null
         if (fromAccountNumber == null || fromAccountNumber.isEmpty()) {
             log.error("Sender's account is null!");

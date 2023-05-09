@@ -16,6 +16,7 @@ public class CommissionController {
 
     private CommissionService commissionService;
 
+    //calculate commission amount for given account and commission code.
     @GetMapping("/calculate")
     public Double calculateCommissionAmount(@RequestParam("fromAccount") String fromAccountNumber,
                                             @RequestParam("commissionCode") String commissionCode,

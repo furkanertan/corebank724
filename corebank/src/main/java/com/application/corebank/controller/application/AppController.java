@@ -96,6 +96,7 @@ public class AppController {
             setUserAccounts(user, accountsPage);
         }
 
+        //Set currency list to page
         setCurrencies(accountsPage);
 
         return accountsPage;

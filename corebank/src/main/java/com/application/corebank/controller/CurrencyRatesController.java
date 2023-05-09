@@ -31,9 +31,10 @@ public class CurrencyRatesController {
         //Get all currency types
         Set<String> currencyTypes = currencyService.getAllCurrencyTypes();
 
-        //Remove all currency rates from database
+        //Remove all previous currency rates from database
         currencyRatesService.deleteAllCurrencyRates();
 
+        //Get current USD currency rates from API
         log.info("Get USD currency rates.");
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exchangerate-api.p.rapidapi.com/rapid/latest/USD"))
@@ -47,6 +48,7 @@ public class CurrencyRatesController {
         log.info("Update USD currency rates.");
         currencyRatesService.updateCurrencyRate("USD", ratesObject, currencyTypes);
 
+        //Get current EUR currency rates from API
         log.info("Get EUR currency rates.");
         request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exchangerate-api.p.rapidapi.com/rapid/latest/EUR"))
@@ -60,6 +62,7 @@ public class CurrencyRatesController {
         log.info("Update EUR currency rates.");
         currencyRatesService.updateCurrencyRate("EUR", ratesObject, currencyTypes);
 
+        //Get current GBP currency rates from API
         log.info("Get GBP currency rates.");
         request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exchangerate-api.p.rapidapi.com/rapid/latest/GBP"))
@@ -73,6 +76,7 @@ public class CurrencyRatesController {
         log.info("Update GBP currency rates.");
         currencyRatesService.updateCurrencyRate("GBP", ratesObject, currencyTypes);
 
+        //Get current PLN currency rates from API
         log.info("Get PLN currency rates.");
         request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exchangerate-api.p.rapidapi.com/rapid/latest/PLN"))
@@ -86,6 +90,7 @@ public class CurrencyRatesController {
         log.info("Update PLN currency rates.");
         currencyRatesService.updateCurrencyRate("PLN", ratesObject, currencyTypes);
 
+        //Get current try currency rates from API
         log.info("Get TRY currency rates.");
         request = HttpRequest.newBuilder()
                 .uri(URI.create("https://exchangerate-api.p.rapidapi.com/rapid/latest/TRY"))
@@ -98,8 +103,7 @@ public class CurrencyRatesController {
         ratesObject = jsonResponse.getJSONObject("rates");
         log.info("Update TRY currency rates.");
         currencyRatesService.updateCurrencyRate("TRY", ratesObject, currencyTypes);
-
-        log.info("All currency rates updated successfully.");
+        
         return "All currency rates updated successfully.";
     }
 }

@@ -17,6 +17,7 @@ public class CurrencyController {
 
     private CurrencyService currencyService;
 
+    //get all currencies from database
     @GetMapping("/getAllCurrencies")
     List<CurrencyDto> getAllCurrencies() {
         log.info("Return all currencies.");

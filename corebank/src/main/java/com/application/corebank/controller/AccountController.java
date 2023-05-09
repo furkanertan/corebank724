@@ -4,7 +4,6 @@ import com.application.corebank.assembler.AccountAssembler;
 import com.application.corebank.domain.User;
 import com.application.corebank.dto.AccountDto;
 import com.application.corebank.dto.CurrencyDto;
-import com.application.corebank.exception.AccountException;
 import com.application.corebank.service.AccountService;
 import com.application.corebank.service.CurrencyService;
 import com.application.corebank.util.AccountNumberGenerator;
@@ -40,9 +39,17 @@ public class AccountController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
-        setAccountsToPageView(accountsPage, user);
+        //If user is admin user get all accounts and transactions, else get user accounts and transactions
+        if (user.getIsAdmin() == 1) {
+            setAllAccountsToPageView(accountsPage);
+        } else {
+            setUserAccountsToPageView(accountsPage, user);
+        }
+
+        //Get currency types and send to view
         setCurrencyTypesToPageView(accountsPage);
 
+        //Validations for account
         //Check if accountName is valid
         if (!accountValidation.isValidAccountName(accountName)) {
             log.error("Invalid account name!");
@@ -71,12 +78,17 @@ public class AccountController {
             return accountsPage;
         }
 
-        //Create account
+        //Create account and send success message to view
         createAccount(accountName, accountType, accountCurrencyType, user);
-
         accountsPage.addObject("success", "Account created successfully!");
-        //Updated accounts sent to view
-        setAccountsToPageView(accountsPage, user);
+
+        //If user is admin user get all updated accounts to view, else get user accounts to view
+        if (user.getIsAdmin() == 1) {
+            setAllAccountsToPageView(accountsPage);
+        } else {
+            setUserAccountsToPageView(accountsPage, user);
+        }
+
         return accountsPage;
     }
 
@@ -89,14 +101,20 @@ public class AccountController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
+        //Delete given account
         accountService.deleteAccount(Integer.valueOf(accountNumber));
 
-        //Updated accounts sent to view
-        setAccountsToPageView(accountsPage, user);
+        //If user is admin user get all updated accounts after delete to view, else get user accounts to view
+        if (user.getIsAdmin() == 1) {
+            setAllAccountsToPageView(accountsPage);
+        } else {
+            setUserAccountsToPageView(accountsPage, user);
+        }
 
         //Get currency types
         setCurrencyTypesToPageView(accountsPage);
 
+        //Return success message to view
         accountsPage.addObject("success", "Account deleted successfully!");
         return accountsPage;
     }
@@ -112,12 +130,13 @@ public class AccountController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
+        //Validations for account
         //Check if accountName is valid
         if (!accountValidation.isValidAccountName(updAccountName)) {
             log.error("Invalid account name!");
             accountsPage.addObject("error", "Invalid account name!");
             //Updated accounts sent to view
-            setAccountsToPageView(accountsPage, user);
+            setUserAccountsToPageView(accountsPage, user);
             //Get currency types
             setCurrencyTypesToPageView(accountsPage);
             return accountsPage;
@@ -128,30 +147,36 @@ public class AccountController {
             log.error("Invalid account type!");
             accountsPage.addObject("error", "Invalid account type!");
             //Updated accounts sent to view
-            setAccountsToPageView(accountsPage, user);
+            setUserAccountsToPageView(accountsPage, user);
             //Get currency types
             setCurrencyTypesToPageView(accountsPage);
             return accountsPage;
         }
 
-        //Get account by account number and update it with new values
+        //Get updated account by its account number from database and update it with new values
         AccountDto accountDto = accountService.getAccountByAccountNumber(Integer.valueOf(updAccountNumber));
         accountAssembler.updateAccount(accountDto, updAccountName, updAccountType);
 
-        //Saving updated account
+        //Save updated account
         accountService.updateAccount(accountDto);
 
-        //Updated accounts sent to view
-        setAccountsToPageView(accountsPage, user);
+        //If user is admin user get all updated accounts after update to view, else get user accounts to view
+        if (user.getIsAdmin() == 1) {
+            setAllAccountsToPageView(accountsPage);
+        } else {
+            setUserAccountsToPageView(accountsPage, user);
+        }
+
         //Get currency types
         setCurrencyTypesToPageView(accountsPage);
 
+        //Return success message to view
         accountsPage.addObject("success", "Account updated successfully!");
         return accountsPage;
     }
 
     @GetMapping("/getAccountCurrencyType")
-    public String getAccountCurrencyType(@RequestParam("accountNumber") String accountNumber){
+    public String getAccountCurrencyType(@RequestParam("accountNumber") String accountNumber) {
         log.info("Getting account currency type...");
         AccountDto accountDto = accountService.getAccountByAccountNumber(Integer.valueOf(accountNumber));
         return accountDto.getCurrencyType();
@@ -181,12 +206,20 @@ public class AccountController {
         return accountService.getAccountsByUserIdAndCurrencyType(userId, currencyType);
     }
 
-    private void setAccountsToPageView(ModelAndView accountsPage, User user) {
+    private void setUserAccountsToPageView(ModelAndView accountsPage, User user) {
         //Get user accounts by user id
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         log.info("AccountsPage setAccountsToPageView: {}", userAccounts);
 
         accountsPage.addObject("userAccounts", userAccounts);
+    }
+
+    private void setAllAccountsToPageView(ModelAndView accountsPage) {
+        //Get all accounts
+        List<AccountDto> allAccounts = accountService.getAllAccounts();
+        log.info("AccountsPage setAccountsToPageView: {}", allAccounts);
+
+        accountsPage.addObject("userAccounts", allAccounts);
     }
 
     private void setCurrencyTypesToPageView(ModelAndView accountsPage) {

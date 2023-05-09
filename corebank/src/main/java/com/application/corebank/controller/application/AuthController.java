@@ -3,7 +3,6 @@ package com.application.corebank.controller.application;
 import com.application.corebank.domain.User;
 import com.application.corebank.helpers.Token;
 import com.application.corebank.service.UserService;
-import com.google.gson.Gson;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCrypt;
@@ -15,12 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 
 @Slf4j
 @Controller
@@ -34,6 +28,7 @@ public class AuthController {
         ModelAndView loginPage = new ModelAndView("login");
         System.out.println("AuthController.getLogin()");
 
+        //Generate token for login form
         String token = Token.generateToken();
 
         loginPage.addObject("token", token);
@@ -48,22 +43,24 @@ public class AuthController {
                             @RequestParam("_token") String token,
                             Model model,
                             HttpSession session) {
-        //TODO: Validate input fields
         String LOGIN_PAGE = "login";
+
+        //check if token is valid, email and password are not empty, otherwise return login page with error message
         if (email.isEmpty() || password.isEmpty()) {
             log.info("token: " + token);
             model.addAttribute("error", "E-mail and password are required!");
             return LOGIN_PAGE;
         }
 
-        //TODO: Check form email
-        log.info("email: " + email);
+        //find user by email
         User user = userService.findByEmail(email);
 
+        //check if user exists, otherwise return login page with error message
         if (user == null) {
             model.addAttribute("error", "Incorrect E-mail or Password!");
             return LOGIN_PAGE;
         } else {
+            //check if password is correct and user is verified, otherwise return login page with error message
             if (!BCrypt.checkpw(password, user.getPassword())) {
                 model.addAttribute("error", "Incorrect E-mail or Password!");
                 return LOGIN_PAGE;
@@ -74,6 +71,7 @@ public class AuthController {
             }
         }
 
+        //Add user to session
         session.setAttribute("user", user);
         session.setAttribute("token", token);
         session.setAttribute("authenticated", true);
@@ -83,20 +81,11 @@ public class AuthController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session, RedirectAttributes redirectAttributes) {
+        //Invalidate sessions and redirect to login page
         session.invalidate();
+
+        //show logged out message
         redirectAttributes.addFlashAttribute("logged_out", "Logged out successfully");
         return "redirect:/login";
-    }
-
-    @WebServlet("/getUser")
-    public class GetUserServlet extends HttpServlet {
-        protected void getUser(HttpServletRequest request, HttpServletResponse response) throws IOException {
-            HttpSession session = request.getSession();
-            User user = (User) session.getAttribute("user");
-            Gson gson = new Gson();
-            String userJson = gson.toJson(user);
-            response.setContentType("application/json");
-            response.getWriter().write(userJson);
-        }
     }
 }

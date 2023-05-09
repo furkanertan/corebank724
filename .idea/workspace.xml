@@ -5,23 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="dashboard update">
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/dto/AccountBalanceDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CommissionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CommissionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyRatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyRatesController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/MoneyTransferController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/MoneyTransferController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/TransactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/TransactionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AppController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/repository/AccountRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/repository/AccountRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/TransactionHistoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/service/TransactionHistoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard/dashboard-footer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/components/common/dashboard/dashboard-footer.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/profile.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/profile.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/application/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/AccountController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/controller/application/AppController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/repository/AccountRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/repository/AccountRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/service/AccountService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/classes/com/application/corebank/domain/User.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,6 +191,7 @@
       <workItem from="1683454012453" duration="24592000" />
       <workItem from="1683493202313" duration="266000" />
       <workItem from="1683557735607" duration="10970000" />
+      <workItem from="1683645768221" duration="3214000" />
     </task>
     <task id="LOCAL-00001" summary="Currency is added">
       <created>1668629345575</created>

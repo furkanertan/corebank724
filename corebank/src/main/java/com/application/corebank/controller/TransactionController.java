@@ -37,10 +37,17 @@ public class TransactionController {
         //Get user from session
         User user = (User) session.getAttribute("user");
 
-        //set user transactions and accounts to page view
-        setUserTransactions(user, transactionsPage);
-        setUserAccounts(user, transactionsPage);
+        //If user is admin user get all accounts and transactions
+        if (user.getIsAdmin() == 1) {
+            setAllTransactions(transactionsPage);
+            setAllAccounts(transactionsPage);
+        } else {
+            //set user transactions and accounts to page view
+            setUserTransactions(user, transactionsPage);
+            setUserAccounts(user, transactionsPage);
+        }
 
+        //Validations for transaction
         //check if accountNumber is valid
         if (account == null) {
             log.error("Invalid account number!");
@@ -68,14 +75,18 @@ public class TransactionController {
         //update account balance
         accountService.updateAccountBalance(account, amount, false);
 
-        //set user transactions to page view
-        setUserTransactions(user, transactionsPage);
+        //if it is admin user, reset updated all user transactions to page view, if not reset updated user transactions to page view
+        if (user.getIsAdmin() == 1) {
+            setAllTransactions(transactionsPage);
+        } else {
+            setUserTransactions(user, transactionsPage);
+        }
 
         transactionsPage.addObject("successTransactions", "Transaction completed successfully!");
         return transactionsPage;
     }
 
-    private void setUserTransactions(User user, ModelAndView transactionsPage){
+    private void setUserTransactions(User user, ModelAndView transactionsPage) {
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         List<String> userAccountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
         List<TransactionHistoryDto> userTransactions = transactionHistoryService.getAllTransactionsByAccountNumber(userAccountNumbers);
@@ -86,5 +97,18 @@ public class TransactionController {
         List<AccountDto> userAccounts = accountService.getAllActiveAccountsByCustomerNo(user.getId());
         log.info("AccountsPage userAccounts: {}", userAccounts);
         page.addObject("userAccounts", userAccounts);
+    }
+
+    private void setAllTransactions(ModelAndView transactionsPage) {
+        List<AccountDto> allAccounts = accountService.getAllAccounts();
+        List<String> allAccountNumbers = allAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+        List<TransactionHistoryDto> userTransactions = transactionHistoryService.getAllTransactionsByAccountNumber(allAccountNumbers);
+        transactionsPage.addObject("userTransactions", userTransactions);
+    }
+
+    private void setAllAccounts(ModelAndView page) {
+        List<AccountDto> allAccounts = accountService.getAllAccounts();
+        log.info("AccountsPage userAccounts: {}", allAccounts);
+        page.addObject("userAccounts", allAccounts);
     }
 }
