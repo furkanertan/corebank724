@@ -56,14 +56,30 @@
 <div class="container">
     <h2>Frequently Asked Questions</h2>
     <div class="faq">
-        <h3>How can i create account?</h3>
-        <p>First, you should click on "Accounts" section on the header of the page and then you should choose "Create
+        <h3>How can I create an account?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page, and then you should choose "Create
             Account" tab in the page.
             After you filled all required fields, you will have a new account created.</p>
     </div>
     <div class="faq">
-        <h3>How can i see all my accounts?</h3>
-        <p>First, you should click on "Accounts" section on the header of the page and then you should choose "List/Update
+        <h3>How can I update an account?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page, and all of your active accounts will
+            appear on "List/Update Accounts" tab in the page.
+            After you clicked on "Update" button at the end of the list, you will be able to update your account.
+            When all data is correct, you can click "Update Account" button and account update process will be
+            completed.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I delete an account?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page, and all of your active accounts will
+            appear on "List/Update Accounts" tab in the page.
+            After you clicked on "Delete" button at the end of the list, your account will be deleted and your account
+            list will be refreshed.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I see all my accounts?</h3>
+        <p>First, you should click on "Accounts" section on the header of the page, and then you should choose
+            "List/Update
             Accounts" tab in the page.
             After you filled all required fields, you will have a new account created.</p>
     </div>
@@ -72,13 +88,22 @@
         <p>No, there is no limitation on number of creating accounts.</p>
     </div>
     <div class="faq">
-        <h3>How can I see all my transaction history</h3>
-        <p>Transaction history is available under "Transactions" section. So, you should click on "Transactions" section on the header of the page
-        and all your transactions will appear on "List of Transactions" tab.</p>
+        <h3>What kind of accounts I can create?</h3>
+        <p>You can create three types of account, which are "Saving", "Deposit" and "Check" accounts.</p>
     </div>
     <div class="faq">
-        <h3>How can i transfer money between my accounts?</h3>
-        <p>First, you should click on "Transactions" section on the header of the page and then you should choose
+        <h3>Which currencies are available for accounts?</h3>
+        <p>You can create accounts with "USD", "GBP", "PLN", "EUR" and "TRY" currencies.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I see all my transaction history?</h3>
+        <p>Transaction history is available under "Transactions" section. So, you should click on "Transactions" section
+            on the header of the page
+            and all your transactions will appear on "List of Transactions" tab.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I transfer money between my accounts?</h3>
+        <p>First, you should click on "Transactions" section on the header of the page, and then you should choose
             "Make Transactions" tab in the page.
             After you filled all required fields, you will have a new account created.</p>
     </div>
