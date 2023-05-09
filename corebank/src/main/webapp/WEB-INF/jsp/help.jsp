@@ -96,27 +96,59 @@
         <p>You can create accounts with "USD", "GBP", "PLN", "EUR" and "TRY" currencies.</p>
     </div>
     <div class="faq">
+        <h3>How can I transfer money to another accounts?</h3>
+        <p>You should click on "Money Transfers" section on the header of the page, and a form will appear on the
+            page.
+            After you filled all required fields, you will successfully complete transfer.</p>
+    </div>
+    <div class="faq">
+        <h3>Can I transfer money between my accounts?</h3>
+        <p>Yes, you can transfer money between your accounts.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I see all my money transfers?</h3>
+        <p>Money transfer history is available under "Transactions" section. Also, you can see your "Last 5
+            Transactions" on the dashboard.</p>
+    </div>
+    <div class="faq">
+        <h3>Can I transfer money between different currencies?</h3>
+        <p>No, you cannot transfer money between different currencies. First, you have to exchange currency, and then
+            you
+            can complete the transfer.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I exchange currencies?</h3>
+        <p>You should click on "Currency Exchange" section on the header of the page, and a form will appear on the
+            page.
+            After you choose "from" and "to" currencies right, and all required fields are filled, you will successfully
+            complete exchange.</p>
+    </div>
+    <div class="faq">
+        <h3>Which currencies are available for exchange?</h3>
+        <p>You can exchange "USD", "GBP", "PLN", "EUR" and "TRY" currencies.</p>
+    </div>
+    <div class="faq">
+        <h3>How can I see all my currency exchange history?</h3>
+        <p>Currency exchange history is available under "Transactions" section. So, you should click on "Transactions"
+            section on the header of the page
+            and all your transactions will appear on "List of Transactions" tab.</p>
+    </div>
+    <div class="faq">
         <h3>How can I see all my transaction history?</h3>
         <p>Transaction history is available under "Transactions" section. So, you should click on "Transactions" section
             on the header of the page
             and all your transactions will appear on "List of Transactions" tab.</p>
     </div>
     <div class="faq">
-        <h3>How can I transfer money between my accounts?</h3>
-        <p>First, you should click on "Transactions" section on the header of the page, and then you should choose
-            "Make Transactions" tab in the page.
-            After you filled all required fields, you will have a new account created.</p>
+        <h3>How can I update my profile?</h3>
+        <p>You should click your name on the header of the page, and on the dropdown menu, you should click "Profile".
+            Your profile information will appear, and you can update them and save changes.</p>
     </div>
     <div class="faq">
         <h3>What should I do if I forget my online banking password?</h3>
         <p>If you forget your online banking password, you can usually reset it by following the "forgot password" or
             "reset password" link on the login page. You will then be prompted to enter your email address or other
             identifying information, and the bank will send you a link or code to reset your password.</p>
-    </div>
-    <div class="faq">
-        <h3>Can I access online banking from my mobile device?</h3>
-        <p>Yes, most banks offer a mobile app or a mobile-friendly website that you can use to access your online
-            banking account from your smartphone or tablet.</p>
     </div>
 </div>
 
