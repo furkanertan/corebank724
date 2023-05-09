@@ -2,11 +2,13 @@ package com.application.corebank.service;
 
 import com.application.corebank.assembler.UserAssembler;
 import com.application.corebank.domain.User;
+import com.application.corebank.dto.UserDto;
 import com.application.corebank.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -82,5 +84,11 @@ public class UserService {
         log.info("Finding user by id...");
 
         return repository.findById(id).orElse(null);
+    }
+
+    public List<UserDto> getAllUsersByAdmin(Integer isAdmin) {
+        log.info("Finding all users by admin...");
+
+        return assembler.toUserDtoList(repository.findByIsAdmin(isAdmin));
     }
 }

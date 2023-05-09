@@ -6,6 +6,7 @@ import com.application.corebank.dto.AccountDto;
 import com.application.corebank.dto.CurrencyDto;
 import com.application.corebank.service.AccountService;
 import com.application.corebank.service.CurrencyService;
+import com.application.corebank.service.UserService;
 import com.application.corebank.util.AccountNumberGenerator;
 import com.application.corebank.validation.AccountValidation;
 import lombok.AllArgsConstructor;
@@ -26,11 +27,13 @@ public class AccountController {
     private AccountValidation accountValidation;
     private AccountAssembler accountAssembler;
     private CurrencyService currencyService;
+    private UserService userService;
 
     @PostMapping("/createAccount")
     public ModelAndView createAccount(@RequestParam("accountName") String accountName,
                                       @RequestParam("accountType") String accountType,
                                       @RequestParam("accountCurrencyType") String accountCurrencyType,
+                                      @RequestParam("userSelect") Long userSelect,
                                       HttpSession session
     ) {
         ModelAndView accountsPage = new ModelAndView("accounts");
@@ -78,8 +81,17 @@ public class AccountController {
             return accountsPage;
         }
 
+        //Check if user is selected
+        if (!accountValidation.isValidUser(userSelect)) {
+            log.error("Invalid user!");
+            accountsPage.addObject("error", "Invalid user selected!");
+            return accountsPage;
+        }
+
+        User selectedUser = userService.findById(userSelect);
+
         //Create account and send success message to view
-        createAccount(accountName, accountType, accountCurrencyType, user);
+        createAccount(accountName, accountType, accountCurrencyType, selectedUser);
         accountsPage.addObject("success", "Account created successfully!");
 
         //If user is admin user get all updated accounts to view, else get user accounts to view

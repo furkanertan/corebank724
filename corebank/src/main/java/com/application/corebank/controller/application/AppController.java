@@ -2,11 +2,7 @@ package com.application.corebank.controller.application;
 
 import com.application.corebank.domain.User;
 import com.application.corebank.dto.*;
-import com.application.corebank.exception.AccountException;
-import com.application.corebank.service.AccountService;
-import com.application.corebank.service.CurrencyRatesService;
-import com.application.corebank.service.CurrencyService;
-import com.application.corebank.service.TransactionHistoryService;
+import com.application.corebank.service.*;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -28,9 +24,10 @@ public class AppController {
     private TransactionHistoryService transactionHistoryService;
     private CurrencyRatesService currencyRatesService;
     private CurrencyService currencyService;
+    private UserService userService;
 
     @GetMapping("/dashboard")
-    public ModelAndView getDashboard(HttpSession session) throws AccountException {
+    public ModelAndView getDashboard(HttpSession session) {
         ModelAndView dashboardPage = new ModelAndView("dashboard");
 
         //Logged user information is stored in session
@@ -91,9 +88,12 @@ public class AppController {
         //If user is admin get all accounts
         if (user.getIsAdmin() == 1) {
             setAllAccounts(accountsPage);
+            accountsPage.addObject("isAdmin", true);
+            setUserList(accountsPage);
         } else {
             //Get all active accounts by customer no
             setUserAccounts(user, accountsPage);
+            accountsPage.addObject("isAdmin", false);
         }
 
         //Set currency list to page
@@ -268,5 +268,11 @@ public class AppController {
     private void setCurrencies(ModelAndView page) {
         List<CurrencyDto> currencies = currencyService.getAllCurrencies();
         page.addObject("currencies", currencies);
+    }
+
+    private void setUserList(ModelAndView page) {
+        List<UserDto> userList = userService.getAllUsersByAdmin(0);
+        log.info("AccountsPage userList: {}", userList);
+        page.addObject("userList", userList);
     }
 }

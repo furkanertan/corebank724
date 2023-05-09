@@ -1,5 +1,6 @@
 com\application\corebank\repository\CommissionExemptionRepository.class
 com\application\corebank\validation\AccountValidation.class
+com\application\corebank\dto\UserDto.class
 com\application\corebank\mailMessenger\EmailSenderService.class
 com\application\corebank\controller\CurrencyController.class
 com\application\corebank\dto\AccountDto.class

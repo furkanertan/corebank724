@@ -6,6 +6,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
     @Query(value = "UPDATE User u SET u.code = null, u.verified = 1, u.verified_at = CURRENT_TIMESTAMP, u.updated_at = CURRENT_TIMESTAMP WHERE u.token = :token AND u.code = :code", nativeQuery = true)
@@ -20,4 +22,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query(value = "UPDATE User u SET u.password = :password WHERE u.id = :userId ", nativeQuery = true)
     @Transactional
     void updatePassword(Long userId, String password);
+
+    List<User> findByIsAdmin(Integer isAdmin);
 }

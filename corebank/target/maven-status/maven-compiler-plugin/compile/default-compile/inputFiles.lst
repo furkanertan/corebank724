@@ -20,6 +20,7 @@ C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankb
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\repository\TransactionHistoryRepository.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\service\CommissionExemptionService.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\service\CurrencyService.java
+C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\dto\UserDto.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\service\AccountService.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\domain\TransactionHistory.java
 C:\Users\furka\OneDrive\Desktop\University Of Lodz\Winter 22-23\Thesis\corebankbackend\corebank\src\main\java\com\application\corebank\controller\AccountController.java

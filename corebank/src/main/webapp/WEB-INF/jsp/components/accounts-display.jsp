@@ -228,6 +228,31 @@
                         </div>
                         <div class="card-body" style="color: #14213d;font-weight:500">
                             <form action="/account/createAccount" method="POST" class="add-account-form">
+                                <c:choose>
+                                    <c:when test="${isAdmin}">
+                                        <div class="form-group" style="margin: 10px">
+                                            <label for="userSelect">User</label>
+                                            <select class="form-control" id="userSelect"
+                                                    name="userSelect" required>
+                                                <option value="">-- Select User --</option>
+                                                <c:forEach items="${userList}" var="user">
+                                                    <option value="${user.id}">${user.id} - ${user.firstName}
+                                                            ${user.lastName}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="userSelectInput"
+                                                name="userSelect"
+                                                value="${user.id}"
+                                                hidden
+                                        />
+                                    </c:otherwise>
+                                </c:choose>
                                 <div class="form-group" style="margin: 10px">
                                     <label for="accountName">Account Name</label>
                                     <input
