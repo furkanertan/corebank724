@@ -18,4 +18,7 @@ public interface AccountRepository extends JpaRepository<Account, Long> {
 
     @Query(value = "SELECT SUM(balance) FROM Account WHERE accType = :accType AND userId = :userId AND status = :status")
     Double getTotalBalanceByAccountTypeAndUserId(String accType, Long userId, String status);
+
+    @Query(value = "SELECT SUM(balance) FROM Account WHERE accType = :accType AND accCurrencyType = :accCurrencyType AND status = :status")
+    Double getTotalBalanceByAccountTypeAndAccCurrencyType(String accType, String accCurrencyType, String status);
 }

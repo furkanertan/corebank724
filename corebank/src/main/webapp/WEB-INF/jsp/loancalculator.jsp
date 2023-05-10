@@ -1,6 +1,4 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +8,10 @@
     <link rel="stylesheet" href="../css/bootstrap/css/bootstrap.css"/>
     <link rel="stylesheet" href="../css/fontawesome/css/all.css"/>
     <link rel="stylesheet" href="../css/dashboard.css"/>
+    <script src="../js/bootstrap.bundle.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Loan Calculator</title>
 </head>
 <body>
@@ -21,7 +23,7 @@
     <div class="top">
         <h2>Loan Calculator</h2>
 
-        <form action="#">
+        <form class="loan-calculator-form">
             <div class="group">
                 <div class="title">Amount</div>
                 <input type="text" value="30000" class="loan-amount"/>

@@ -9,8 +9,9 @@
     <link rel="stylesheet" href="../css/fontawesome/css/all.css"/>
     <link rel="stylesheet" href="../css/dashboard.css"/>
     <script src="../js/bootstrap.bundle.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Currency Exchange</title>
 </head>
 <body>
@@ -51,7 +52,7 @@
                     <h4 style="margin-top: 10px">Currency Exchange</h4>
                 </div>
                 <div class="card-body" style="color: #14213d;font-weight:500">
-                    <form action="" method="POST" class="currency-exchange-form">
+                    <form class="currency-exchange-form">
                         <input type="hidden" name="userId" value="${sessionScope.user.id}" id="userId"/>
                         <div class="form-group" style="margin: 10px">
                             <div class="drop-list">

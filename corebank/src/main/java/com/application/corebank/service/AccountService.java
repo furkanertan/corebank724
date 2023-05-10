@@ -99,7 +99,11 @@ public class AccountService {
         repository.save(account);
     }
 
-    public Double getTotalBalanceByAccountType(String accountType, Long userId) {
+    public Double getTotalBalanceByAccountTypeAndUser(String accountType, Long userId) {
         return repository.getTotalBalanceByAccountTypeAndUserId(accountType, userId, ACTIVE.getCode());
+    }
+
+    public Double getTotalBalanceByAccountTypeAndCurrency(String accountType, String currencyType) {
+        return repository.getTotalBalanceByAccountTypeAndAccCurrencyType(accountType, currencyType, ACTIVE.getCode());
     }
 }

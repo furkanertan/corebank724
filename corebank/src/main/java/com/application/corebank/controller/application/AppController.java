@@ -43,34 +43,21 @@ public class AppController {
         //If user is admin get all accounts
         if (user.getIsAdmin() == 1) {
             userAccountList = accountService.getAllAccounts();
+            setPieChartValuesForAll(dashboardPage);
         } else {
             //Get all active accounts by customer no
             userAccountList = accountService.getAllActiveAccountsByCustomerNo(user.getId());
+            setPieChartValuesForUser(dashboardPage, user);
+
         }
 
         //Set dashboard page values
         setCardValues(userAccountList, dashboardPage);
         setListOfTransactions(userAccountList, dashboardPage);
         setCurrencyRates(dashboardPage);
+        setBarChartValues(dashboardPage, userAccountList);
 
         return dashboardPage;
-    }
-
-    @GetMapping("/accountBalances")
-    public AccountBalanceDto getAccountBalancesByType(HttpSession session) {
-        AccountBalanceDto accountBalanceDto = new AccountBalanceDto();
-        log.info("Account Balance by type");
-
-        //Logged user information is stored in session
-        User user = (User) session.getAttribute("user");
-
-        accountBalanceDto.setChecksBalance(accountService.getTotalBalanceByAccountType("Check", user.getId()));
-        accountBalanceDto.setSavingsBalance(accountService.getTotalBalanceByAccountType("Saving", user.getId()));
-        accountBalanceDto.setDepositsBalance(accountService.getTotalBalanceByAccountType("Deposit", user.getId()));
-
-        log.info("Account Balance by type: {}", accountBalanceDto);
-
-        return accountBalanceDto;
     }
 
     @GetMapping("/accounts")
@@ -274,5 +261,43 @@ public class AppController {
         List<UserDto> userList = userService.getAllUsersByAdmin(0);
         log.info("AccountsPage userList: {}", userList);
         page.addObject("userList", userList);
+    }
+
+    private void setPieChartValuesForUser(ModelAndView page, User user) {
+        Double totalCheckBalance = accountService.getTotalBalanceByAccountTypeAndUser("Check", user.getId());
+        Double totalSavingBalance = accountService.getTotalBalanceByAccountTypeAndUser("Saving", user.getId());
+        Double totalDepositBalance = accountService.getTotalBalanceByAccountTypeAndUser("Deposit", user.getId());
+
+
+        page.addObject("totalCheckBalance", totalCheckBalance);
+        page.addObject("totalSavingBalance", totalSavingBalance);
+        page.addObject("totalDepositBalance", totalDepositBalance);
+    }
+
+    private void setPieChartValuesForAll(ModelAndView page) {
+        Double totalCheckBalance = accountService.getTotalBalanceByAccountTypeAndCurrency("Check", "PLN");
+        Double totalSavingBalance = accountService.getTotalBalanceByAccountTypeAndCurrency("Saving", "PLN");
+        Double totalDepositBalance = accountService.getTotalBalanceByAccountTypeAndCurrency("Deposit", "PLN");
+
+        page.addObject("totalCheckBalance", totalCheckBalance);
+        page.addObject("totalSavingBalance", totalSavingBalance);
+        page.addObject("totalDepositBalance", totalDepositBalance);
+    }
+
+    private void setBarChartValues(ModelAndView page, List<AccountDto> userAccounts) {
+
+        //Create a string list from accountNumbers for userAccounts
+        List<String> accountNumbers = userAccounts.stream().map(AccountDto::getAccountNumber).map(String::valueOf).collect(Collectors.toList());
+
+        //Get all transactions for userAccounts
+        List<TransactionHistoryDto> transactions = transactionHistoryService.getAllTransactionsByAccountNumber(accountNumbers);
+        Double totalPayments = transactions.stream().filter(transactionHistoryDto -> "PAYMENT".equals(transactionHistoryDto.getTransactionType()) && "INCOMING".equals(transactionHistoryDto.getReasonCode())).mapToDouble(TransactionHistoryDto::getAmount).sum();
+        Double totalTransfers = transactions.stream().filter(transactionHistoryDto -> "TRANSFER".equals(transactionHistoryDto.getTransactionType()) && "INCOMING".equals(transactionHistoryDto.getReasonCode())).mapToDouble(TransactionHistoryDto::getAmount).sum();
+        Double totalExchanges = transactions.stream().filter(transactionHistoryDto -> "EXCHANGE".equals(transactionHistoryDto.getTransactionType()) && "INCOMING".equals(transactionHistoryDto.getReasonCode())).mapToDouble(TransactionHistoryDto::getAmount).sum();
+
+        //Set values to page
+        page.addObject("totalPayments", totalPayments);
+        page.addObject("totalTransfers", totalTransfers);
+        page.addObject("totalExchanges", totalExchanges);
     }
 }

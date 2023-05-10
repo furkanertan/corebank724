@@ -51,6 +51,7 @@ public class TransactionHistoryService {
         return assembler.fromEntityListToDtoList(transactionHistories);
     }
 
+
     public List<TransactionHistoryDto> getAllTransactions() {
         List<TransactionHistory> transactionHistories = repository.findAll();
 
