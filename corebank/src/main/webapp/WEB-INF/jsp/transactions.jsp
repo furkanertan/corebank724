@@ -42,14 +42,8 @@
     <!-- End of display error message -->
 </div>
 
-<c:choose>
-<c:when test="${fn:length(userTransactions) > 0}">
-    <c:import url="components/transactions-display.jsp"/>
-</c:when>
-<c:otherwise>
-    <c:import url="components/no-transactions-display.jsp"/>
-</c:otherwise>
-</c:choose>
+<!-- Transactions display import -->
+<c:import url="components/transactions-display.jsp"/>
 
 <!-- Footer import -->
 <c:import url="components/common/dashboard/dashboard-footer.jsp"/>

@@ -42,14 +42,8 @@
     <!-- End of display error message -->
 </div>
 
-<c:choose>
-<c:when test="${fn:length(userAccounts) > 0}">
-    <c:import url="components/accounts-display.jsp"/>
-</c:when>
-<c:otherwise>
-    <c:import url="components/no-accounts-display.jsp"/>
-</c:otherwise>
-</c:choose>
+<!-- Accounts import -->
+<c:import url="components/accounts-display.jsp"/>
 
 <!-- Footer import -->
 <c:import url="components/common/dashboard/dashboard-footer.jsp"/>
