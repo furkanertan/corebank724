@@ -1,14 +1,13 @@
 package com.application.corebank.controller;
 
+import com.application.corebank.dto.CurrencyRatesDto;
 import com.application.corebank.service.CurrencyRatesService;
 import com.application.corebank.service.CurrencyService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.net.URI;
@@ -103,7 +102,17 @@ public class CurrencyRatesController {
         ratesObject = jsonResponse.getJSONObject("rates");
         log.info("Update TRY currency rates.");
         currencyRatesService.updateCurrencyRate("TRY", ratesObject, currencyTypes);
-        
+
         return "All currency rates updated successfully.";
+    }
+
+    @GetMapping("/getCurrencyRates")
+    public String getCurrencyRates(@RequestParam("fromCurrency") String fromCurrency,
+                                   @RequestParam("toCurrency") String toCurrency) {
+        CurrencyRatesDto currencyRatesDto = currencyRatesService.getCurrencyRatesByFromCurrencyAndToCurrency(fromCurrency, toCurrency);
+
+        log.info("currency exchange rate: " + currencyRatesDto.getRate());
+
+        return currencyRatesDto != null ? currencyRatesDto.getRate().toString() : "0";
     }
 }

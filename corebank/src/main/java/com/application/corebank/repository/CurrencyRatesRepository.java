@@ -10,4 +10,6 @@ import java.util.List;
 public interface CurrencyRatesRepository extends JpaRepository<CurrencyRates, Long> {
 
     List<CurrencyRates> findByToCurrency(String toCurrency);
+
+    CurrencyRates findByFromCurrencyAndToCurrency(String fromCurrency, String toCurrency);
 }

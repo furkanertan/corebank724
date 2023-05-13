@@ -45,4 +45,14 @@ public class CurrencyRatesService {
 
         return assembler.fromEntityListToDtoList(currencyRates);
     }
+
+    public CurrencyRatesDto getCurrencyRatesByFromCurrencyAndToCurrency(String fromCurrency, String toCurrency) {
+        log.info("Get currency rates by currency type.");
+
+        log.info("fromCurrency: " + fromCurrency);
+        log.info("toCurrency: " + toCurrency);
+        CurrencyRates currencyRates = repository.findByFromCurrencyAndToCurrency(fromCurrency, toCurrency);
+
+        return assembler.toDto(currencyRates);
+    }
 }

@@ -56,19 +56,19 @@
                         <input type="hidden" name="userId" value="${sessionScope.user.id}" id="userId"/>
                         <div class="form-group" style="margin: 10px">
                             <div class="drop-list">
-                                <div class="row">
+                                <div class="from">
                                     <p>From:</p>
                                     <div class="select-box">
-                                        <img src="https://flagcdn.com/48x36/us.png" alt="flag">
-                                        <select id="fromCurrency" name="fromCurrency" onchange="onFromCurrencyChange()">
+                                        <img src="https://flagcdn.com/48x36/pl.png" alt="flag" id="fromIcon">
+                                        <select id="fromCurrency" name="fromCurrency" onchange="onFromFlagChange()">
                                         </select>
                                     </div>
                                 </div>
                                 <div class="to">
                                     <p>To:</p>
                                     <div class="select-box">
-                                        <img src="https://flagcdn.com/48x36/fr.png" alt="flag">
-                                        <select id="toCurrency" name="toCurrency" onchange="onToCurrencyChange()"></select>
+                                        <img src="https://flagcdn.com/48x36/us.png" alt="flag" id="toIcon">
+                                        <select id="toCurrency" name="toCurrency" onchange="onToFlagChange()"></select>
                                     </div>
                                 </div>
                             </div>
@@ -106,8 +106,7 @@
                                     id="exchangeRate"
                                     name="exchangeRate"
                                     placeholder="Enter exchange rate"
-                                    onchange="onExchangeRateChange()"
-                                    disabled
+                                    readonly
                                     value=
                                     <c:if test="${requestScope.exchangeRate == null}">
                                             0
@@ -122,14 +121,14 @@
                                     id="exchangeAmount"
                                     name="exchangeAmount"
                                     placeholder="Enter exchange amount"
-                                    disabled
+                                    readonly
                                     value=
                                     <c:if test="${requestScope.exchangeAmount == null}">
                                             0
                             </c:if>
                             />
                             <button type="submit" class="btn btn-primary btn-block"
-                                    style="color:white;background: #e63946;margin: 1px;border: none;padding: 8px 32px;">
+                                    style="color:white;background: #e63946;margin: 10px;border: none;padding: 8px 32px;">
                                 Exchange
                             </button>
                         </div>
