@@ -29,11 +29,11 @@ public class User {
 
     @NotEmpty(message = "Email cannot be empty!")
     @Email
-    @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$", message = "Email should be valid!")
+    @Pattern(regexp = "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$", message = "Email should be valid! (example: johndoe@gmail.com)")
     private String email;
 
     @NotEmpty(message = "Phone cannot be empty!")
-    @Pattern(regexp = "^[0-9]{10}$", message = "Phone should be valid!")
+    @Pattern(regexp = "^[0-9]{10}$", message = "Phone should be valid! (example: 0123456789)")
     private String phone;
 
     @NotEmpty(message = "Address cannot be empty!")

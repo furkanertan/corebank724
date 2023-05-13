@@ -118,7 +118,7 @@ public class UserController {
             //Prepare email message body for user
             String emailBody = HTML.forgotPasswordEmail(user.getFirstName(), user.getLastName(), user.getId());
             //Send email to user
-            emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Account Verification", emailBody);
+            emailSenderService.htmlEmailMessenger("corebank724@gmail.com", email, "CoreBank 7/24 Reset Your Password", emailBody);
             //Return message to user to check email
             modelAndView.addObject("success", "A link for password reset has been sent to your email!");
         } else {
