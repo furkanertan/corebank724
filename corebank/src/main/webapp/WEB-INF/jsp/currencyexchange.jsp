@@ -21,7 +21,7 @@
 
 <div class="container">
     <!-- Display success message-->
-    <c:if test="${requestScope.successMoneyTransfer != null}">
+    <c:if test="${requestScope.successCurrencyExchange != null}">
         <div class="alert alert-success text-center border border-success">
             <p class="text-center">
                 <i class="fas fa-check-circle"></i>
@@ -36,7 +36,7 @@
         <div class="alert alert-danger text-center border border-danger">
             <p class="text-center">
                 <i class="fas fa-exclamation-triangle"></i>
-                <b>${requestScope.errorMoneyTransfer}</b>
+                <b>${requestScope.errorCurrencyExchange}</b>
             </p>
         </div>
     </c:if>
@@ -52,7 +52,7 @@
                     <h4 style="margin-top: 10px">Currency Exchange</h4>
                 </div>
                 <div class="card-body" style="color: #14213d;font-weight:500">
-                    <form class="currency-exchange-form">
+                    <form action="/currencyRates/exchangeCurrency" method="POST" class="currency-exchange-form">
                         <input type="hidden" name="userId" value="${sessionScope.user.id}" id="userId"/>
                         <div class="form-group" style="margin: 10px">
                             <div class="drop-list">
@@ -60,7 +60,7 @@
                                     <p>From:</p>
                                     <div class="select-box">
                                         <img src="https://flagcdn.com/48x36/pl.png" alt="flag" id="fromIcon">
-                                        <select id="fromCurrency" name="fromCurrency" onchange="onFromFlagChange()">
+                                        <select id="fromCurrency" name="fromCurrency" onchange="onFromFlagChange()" required>
                                         </select>
                                     </div>
                                 </div>
@@ -68,19 +68,19 @@
                                     <p>To:</p>
                                     <div class="select-box">
                                         <img src="https://flagcdn.com/48x36/us.png" alt="flag" id="toIcon">
-                                        <select id="toCurrency" name="toCurrency" onchange="onToFlagChange()"></select>
+                                        <select id="toCurrency" name="toCurrency" onchange="onToFlagChange()" required></select>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group" style="margin: 10px">
                             <label for="fromAccount">From Account</label>
-                            <select class="form-control" id="fromAccount" name="fromAccount">
+                            <select class="form-control" id="fromAccount" name="fromAccount" required>
                             </select>
                         </div>
                         <div class="form-group" style="margin: 10px">
                             <label for="toAccount">To Account</label>
-                            <select class="form-control" id="toAccount" name="toAccount">
+                            <select class="form-control" id="toAccount" name="toAccount" required>
                             </select>
                         </div>
                         <div class="form-group" style="margin: 10px">
@@ -90,6 +90,7 @@
                                     class="form-control"
                                     id="amount"
                                     name="amount"
+                                    required
                                     placeholder="Enter exchange amount"
                                     onchange="onAmountChange()"
                                     value=
@@ -107,6 +108,7 @@
                                     name="exchangeRate"
                                     placeholder="Enter exchange rate"
                                     readonly
+                                    required
                                     value=
                                     <c:if test="${requestScope.exchangeRate == null}">
                                             0
@@ -122,6 +124,7 @@
                                     name="exchangeAmount"
                                     placeholder="Enter exchange amount"
                                     readonly
+                                    required
                                     value=
                                     <c:if test="${requestScope.exchangeAmount == null}">
                                             0

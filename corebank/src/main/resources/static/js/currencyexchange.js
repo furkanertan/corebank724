@@ -29,13 +29,11 @@ function fillCurrencyLists() {
 
 function onFromFlagChange() {
     loadFlagForFrom(fromCurrencyList);
-    getExchangeRate();
     onFromCurrencyChange();
 }
 
 function onToFlagChange() {
     loadFlagForTo(toCurrencyList);
-    getExchangeRate();
     onToCurrencyChange();
 }
 
@@ -68,15 +66,16 @@ function getExchangeRate() {
     const fromCurrency = document.getElementById("fromCurrency").value;
     //get selected to currency
     const toCurrency = document.getElementById("toCurrency").value;
-    onAmountChange();
 
     if (fromCurrency === toCurrency) {
         document.getElementById("exchangeRate").value = "1";
+        onAmountChange();
         return;
     }
     //if fromCurrency or toCurrency is empty, then return
     if (fromCurrency === "" || toCurrency === "") {
         document.getElementById("exchangeRate").value = "0";
+        onAmountChange();
         return;
     }
 
@@ -86,9 +85,9 @@ function getExchangeRate() {
         .then(result => {
             console.log("exchange rate: " + result);
             document.getElementById("exchangeRate").value = result;
+            onAmountChange();
         })
         .catch(error => console.log('error', error));
-    onAmountChange();
 }
 
 function onFromCurrencyChange() {
@@ -98,24 +97,31 @@ function onFromCurrencyChange() {
     const fromCurrency = document.getElementById("fromCurrency").value;
     console.log("fromCurrency: " + fromCurrency);
 
-    let accountListHtml;
+    let accountListHtml = "";
+    getExchangeRate();
 
     //Get the account list of the selected currency from, if the list is empty, then clear the list
     const url = "http://localhost:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + fromCurrency;
     fetch(url)
-        //if response fromAccount is not empty, then populate the list
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                accountListHtml = "";
+            }
+            return response.json();
+        })
         .then(fromAccounts => {
             console.log(fromAccounts);
             let accountList = fromAccounts;
-            for (let i = 0; i < accountList.length; i++) {
-                accountListHtml += "<option value='" + accountList[i].accountNumber + "'>" + accountList[i].accountNumber + " - " + accountList[i].currencyType + " (" + accountList[i].accountName + ")" + "</option>";
+            if (accountList.length > 0) {
+                for (let i = 0; i < accountList.length; i++) {
+                    accountListHtml += "<option value='" + accountList[i].accountNumber + "'>" + accountList[i].accountNumber + " - " + accountList[i].currencyType + " (" + accountList[i].accountName + ")" + "</option>";
+                }
+            } else {
+                accountListHtml = "";
             }
             document.getElementById("fromAccount").innerHTML = accountListHtml;
         })
-        //if response fromAccount is not empty, then set empty option
-        .catch(document.getElementById("fromAccount").innerHTML = accountListHtml);
-    getExchangeRate();
+    document.getElementById("fromAccount").innerHTML = accountListHtml;
 }
 
 function onToCurrencyChange() {
@@ -126,28 +132,39 @@ function onToCurrencyChange() {
 
     console.log("toCurrency: " + toCurrency);
 
-    let accountListHtml;
+    let accountListHtml = "";
+    getExchangeRate();
 
     //Get the account list of the selected currency from, if the list is empty, then clear the list
     const url = "http://localhost:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + toCurrency;
     fetch(url)
-        //if response toAccount is not empty, then populate the list
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                accountListHtml = "";
+            }
+            return response.json();
+        })
         .then(toAccounts => {
             console.log(toAccounts);
             let accountList = toAccounts;
-            for (let i = 0; i < accountList.length; i++) {
-                accountListHtml = "<option value='" + accountList[i].accountNumber + "'>" + accountList[i].accountNumber + " - " + accountList[i].currencyType + " (" + accountList[i].accountName + ")" + "</option>";
+            if (accountList.length > 0) {
+                for (let i = 0; i < accountList.length; i++) {
+                    accountListHtml += "<option value='" + accountList[i].accountNumber + "'>" + accountList[i].accountNumber + " - " + accountList[i].currencyType + " (" + accountList[i].accountName + ")" + "</option>";
+                }
+            } else {
+                accountListHtml = "";
             }
             document.getElementById("toAccount").innerHTML = accountListHtml;
         })
-        //catch error
-        .catch(document.getElementById("toAccount").innerHTML = accountListHtml);
-    getExchangeRate();
+    document.getElementById("toAccount").innerHTML = accountListHtml;
 }
 
 function onAmountChange(){
+    console.log("onAmountChange");
     const amount = document.getElementById("amount").value;
     const exchangeRate = document.getElementById("exchangeRate").value;
+    console.log("amount: " + amount);
+    console.log("exchangeRate: " + exchangeRate);
+    console.log("exchangeAmount: " + amount * exchangeRate);
     document.getElementById("exchangeAmount").value = amount * exchangeRate;
 }

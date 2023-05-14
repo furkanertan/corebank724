@@ -1,13 +1,17 @@
 package com.application.corebank.controller;
 
+import com.application.corebank.dto.AccountDto;
 import com.application.corebank.dto.CurrencyRatesDto;
+import com.application.corebank.service.AccountService;
 import com.application.corebank.service.CurrencyRatesService;
 import com.application.corebank.service.CurrencyService;
+import com.application.corebank.service.TransactionHistoryService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.net.URI;
@@ -24,6 +28,8 @@ public class CurrencyRatesController {
 
     private CurrencyService currencyService;
     private CurrencyRatesService currencyRatesService;
+    private AccountService accountService;
+    private TransactionHistoryService transactionHistoryService;
 
     @PostMapping("/updateCurrencyRates")
     String updateCurrencyRates() throws IOException, InterruptedException, JSONException {
@@ -114,5 +120,52 @@ public class CurrencyRatesController {
         log.info("currency exchange rate: " + currencyRatesDto.getRate());
 
         return currencyRatesDto != null ? currencyRatesDto.getRate().toString() : "0";
+    }
+
+    @PostMapping("/exchangeCurrency")
+    public ModelAndView exchangeCurrency(@RequestParam("fromCurrency") String fromCurrency,
+                                         @RequestParam("toCurrency") String toCurrency,
+                                         @RequestParam("fromAccount") String fromAccount,
+                                         @RequestParam("toAccount") String toAccount,
+                                         @RequestParam("amount") Double amount,
+                                         @RequestParam("exchangeAmount") Double exchangeAmount) {
+        ModelAndView currencyExchangePage = new ModelAndView("currencyexchange");
+
+        AccountDto accountDto = accountService.getAccountByAccountNumber(Integer.valueOf(fromAccount));
+
+        //If fromAccount or toAccount is empty
+        if (fromAccount.isEmpty()) {
+            currencyExchangePage.addObject("errorCurrencyExchange", "Please select from account.");
+            return currencyExchangePage;
+        }
+
+        if (toAccount.isEmpty()) {
+            currencyExchangePage.addObject("errorCurrencyExchange", "Please select to account.");
+            return currencyExchangePage;
+        }
+
+        //Validate account balance
+        if (accountDto.getBalance() < amount) {
+            currencyExchangePage.addObject("errorCurrencyExchange", "Account balance is not enough to complete transaction.");
+            return currencyExchangePage;
+        }
+
+        //validate amount
+        if (amount <= 0) {
+            currencyExchangePage.addObject("errorCurrencyExchange", "Amount must be greater than 0.");
+            return currencyExchangePage;
+        }
+
+        //amount minus from account
+        accountService.updateAccountBalance(Integer.valueOf(fromAccount), amount, true);
+        transactionHistoryService.createTransactionHistory(fromAccount, "EXCHANGE", "Currency Exchange (from) - " + fromCurrency, amount, "OUTGOING");
+
+        //exchangeAmount plus to account
+        accountService.updateAccountBalance(Integer.valueOf(toAccount), exchangeAmount, false);
+        transactionHistoryService.createTransactionHistory(fromAccount, "EXCHANGE", "Currency Exchange (to) - " + toCurrency, exchangeAmount, "INCOMING");
+
+        //return success message
+        currencyExchangePage.addObject("successCurrencyExchange", "Currency exchange successfully completed.");
+        return currencyExchangePage;
     }
 }
