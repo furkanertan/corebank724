@@ -14,7 +14,7 @@
     <title>Help</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: Comfortaa, sans-serif;
             font-size: 16px;
             line-height: 1.5;
         }

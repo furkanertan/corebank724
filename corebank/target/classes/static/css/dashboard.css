@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: Comfortaa, cursive;
+    font-family: Comfortaa, serif;
 }
 
 body {
@@ -284,7 +284,7 @@ form .drop-list{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0px 0px;
+    gap: 0 0;
     grid-auto-flow: row;
     align-items: stretch;
     grid-template-areas:

@@ -10,7 +10,7 @@
     <style>
         * {
             box-sizing: border-box;
-            font-family: Arial, serif;
+            font-family: Comfortaa, serif;
         }
 
         body {
