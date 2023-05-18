@@ -37,7 +37,6 @@ a {
     display: inline-block;
     list-style-type: none;
     margin: 0 15px;
-    font-style: Comfortaa, cursive;
 }
 
 .navigation li a {
@@ -280,11 +279,14 @@ form .drop-list{
     border-right: 2px solid #ffffff;
 }
 
-.grid-container {  display: grid;
+.grid-container {
+    margin-top: 30px;
+    display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
+    align-items: stretch;
     grid-template-areas:
     "small-card-1 big-card big-card"
     "small-card-2 big-card big-card";
