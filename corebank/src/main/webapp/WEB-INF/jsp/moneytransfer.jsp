@@ -55,7 +55,7 @@
                     <form action="/moneytransfer/transfer" method="POST" class="money-transfer-form">
                         <div class="form-group" style="margin: 10px">
                             <label for="fromAccount">Sender's Account</label>
-                            <select class="form-control" id="fromAccount" name="fromAccount" onchange="onAccountChange(fromAccount)">
+                            <select class="form-control" id="fromAccount" required name="fromAccount" onchange="onAccountChange(fromAccount)">
                                 <option value="">-- Select Account --</option>
                                 <c:forEach items="${userAccounts}" var="account">
                                     <option value="${account.accountNumber}">${account.accountNumber}
@@ -70,6 +70,7 @@
                                     class="form-control"
                                     id="toAccount"
                                     name="toAccount"
+                                    required
                                     placeholder="Enter recipient's account number"
                             />
                         </div>
@@ -80,6 +81,7 @@
                                     class="form-control"
                                     id="title"
                                     name="title"
+                                    required
                                     placeholder="Enter title of transfer"
                             />
                         </div>
@@ -92,6 +94,7 @@
                                     name="amount"
                                     placeholder="Enter transfer amount"
                                     min="0.00"
+                                    required
                                     onchange="onAmountChange()"
                                     value=
                                     <c:if test="${requestScope.amount == null}">
@@ -107,6 +110,7 @@
                                     id="commissionAmount"
                                     name="commissionAmount"
                                     placeholder="0.00"
+                                    required
                                     value=
                                     <c:if test="${requestScope.commissionAmount == null}">
                                             0.00
@@ -122,6 +126,7 @@
                                     id="totalAmount"
                                     name="totalAmount"
                                     placeholder="0.00"
+                                    required
                                     value=
                                     <c:if test="${requestScope.totalAmount == null}">
                                             0.00

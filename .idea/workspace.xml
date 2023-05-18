@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="update currency exchange">
+    <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="currency exchange page implementation">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyRatesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/java/com/application/corebank/controller/CurrencyRatesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/js/currencyexchange.js" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/js/currencyexchange.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/currencyexchange.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/moneytransfer.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/moneytransfer.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +185,14 @@
       <workItem from="1683645768221" duration="9262000" />
       <workItem from="1683701254606" duration="10367000" />
       <workItem from="1683963377283" duration="11210000" />
-      <workItem from="1684046078951" duration="6162000" />
+      <workItem from="1684046078951" duration="6912000" />
+      <workItem from="1684076849070" duration="2161000" />
+      <workItem from="1684173429124" duration="1784000" />
+      <workItem from="1684341918633" duration="723000" />
+      <workItem from="1684348171551" duration="16000" />
+      <workItem from="1684409356247" duration="411000" />
+      <workItem from="1684410311157" duration="1858000" />
+      <workItem from="1684430100033" duration="1488000" />
     </task>
     <task id="LOCAL-00001" summary="Currency is added">
       <created>1668629345575</created>
@@ -430,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684009639374</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="currency exchange page implementation">
+      <created>1684067911387</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1684067911387</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -459,7 +475,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Accounts page added" />
     <MESSAGE value="Add user control to each page" />
     <MESSAGE value="General update on pages" />
     <MESSAGE value="MoneyTransfer page implementation" />
@@ -484,7 +499,8 @@
     <MESSAGE value="Remove no-display classes" />
     <MESSAGE value="update mail header" />
     <MESSAGE value="update currency exchange" />
-    <option name="LAST_COMMIT_MESSAGE" value="update currency exchange" />
+    <MESSAGE value="currency exchange page implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="currency exchange page implementation" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
