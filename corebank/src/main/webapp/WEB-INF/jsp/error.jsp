@@ -10,14 +10,14 @@
     <style>
         * {
             box-sizing: border-box;
-            font-style: Comfortaa, cursive;
+            font-family: Arial, serif;
         }
 
         body {
             height: 100vh;
             background-image: url("../images/corebank-background.png");
             background-size: cover;
-            background-position: "center";
+            background-position: center;
             background-repeat: no-repeat;
         }
 
