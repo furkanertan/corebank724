@@ -14,7 +14,7 @@
     <title>Help</title>
     <style>
         body {
-            font-family: Comfortaa, monospace;
+            font-family: Comfortaa, serif;
             font-size: 16px;
             line-height: 1.5;
         }
