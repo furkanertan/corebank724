@@ -79,7 +79,7 @@ function getExchangeRate() {
         return;
     }
 
-    const url = "http://209.38.210.220:8080/currencyRates/getCurrencyRates?fromCurrency=" + fromCurrency + "&toCurrency=" + toCurrency;
+    const url = "https://corebank724.live/currencyRates/getCurrencyRates?fromCurrency=" + fromCurrency + "&toCurrency=" + toCurrency;
     fetch(url)
         .then(response => response.text())
         .then(result => {
@@ -101,7 +101,7 @@ function onFromCurrencyChange() {
     getExchangeRate();
 
     //Get the account list of the selected currency from, if the list is empty, then clear the list
-    const url = "http://209.38.210.220:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + fromCurrency;
+    const url = "https://corebank724.live/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + fromCurrency;
     fetch(url)
         .then(response => {
             if (!response.ok) {
@@ -136,7 +136,7 @@ function onToCurrencyChange() {
     getExchangeRate();
 
     //Get the account list of the selected currency from, if the list is empty, then clear the list
-    const url = "http://209.38.210.220:8080/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + toCurrency;
+    const url = "https://corebank724.live/account/getAllActiveAccountsByCustomerNoAndCurrencyType?userId=" + userId + "&currencyType=" + toCurrency;
     fetch(url)
         .then(response => {
             if (!response.ok) {

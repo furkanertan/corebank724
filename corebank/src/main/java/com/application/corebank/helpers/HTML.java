@@ -3,7 +3,7 @@ package com.application.corebank.helpers;
 public class HTML {
 
     public static String verificationEmailTemplate(String token, int code, String firstName, String lastName) {
-        String url = "http://209.38.210.220:8080/verify?token=" + token + "&code=" + code;
+        String url = "https://corebank724.live/verify?token=" + token + "&code=" + code;
 
         String emailTemplate = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +
@@ -106,7 +106,7 @@ public class HTML {
     }
 
     public static String forgotPasswordEmail(String firstName, String lastName, Long userId) {
-        String url = "http://209.38.210.220:8080/resetpassword?userId=" + userId;
+        String url = "https://corebank724.live/resetpassword?userId=" + userId;
 
         String emailTemplate = "<!DOCTYPE html>\n" +
                 "<html lang=\"en\">\n" +

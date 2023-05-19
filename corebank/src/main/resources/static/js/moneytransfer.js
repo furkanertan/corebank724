@@ -6,14 +6,14 @@ function onAmountChange() {
     const amount = parseFloat(document.getElementById("amount").value);
     let commissionCode = "EFT";
 
-    const commissionCodeUrl = "http://209.38.210.220:8080/account/getAccountCurrencyType?accountNumber=" + fromAccount;
+    const commissionCodeUrl = "https://corebank724.live/account/getAccountCurrencyType?accountNumber=" + fromAccount;
     fetch(commissionCodeUrl)
         .then(response => response.text())
         .then(commissionVal => {
             commissionCode = commissionCode + commissionVal;
             console.log(commissionCode);
 
-            const url = "http://209.38.210.220:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
+            const url = "https://corebank724.live/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
             fetch(url)
                 .then(response => {
                     if (response.ok) {
@@ -43,14 +43,14 @@ function onAccountChange() {
     const amount = parseFloat(document.getElementById("amount").value);
     let commissionCode = "EFT";
 
-    const commissionCodeUrl = "http://209.38.210.220:8080/account/getAccountCurrencyType?accountNumber=" + fromAccount;
+    const commissionCodeUrl = "https://corebank724.live/account/getAccountCurrencyType?accountNumber=" + fromAccount;
     fetch(commissionCodeUrl)
         .then(response => response.text())
         .then(commissionVal => {
             commissionCode = commissionCode + commissionVal;
             console.log(commissionCode);
 
-            const url = "http://209.38.210.220:8080/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
+            const url = "https://corebank724.live/commission/calculate?fromAccount=" + fromAccount + "&commissionCode=" + commissionCode + "&amount=" + amount;
             fetch(url)
                 .then(response => {
                     if (response.ok) {
