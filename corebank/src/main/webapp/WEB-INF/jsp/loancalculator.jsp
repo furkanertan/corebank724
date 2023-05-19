@@ -35,7 +35,7 @@
             </div>
 
             <div class="group">
-                <div class="title">Installments (Month) </div>
+                <div class="title">Payments (Month)</div>
                 <input type="text" value="240" class="loan-tenure"/>
             </div>
         </form>

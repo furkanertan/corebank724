@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="32d28fb5-8afb-4062-952b-1a891ed5a38c" name="Changes" comment="update css">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/css/default.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/css/default.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/error.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/error.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/help.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/help.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/resources/static/css/dashboard.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/loancalculator.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/corebank/src/main/webapp/WEB-INF/jsp/loancalculator.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,14 +192,7 @@
       <workItem from="1684441484508" duration="407000" />
       <workItem from="1684443576751" duration="1957000" />
       <workItem from="1684449391139" duration="834000" />
-      <workItem from="1684490751136" duration="1755000" />
-    </task>
-    <task id="LOCAL-00001" summary="Currency is added">
-      <created>1668629345575</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1668629345575</updated>
+      <workItem from="1684490751136" duration="1912000" />
     </task>
     <task id="LOCAL-00002" summary="Account Controller is updated">
       <created>1668696224790</created>
@@ -539,7 +530,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684492388747</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="update css">
+      <created>1684492527887</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1684492527887</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
