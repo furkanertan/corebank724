@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<User, Long> {
     @Modifying
-    @Query(value = "UPDATE User u SET u.code = null, u.verified = 1, u.verified_at = CURRENT_TIMESTAMP, u.updated_at = CURRENT_TIMESTAMP WHERE u.token = :token AND u.code = :code", nativeQuery = true)
+    @Query(value = "UPDATE user u SET u.code = null, u.verified = 1, u.verified_at = CURRENT_TIMESTAMP, u.updated_at = CURRENT_TIMESTAMP WHERE u.token = :token AND u.code = :code", nativeQuery = true)
     @Transactional
     void verifyUser(String token, int code);
 
